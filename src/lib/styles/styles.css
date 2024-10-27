@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --color-black: #000000;
+    --color-gray800: #222222;
+    --color-gray200: #555555;
+    --color-gray100: #8f8f8f;
+    --color-gray: #C4C5C5;
+    --color-white200: #F1F1F1;
+    --color-white100: #FAFAFA;
+    --color-white: #ffffff;
+    --color-purple: #D7DFEA;
+    --color-violet: #C8CADF;
+    --color-red: #DB4444;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+hr {
+    border: 1px solid #DDDDDD;
+}
+
+html, body {
+    line-height: 1;
+    font-family: 'Red Hat Display', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+.container {
+    margin: 0 auto;
+    width: 91.6667%;
+    max-width: 80rem;
+
+    @media (min-width: 1536px) {
+        width: 80%;
+    }
+}

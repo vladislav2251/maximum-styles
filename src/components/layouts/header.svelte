@@ -1,0 +1,94 @@
+<script>
+    import Lang from "/src/components/sections/Lang.svelte";
+
+    const menuItems = [
+        { label: "Главная", href: "/" },
+        { label: "Магазин", href: "/store" },
+        { label: "О нас", href: "/about" }
+    ];
+
+    function toggleMenu() {
+          isMenuOpen = !isMenuOpen;
+          if (isMenuOpen) {
+               document.body.style.overflow = "hidden"
+          } else {
+               document.body.style.overflow = "auto"
+          }
+     }
+
+     let isMenuOpen = false;
+</script>
+
+<header class="grid items-center md:items-start w-full bg-[var(--color-violet)]" id="header">
+    <div class="container">
+        <div class="grid grid-cols-2 md:grid-cols-3">
+            <a href="/">
+                <img src="/svg/logo.svg" alt="logo" />
+            </a>
+    
+            <div class="hidden md:flex justify-center">
+                {#each menuItems as element}
+                    <a href={element.href} class="px-4 h-[80px] flex items-center">
+                        {element.label}
+                    </a>
+                {/each}
+            </div>
+    
+            <div class="md:hidden flex justify-end">
+                <button type="button" on:click={() => toggleMenu()}>
+                    <img class="w-[24px]" src="/svg/burger.svg" alt="burger" />
+                </button>
+            </div>
+    
+            <div class="flex max-md:hidden items-center gap-6 justify-end">
+                <Lang />
+
+                <a href="/profile">
+                    <img src="/svg/profile.svg" alt="profile icon">
+                </a>
+
+                <a href="/cart">
+                    <img src="/svg/cart.svg" alt="cart icon">
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="w-full md:hidden flex flex-col transition-all z-30 duration-300 bg-white border-l fixed top-0 right-0 bottom-0 sm:w-[350px]" class:is-open={isMenuOpen} class:translate-x-full={!isMenuOpen}>
+
+    <div class="flex items-center justify-end p-4">
+         <button type="button" on:click={() => isMenuOpen = !isMenuOpen}>
+              <img class="w-[24px]" src="/svg/close.svg" alt="close" />
+         </button>
+    </div>
+    
+    {#each menuItems as element}
+         <a href={element.href} class="px-4 text-[var(--color-black)] h-[80px] flex items-center">
+              {element.label}
+         </a>
+    {/each}
+
+    <div class="flex md:hidden items-start gap-8 px-4 flex-col">
+        <Lang />
+
+        <a href="/profile">
+            <img src="/svg/profile.svg" alt="profile icon">
+        </a>
+
+        <a href="/cart">
+            <img src="/svg/cart.svg" alt="cart icon">
+        </a>
+    </div>
+</div>
+
+{#if isMenuOpen}
+    <button class="fixed md:hidden flex inset-0 bg-black/50 transition-opacity duration-700 z-20"
+         on:click={() => toggleMenu()}
+         on:keydown={(e) => e.key === 'Escape' && (toggleMenu())} 
+         aria-label="Close menu"
+         tabindex="0" 
+         style="outline: none;"
+    >
+    </button>
+{/if}
