@@ -9,7 +9,7 @@
     <div class="overflow-hidden">
         <img style="width: -webkit-fill-available;" class="transirion-all duration-500 hover:scale-105" src={img} alt={label}>
     </div>
-    <div class="container p-5">
+    <div class="container py-4 md:p-5">
         <h2 class="text-[var(--color-gray800)] font-medium text-4xl">{label}</h2>
         <p class="text-[var(--color-gray200)] font-normal text-xl">{description}</p>
         <div class="flex max-lg:flex-col  max-lg:items-start items-center max-md:gap-1 justify-between">
@@ -21,7 +21,7 @@
                     <button type="button" class="bg-[var(--color-white)] px-8 py-4 flex justify-between items-center border border-solid border-[var(--color-gray)] transition-all duration-600 hover:bg-[var(--color-white200)]">Add To Cart</button>
                 </a>
             </div>
-            <h2 class="text-[var(--color-gray800)] font-medium text-xl md:text-3xl">${price}</h2>
+            <h2 class="text-[var(--color-gray800)] font-semibold text-2xl md:text-3xl">${price}</h2>
         </div>
     </div>
 </div>

@@ -30,7 +30,7 @@
 
             <div class="flex max-md:flex-col md:items-center gap-8">
                 <p class="text-[var(--color-gray100)] text-md font-medium">Артикул: {articul}</p>
-                <p class="text-[var(--color-black)] text-md font-medium">🔥{bestseller}</p>
+                <p class="text-[var(--color-black)] text-md font-medium">{bestseller}</p>
                 <p class="text-[var(--color-black)] text-md font-medium">{last}</p>
             </div>
 

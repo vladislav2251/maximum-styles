@@ -5,7 +5,7 @@
     import Simillar from "/src/components/sections/Simillar.svelte";
 
     const details = [
-        { id: 1, smallImage: "/img/productSmall.webp", largeImage: "/img/miniCard.webp", label: "Acnocell Multillululu", articul: "1234567891234", bestseller: "Лучшее предложение", last: "Заканчивается", oldPrice: "250", newPrice: "200", currency: " ₽", characteristic: "Lorem ipsum dolor sit amet consectetur"}
+        { id: 1, smallImage: "/img/productSmall.webp", largeImage: "/img/image.jpg", label: "Acnocell Multillululu", articul: "1234567891234", oldPrice: "250", newPrice: "200", currency: "$", characteristic: "Lorem ipsum dolor sit amet consectetur"}
     ]
 </script>
 

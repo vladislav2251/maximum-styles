@@ -4,7 +4,7 @@
 
 <section class="py-12 bg-[var(--color-purple)]">
     <div class="container">
-        <div class="grid max-md:gap-4 md:grid-cols-3 place-items-center">
+        <div class="grid max-md:gap-8 md:grid-cols-3 place-items-center">
             <img src="/svg/jeuDerm.svg" alt="jeuDerm icon">
             <img src="/svg/logo.svg" alt="logo icon">
 
