@@ -1,19 +1,28 @@
 <script>
-    export let id
-    export let smallImage
-    export let largeImage
-    export let label
-    export let articul
-    export let bestseller
-    export let last
-    export let oldPrice
-    export let newPrice
-    export let currency
-    export let characteristic
+    import Modal from '/src/components/sections/Modal.svelte';
+    import Quantity from '/src/components/sections/Quantity.svelte';
+
+    export let id;
+    export let smallImage;
+    export let largeImage;
+    export let label;
+    export let articul;
+    export let bestseller;
+    export let last;
+    export let oldPrice;
+    export let newPrice;
+    export let currency;
+    export let characteristic;
+
+    let isModalOpen = false;
+
+    const toggleModal = () => {
+        isModalOpen = !isModalOpen;
+    };
 </script>
 
 <section class="py-12 container" id={id}>
-    <div class="grid lg:grid-cols-2 max-lg: gap-8">
+    <div class="grid lg:grid-cols-2 gap-8">
         <div class="flex gap-5">
             <div class="flex flex-col max-md:hidden gap-5">
                 <a data-fancybox="gallery" data-caption="Caption #1" href={smallImage}>
@@ -43,22 +52,25 @@
                 <h2 class="text-[var(--color-black)] text-4xl font-bold">
                     {newPrice} {currency}
                 </h2>
-                <!-- quanity -->
+
+                <Quantity />
             </div>
 
             <div class="py-8">
-                <a href="/cart">
-                    <button type="button" name="button" class="bg-[var(--color-violet)] py-4 px-6 md:py-5 md:px-10 uppercase shadow-sm flex justify-center items-center text-[var(--color-white)] font-bold text-md md:text-2xl hover:bg-[var(--color-purple)] transition-all duration-300">добавить в корзину</button>
-                </a>
+                <button
+                    type="button"
+                    class="bg-[var(--color-violet)] py-4 px-6 md:py-5 md:px-10 uppercase shadow-sm flex justify-center items-center text-[var(--color-white)] font-bold text-md md:text-2xl hover:bg-[var(--color-purple)] transition-all duration-300"
+                    on:click={toggleModal}
+                >
+                    добавить в корзину
+                </button>
             </div>
             <div class="flex flex-col gap-5">
-                <h2 class="text-[var(--color-black)] text-2xl font-bold">
-                    Характеристики:
-                </h2>
-                <p class="text-[var(--color-gray100)] text-md md:text-xl font-medium">
-                    -{characteristic}
-                </p>
+                <h2 class="text-[var(--color-black)] text-2xl font-bold">Характеристики:</h2>
+                <p class="text-[var(--color-gray100)] text-md md:text-xl font-medium">-{characteristic}</p>
             </div>
         </div>
     </div>
+
+    <Modal isOpen={isModalOpen} onClose={toggleModal} />
 </section>
