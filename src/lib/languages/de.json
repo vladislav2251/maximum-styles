@@ -101,6 +101,63 @@
             "label": "Ähnliche Produkte"
         }
     },
+    "sign_in": {
+        "title": "Anmelden",
+        "description": "Noch kein Konto?",
+        "next": [
+            "Registrieren",
+            "Passwort vergessen?"
+        ],
+        "inputs": [
+            {
+                "placeholder": "E-Mail-Adresse"
+            },
+            {
+                "placeholder": "Passwort"
+            }
+        ],
+        "remember": "Angemeldet bleiben",
+        "btn": "Anmelden"
+    },
+    "sign_up": {
+        "title": "Registrieren",
+        "description": "Bereits ein Konto?",
+        "next": [
+            "Ich stimme zu",
+            "und",
+            "Datenschutzbestimmungen",
+            "Nutzungsbedingungen"
+        ],
+        "inputs": [
+            {
+                "placeholder": "Vorname"
+            },
+            {
+                "placeholder": "Nachname"
+            },
+            {
+                "placeholder": "E-Mail-Adresse"
+            },
+            {
+                "placeholder": "Passwort"
+            }
+        ],
+        "remember": "Angemeldet bleiben",
+        "btn": "Registrieren"
+    },
+    "forgot_password": {
+        "title": "Passwort vergessen",
+        "description": "Passwort verloren? Bitte geben Sie Ihre E-Mail-Adresse ein. Sie erhalten einen Link, um ein neues Passwort zu erstellen.",
+        "next": [
+            "Zurück zur Anmeldung"
+        ],
+        "inputs": [
+            {
+                "placeholder": "E-Mail-Adresse"
+            }
+        ],
+        "btn": "Senden"
+    },
     "footer": {
         "menuItems": {
             "home": "Startseite",

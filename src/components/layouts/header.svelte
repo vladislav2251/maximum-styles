@@ -1,25 +1,46 @@
 <script>
     import Lang from "/src/components/sections/Lang.svelte";
+    import AuthModal from '/src/components/Auth.svelte';
 
     export let translation;
 
+    import { onMount } from "svelte";
+
     let isMenuOpen = false;
+    let isModalOpen = false;
 
     $: menuItems = [
         { label: translation?.header?.menuItems?.home, href: "/" },
         { label: translation?.header?.menuItems?.store, href: "/store" },
         { label: translation?.header?.menuItems?.about, href: "/about" }
     ];
+    
+    const handleResize = () => {
+        if (window.innerWidth > 1024) {
+            isMenuOpen = false;
 
-    function toggleMenu() {
-        isMenuOpen = !isMenuOpen;
-
-        if (isMenuOpen) {
-            document.body.style.overflow = "hidden";
-        } else {
             document.body.style.overflow = "auto";
+            window.removeEventListener("resize", handleResize);
         }
-    }
+    };
+
+    const toggleModal = () => {
+        isModalOpen = !isModalOpen;
+        document.body.style.overflow = isModalOpen ? "hidden" : "auto";
+	}
+
+    const toggleMenu = () => {
+        isMenuOpen = !isMenuOpen;
+        document.body.style.overflow = isMenuOpen ? "hidden" : "auto";
+
+        isMenuOpen
+            ? window.addEventListener("resize", handleResize)
+            : window.removeEventListener("resize", handleResize);
+    };
+
+    onMount(() => {
+        return () => window.removeEventListener("resize", handleResize);
+    });
 </script>
 
 <header class="grid items-center md:items-start w-full bg-[var(--color-violet)]" id="header">
@@ -37,23 +58,24 @@
                 {/each}
             </div>
             
-            <div class="flex md:hidden justify-end items-center gap-6">
-                <!-- <Lang /> -->
-                <button type="button" on:click={() => toggleMenu()}>
-                    <img class="w-[24px]" src="/svg/burger.svg" alt="burger" />
-                </button>
-            </div>
-            
-            <div class="flex max-md:hidden items-center gap-6 justify-end">           
-                <Lang />
-
-                <a href="/profile">
-                    <img src="/svg/profile.svg" alt="profile icon">
-                </a>
+            <div class="flex items-center justify-end gap-6">
+                <Lang {translation}/>
+                <div class="flex md:hidden justify-end items-center gap-6">
+                    <button type="button" on:click={() => toggleMenu()}>
+                        <img class="w-[24px]" src="/svg/burger.svg" alt="burger" />
+                    </button>
+                </div>
                 
-                <a href="/cart">
-                    <img src="/svg/cart.svg" alt="cart icon">
-                </a>
+                <div class="flex max-md:hidden items-center gap-6 justify-end">           
+
+                    <button type="button" on:click={() => toggleModal()}>
+                        <img src="/svg/profile.svg" alt="profile icon">
+                    </button>
+                    
+                    <a href="/cart">
+                        <img src="/svg/cart.svg" alt="cart icon">
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -85,13 +107,24 @@
     </div>
 </div>
 
-{#if isMenuOpen}
-    <button class="fixed md:hidden flex inset-0 bg-black/50 transition-opacity duration-700 z-20"
-         on:click={() => toggleMenu()}
-         on:keydown={(e) => e.key === 'Escape' && (toggleMenu())} 
-         aria-label="Close menu"
-         tabindex="0" 
-         style="outline: none;"
-    >
-    </button>
-{/if}
+<AuthModal 
+    {translation}
+    isModalOpen={isModalOpen}
+    closeModal={() => {
+        isModalOpen = false;
+        document.body.style.overflow = "auto";
+    }}
+/>
+ 
+<button class="fixed lg:hidden flex cursor-default inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-300 z-20"
+    on:click={() => toggleMenu()}
+    aria-label="Close menu"
+    tabindex="0" 
+    style="outline: none;"
+    class:opacity-100={isMenuOpen} 
+    class:opacity-0={!isMenuOpen} 
+    class:pointer-events-auto={isMenuOpen} 
+    class:pointer-events-none={!isMenuOpen}
+>
+
+</button>

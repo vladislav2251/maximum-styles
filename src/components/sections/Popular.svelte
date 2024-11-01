@@ -25,6 +25,7 @@
         <div class="mt-12 gap-5 grid md:grid-cols-2 place-items-center">
             {#each cardsinfo as card}
                 <PopularProduct
+                    {translation}
                     img={card.img}
                     label={card.label}
                     description={card.description}

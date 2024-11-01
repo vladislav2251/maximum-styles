@@ -5,7 +5,7 @@
             <p class="text-[var(--color-gray200)] font-normal text-xl">{translation?.main?.about?.sub_title}</p>
             
             <a href="/product">
-                <button type="button" class="bg-[var(--color-violet)] px-8 py-4 flex justify-between items-center border border-solid border-[var(--color-gray)] active:scale-x-105 hover:scale-x-105 justify-between items-center transition-all duration-600 hover:bg-[var(--color-purple)]">{translation?.main?.about?.btn}</button>
+                <button type="button" class="bg-[var(--color-violet)] px-8 py-4 flex justify-between items-center border border-solid border-[var(--color-gray)] active:scale-x-105 hover:scale-x-105 transition-all duration-600 hover:bg-[var(--color-purple)]">{translation?.main?.about?.btn}</button>
             </a>
         </div>
 

@@ -34,7 +34,7 @@
 
                 <div class="flex flex-col gap-4">
                     {#each menuItems as element}
-                        <a href={element.href}>
+                        <a class="underline" href={element.href}>
                             {element.label}
                         </a>
                     {/each}

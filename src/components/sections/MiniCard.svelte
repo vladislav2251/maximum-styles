@@ -23,7 +23,7 @@
         <div class="flex justify-between mt-5 items-center">
             <h2 class="text-red-500 text-xl font-bold">{price} $</h2>
             <a href="/product">
-                <p class="text-gray-200 font-medium text-sm">{translation?.main?.card?.in_cart}</p>
+                <p class="text-gray-600 font-medium text-sm">{translation?.main?.card?.in_cart}</p>
             </a>
         </div>
     </div>

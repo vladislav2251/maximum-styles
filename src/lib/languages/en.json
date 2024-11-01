@@ -101,6 +101,63 @@
             "label": "Similar Products"
         }
     },
+    "sign_in": {
+        "title": "Sign In",
+        "description": "Don’t have an accout yet?",
+        "next": [
+            "Sign up",
+            "Forgot password?"
+        ],
+        "inputs": [
+            {
+                "placeholder": "Email address"
+            },
+            {
+                "placeholder": "Password"
+            }
+        ],
+        "remember": "Remember me",
+        "btn": "Sign in"
+    },
+    "sign_up": {
+        "title": "Sign Up",
+        "description": "Already have an account?",
+        "next": [
+            "I agree with",
+            "and",
+            "Privacy Policy",
+            "Terms of Use"
+        ],
+        "inputs": [
+            {
+                "placeholder": "Your name"
+            },
+            {
+                "placeholder": "Last name"
+            },
+            {
+                "placeholder": "Email address"
+            },
+            {
+                "placeholder": "Password"
+            }
+        ],
+        "remember": "Remember me",
+        "btn": "Sign up"
+    },
+    "forgot_password": {
+        "title": "Forgot Password",
+        "description": "Lost your password? Please enter your email address. You will receive a link to create a new password.",
+        "next": [
+            "Back to Sign in"
+        ],
+        "inputs": [
+            {
+                "placeholder": "Email address"
+            }
+        ],
+        "btn": "Send"
+    },
     "footer": {
         "menuItems": {
             "home": "Home",
