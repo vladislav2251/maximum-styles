@@ -110,7 +110,11 @@
         "info": {
             "title": "Abonnieren Sie, um unsere neuesten Nachrichten zu erhalten",
             "btn": "Abonnieren",
-            "placeholder": "E-Mail eingeben"
+            "placeholder": "E-Mail eingeben",
+            "sub_title": "Werden Sie Teil unserer Community – entdecken Sie unsere Produkte und erzielen Sie herausragende Ergebnisse. Bleiben Sie uns als treuer Kunde treu und wachsen Sie mit uns auf dem Weg zur Schönheit und Perfektion!",
+            "link_title": "Schneller Link",
+            "second_link_title": "Kontaktieren Sie uns"
         }
+
     }
 }

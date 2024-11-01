@@ -26,11 +26,11 @@
                 <a href="/">
                     <img src="/svg/logo.svg" alt="logo icon">
 
-                    <p class="text-[var(--color-gray200)] font-normal text-xl">{translation?.footer?.sub_title}</p>
+                    <p class="text-[var(--color-gray200)] font-normal text-xl">{translation?.footer?.info?.sub_title}</p>
                 </a>
             </div>
             <div class="flex flex-col gap-5">
-                <p class="text-[var(--color-gray200)] font-normal text-2xl">{translation?.footer?.link_title}</p>
+                <p class="text-[var(--color-gray200)] font-normal text-2xl">{translation?.footer?.info?.link_title}</p>
 
                 <div class="flex flex-col gap-4">
                     {#each menuItems as element}
@@ -41,7 +41,7 @@
                 </div>
             </div>
             <div class="flex flex-col gap-5">
-                <p class="text-[var(--color-gray200)] font-normal text-2xl">{translation?.footer?.second_link_title}</p>
+                <p class="text-[var(--color-gray200)] font-normal text-2xl">{translation?.footer?.info?.second_link_title}</p>
 
                 <a href="mailto:maximumstyle@email.com">maximumstyle@email.com</a>
                 <a href="tel:+123456789">+123456789</a>

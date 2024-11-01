@@ -108,9 +108,13 @@
             "about": "About Us"
         },
         "info": {
-            "title": "Subscribe to Get Our Latest News",
+            "title": "Subscribe to receive our latest news",
             "btn": "Subscribe",
-            "placeholder": "Enter Email"
+            "placeholder": "Enter email",
+            "sub_title": "Become part of our community – discover our products and achieve outstanding results. Stay with us as a loyal customer and grow with us on the path to beauty and perfection!",
+            "link_title": "Quick Link",
+            "second_link_title": "Contact Us"
         }
+
     }
 }
