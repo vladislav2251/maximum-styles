@@ -5,9 +5,12 @@
         </div>
     </div>
 
-    <h2 class="font-normal text-xl uppercase text-center">Есть вопрос? Позвоните нам!</h2>
+    <h2 class="font-normal text-xl uppercase text-center">{translation?.main?.contact?.question}</h2>
     <div class="flex">
         <a href="tel:+499103439696" class="text-xs font-base">+49(910) 343-96-96</a>
-        <p class="text-xs font-base text-[var(--color-gray200)]">(Пн-Пт 09:00-18 :00)</p>
+        <p class="text-xs font-base text-[var(--color-gray200)]">(09:00-18 :00)</p>
     </div>
 </section>
+<script>
+    export let translation;
+</script>

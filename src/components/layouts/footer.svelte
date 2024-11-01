@@ -1,19 +1,21 @@
 <script>
-    const menuItems = [
-        { label: "Главная", href: "/" },
-        { label: "Магазин", href: "/store" },
-        { label: "О нас", href: "/about" }
+    $:menuItems = [
+        { label: translation?.footer?.menuItems?.home, href: "/" },
+        { label: translation?.footer?.menuItems?.store, href: "/store" },
+        { label: translation?.footer?.menuItems?.about, href: "/about" }
     ];
+
+    export let translation;
 </script>
 
 <section class="py-12 bg-[var(--color-white100)]">
     <div class="container">
         <div class="grid md:grid-cols-2 max-md:gap-5">
-            <h2 class="text-[var(--color-gray800)] font-medium text-4xl">Subscribe to Get Our Letest News</h2>
+            <h2 class="text-[var(--color-gray800)] font-medium text-4xl">{translation?.footer?.info?.title}</h2>
 
-            <form class="flex items-center md:justify-end">
-                <input type="email" required autocomplete="email" name="input" id="email" placeholder="Enter email" class="py-3 px-3 cursor-pointer outline-none">
-                <button type="submit" name="button" class="py-3 px-3 justify-center flex items-center bg-[var(--color-black)] text-[var(--color-white)]">Subscribe</button>
+            <form class="flex md:justify-end">
+                <input type="email" required autocomplete="email" name="input" id="email" placeholder={translation?.footer?.info?.placeholder} class="px-8 py-4 cursor-pointer outline-none">
+                <button type="submit" name="button" class="px-8 py-4 justify-center flex items-center bg-[var(--color-black)] text-[var(--color-white)] hover:bg-[var(--color-gray800)] transition-all duration-300 hover:scale-x-105">{translation?.footer?.info?.btn}</button>
             </form>
         </div>
         <div class="py-12">
@@ -24,11 +26,11 @@
                 <a href="/">
                     <img src="/svg/logo.svg" alt="logo icon">
 
-                    <p class="text-[var(--color-gray200)] font-normal text-xl">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy</p>
+                    <p class="text-[var(--color-gray200)] font-normal text-xl">{translation?.footer?.sub_title}</p>
                 </a>
             </div>
             <div class="flex flex-col gap-5">
-                <p class="text-[var(--color-gray200)] font-normal text-2xl">Quick Link</p>
+                <p class="text-[var(--color-gray200)] font-normal text-2xl">{translation?.footer?.link_title}</p>
 
                 <div class="flex flex-col gap-4">
                     {#each menuItems as element}
@@ -39,7 +41,7 @@
                 </div>
             </div>
             <div class="flex flex-col gap-5">
-                <p class="text-[var(--color-gray200)] font-normal text-2xl">Contact Us</p>
+                <p class="text-[var(--color-gray200)] font-normal text-2xl">{translation?.footer?.second_link_title}</p>
 
                 <a href="mailto:maximumstyle@email.com">maximumstyle@email.com</a>
                 <a href="tel:+123456789">+123456789</a>

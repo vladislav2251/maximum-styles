@@ -1,8 +1,12 @@
 <script>
+    export let translation;
+
     export let img;
     export let label;
     export let description;
     export let price;
+    
+
 </script>
 
 <div class="border border-solid border-[var(--color-gray)]">
@@ -15,10 +19,10 @@
         <div class="flex max-lg:flex-col  max-lg:items-start items-center max-md:gap-1 justify-between">
             <div class="flex gap-2 items-center my-5">
                 <a href="/product">
-                    <button type="button" class="bg-[var(--color-violet)] px-8 py-4 flex justify-between items-center border border-solid border-[var(--color-gray)] transition-all duration-600 hover:bg-[var(--color-purple)]">Buy Now</button>
+                    <button type="button" class="bg-[var(--color-violet)] px-8 py-4 flex justify-between items-center border border-solid border-[var(--color-gray)] transition-all duration-600 hover:bg-[var(--color-purple)]">{translation?.main?.popular_product?.buy_now}</button>
                 </a>
                 <a href="/cart">
-                    <button type="button" class="bg-[var(--color-white)] px-8 py-4 flex justify-between items-center border border-solid border-[var(--color-gray)] transition-all duration-600 hover:bg-[var(--color-white200)]">Add To Cart</button>
+                    <button type="button" class="bg-[var(--color-white)] px-8 py-4 flex justify-between items-center border border-solid border-[var(--color-gray)] transition-all duration-600 hover:bg-[var(--color-white200)]">{translation?.main?.popular_product?.add_to_cart}</button>
                 </a>
             </div>
             <h2 class="text-[var(--color-gray800)] font-semibold text-2xl md:text-3xl">${price}</h2>

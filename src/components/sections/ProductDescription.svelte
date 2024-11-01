@@ -1,9 +1,11 @@
 <script>
-    let tabs = [
-        { name: "Описание", content: "Содержание описания" },
-        { name: "Способ применения", content: "Содержание способа применения" },
-        { name: "Доставка", content: "Содержание доставки" }
+    $:tabs = [
+        { name: translation?.main?.product_description?.description , content: translation?.main?.product_description?.description_content },
+        { name: translation?.main?.product_description?.how_to_use, content: translation?.main?.product_description?.usage },
+        { name: translation?.main?.product_description?.delivery, content: translation?.main?.product_description?.delivery_content }
     ];
+
+    export let translation;
 
     let activeTab = 0;
 
@@ -18,7 +20,7 @@
             {#each tabs as tab, index}
                 <button
                     on:click={() => setActiveTab(index)}
-                    class="font-bold text-xl uppercase focus:outline-none 
+                    class="font-bold text-xl uppercase transition-all duration-200 outline-none 
                            {activeTab === index ? 'text-[var(--color-gray)]' : ''}"
                 >
                     {tab.name}

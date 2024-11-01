@@ -1,4 +1,6 @@
 <script>
+    export let translation;
+
     import Modal from '/src/components/sections/Modal.svelte';
     import Quantity from '/src/components/sections/Quantity.svelte';
 
@@ -59,14 +61,14 @@
             <div class="py-8">
                 <button
                     type="button"
-                    class="bg-[var(--color-violet)] py-4 px-6 md:py-5 md:px-10 uppercase shadow-sm flex justify-center items-center text-[var(--color-white)] font-bold text-md md:text-2xl hover:bg-[var(--color-purple)] transition-all duration-300"
+                    class="bg-[var(--color-violet)] py-4 px-6 active:scale-x-105 hover:scale-x-105 md:py-5 md:px-10 uppercase shadow-sm flex justify-center items-center text-[var(--color-white)] font-bold text-md md:text-2xl hover:bg-[var(--color-purple)] transition-all duration-300"
                     on:click={toggleModal}
                 >
-                    добавить в корзину
+                    {translation?.main?.product_detail?.add_to_cart}
                 </button>
             </div>
             <div class="flex flex-col gap-5">
-                <h2 class="text-[var(--color-black)] text-2xl font-bold">Характеристики:</h2>
+                <h2 class="text-[var(--color-black)] text-2xl font-bold">{translation?.main?.product_detail?.info}:</h2>
                 <p class="text-[var(--color-gray100)] text-md md:text-xl font-medium">-{characteristic}</p>
             </div>
         </div>

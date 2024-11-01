@@ -16,7 +16,9 @@
 <script>
     import Selector from "/src/components/sections/Selector.svelte";
     
-    const options = [
-        'подкатегория'
+    export let translation;
+
+    $:options = [
+        translation?.main?.categories?.title
     ]
 </script>
