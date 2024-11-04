@@ -10,14 +10,14 @@
     
                 <p class="text-[var(--color-gray200)] font-normal text-base">{translation?.main?.hero?.sub_title}</p>
                 
-                <div class="relative flex items-center md:mt-20">
+                <div class="relative flex items-center md:mt-14">
                     <input type="search" class="py-4 pl-14 pr-3 outline-none w-[65%]">
                     <div class="absolute left-1.5 bg-[var(--color-violet)] w-10 h-10 flex items-center justify-center">
                         <img src="/svg/search.svg" alt="search icon">
                     </div>
                 </div>
 
-                <a href="/product">
+                <a href="/store">
                     <button type="button" class="bg-[var(--color-violet)] border border-solid border-[var(--color-gray)] px-8 py-4 flex active:scale-x-105 hover:scale-x-105 justify-between items-center transition-all duration-600 hover:bg-[var(--color-purple)]">{translation?.main?.hero?.btn}</button>
                 </a>
             </div>

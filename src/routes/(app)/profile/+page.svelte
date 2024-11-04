@@ -1,6 +1,6 @@
 <script>
     import { language } from "$lib/context/store.js";
-    import Profile from "/src/components/sections/Profile.svelte";
+    import Profile from "$lib/components/sections/profile.svelte";
 
 
     let translation;

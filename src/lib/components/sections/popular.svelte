@@ -1,5 +1,5 @@
 <script>
-    import PopularProduct from "/src/components/sections/PopularProduct.svelte";
+    import PopularProduct from "$lib/components/sections/popular-product.svelte";
     export let translation;
     const cardsinfo = [
         { img: "/img/largeCard.webp", label: "Ala Factor", description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy", price: "120" },
@@ -16,7 +16,7 @@
             </div>
 
             <div class="flex gap-2 md:gap-4 items-center md:justify-end">
-                <a href="/products">
+                <a href="/store">
                     <p class="underline text-2xl font-medium text-[var(--color-gray800)]">{translation?.main?.popular?.link}</p>
                 </a>
                 <img src="/svg/arrowRight.svg" alt="arrow icon">

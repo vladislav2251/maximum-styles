@@ -14,7 +14,7 @@
             <h2 class="text-[var(--color-gray800)] font-medium text-4xl">{translation?.footer?.info?.title}</h2>
 
             <form class="flex md:justify-end">
-                <input type="email" required autocomplete="email" name="input" id="email" placeholder={translation?.footer?.info?.placeholder} class="px-8 py-4 cursor-pointer outline-none">
+                <input type="email" required autocomplete="email" name="input" id="email" placeholder={translation?.footer?.info?.placeholder} class="px-8 py-4 max-md:w-full cursor-pointer outline-none">
                 <button type="submit" name="button" class="px-8 py-4 justify-center flex items-center bg-[var(--color-black)] text-[var(--color-white)] hover:bg-[var(--color-gray800)] transition-all duration-300 hover:scale-x-105">{translation?.footer?.info?.btn}</button>
             </form>
         </div>

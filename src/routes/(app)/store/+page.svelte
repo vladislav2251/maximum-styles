@@ -1,9 +1,9 @@
 <script>
     import { language } from "$lib/context/store.js";
     
-    import Categories from "/src/components/sections/Categories.svelte";
-    import Search from "/src/components/sections/Search.svelte";
-    import Products from "/src/components/sections/Products.svelte";
+    import Categories from "$lib/components/sections/categories.svelte";
+    import Search from "$lib/components/sections/search.svelte";
+    import Products from "$lib/components/sections/products.svelte";
     let translation;
 
     $: {

@@ -4,8 +4,8 @@
 </script>
 
 <form class="grid gap-6">
-    <input class="px-8 py-4 border-solid text-base w-full border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)] outline-none" type="email" autocomplete="email" placeholder={translation?.sign_in?.inputs[0]?.placeholder} />
-    <input class="px-8 py-4 border-solid text-base w-full border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)] outline-none" placeholder={translation?.sign_in?.inputs[1]?.placeholder} type="password" />
+    <input class="px-8 py-4 border-solid text-base w-full border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)] outline-none" required type="email" autocomplete="email" placeholder={translation?.sign_in?.inputs[0]?.placeholder} />
+    <input class="px-8 py-4 border-solid text-base w-full border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)] outline-none" required placeholder={translation?.sign_in?.inputs[1]?.placeholder} type="password" />
 
     <div class="flex justify-between items-center">
         <div class="flex items-center gap-2">

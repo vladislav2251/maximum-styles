@@ -1,8 +1,8 @@
 <script>
-    import Contact from "/src/components/sections/Contact.svelte";
-    import ProductDescription from "/src/components/sections/ProductDescription.svelte";
-    import ProductDetail from "/src/components/sections/ProductDetail.svelte";
-    import Simillar from "/src/components/sections/Simillar.svelte";
+    import Contact from "$lib/components/sections/contact.svelte";
+    import ProductDescription from "$lib/components/sections/product-description.svelte";
+    import ProductDetail from "$lib/components/sections/product-detail.svelte";
+    import Simillar from "$lib/components/sections/simillar.svelte";
 
     const details = [
         { id: 1, smallImage: "/img/productSmall.webp", largeImage: "/img/image.jpg", label: "Acnocell Multillululu", articul: "1234567891234", oldPrice: "250", newPrice: "200", currency: "$", characteristic: "Lorem ipsum dolor sit amet consectetur"}

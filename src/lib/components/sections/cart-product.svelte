@@ -15,7 +15,7 @@
     export let price;
     export let oldPrice;
 
-    import Quantity from "./Quantity.svelte";
+    import Quantity from "$lib/components/sections/quantity.svelte";
 </script>
 
 <div class="grid sm:grid-cols-1 max-lg:grid-cols-4 place-items-center py-2 md:p-4 md:gap-10 border-b border-solid border-[var(--color-gray)] items-center">

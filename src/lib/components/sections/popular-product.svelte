@@ -5,8 +5,6 @@
     export let label;
     export let description;
     export let price;
-    
-
 </script>
 
 <div class="border border-solid border-[var(--color-gray)]">

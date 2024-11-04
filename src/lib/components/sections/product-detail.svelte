@@ -1,8 +1,7 @@
 <script>
     export let translation;
 
-    import Modal from '/src/components/sections/Modal.svelte';
-    import Quantity from '/src/components/sections/Quantity.svelte';
+    import Quantity from '$lib/components/sections/quantity.svelte';
 
     export let id;
     export let smallImage;
@@ -16,11 +15,6 @@
     export let currency;
     export let characteristic;
 
-    let isModalOpen = false;
-
-    const toggleModal = () => {
-        isModalOpen = !isModalOpen;
-    };
 </script>
 
 <section class="py-12 container" id={id}>
@@ -62,7 +56,6 @@
                 <button
                     type="button"
                     class="bg-[var(--color-violet)] py-4 px-6 active:scale-x-105 hover:scale-x-105 md:py-5 md:px-10 uppercase shadow-sm flex justify-center items-center text-[var(--color-white)] font-bold text-md md:text-2xl hover:bg-[var(--color-purple)] transition-all duration-300"
-                    on:click={toggleModal}
                 >
                     {translation?.main?.product_detail?.add_to_cart}
                 </button>
@@ -73,6 +66,4 @@
             </div>
         </div>
     </div>
-
-    <Modal isOpen={isModalOpen} onClose={toggleModal} />
 </section>

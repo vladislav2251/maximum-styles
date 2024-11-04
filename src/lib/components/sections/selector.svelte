@@ -35,7 +35,7 @@
 <div>
     <label id="listbox-label" for="" class="mt-5 block text-sm font-medium leading-6 text-gray-900">{label}</label>
 
-    <div class="relative mt-0.5">
+    <div class="relative mt-0.5 ">
         <button 
             id={`toggleButton${id}`}
             type="button" 

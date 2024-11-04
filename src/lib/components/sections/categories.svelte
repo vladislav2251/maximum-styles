@@ -14,7 +14,7 @@
 </div>
 
 <script>
-    import Selector from "/src/components/sections/Selector.svelte";
+    import Selector from "$lib/components/sections/selector.svelte";
     
     export let translation;
 

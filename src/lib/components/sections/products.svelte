@@ -1,5 +1,5 @@
 <script>
-    import MiniCard from "/src/components/sections/MiniCard.svelte";
+    import MiniCard from "$lib/components/sections/mini-card.svelte";
     export let translation;
     const infoCards = [
           { img: '/img/miniCard.webp', label: "Ala Factor JeuDerm Expert", price: "250" },

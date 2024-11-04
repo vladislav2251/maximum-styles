@@ -1,14 +1,14 @@
 <script>
     import { language } from "$lib/context/store.js";
-    import Hero from "/src/components/sections/Hero.svelte";
-    import Caption from "/src/components/sections/Caption.svelte";
-    import Cooperation from "/src/components/sections/Cooperation.svelte";
-    import Popular from "/src/components/sections/Popular.svelte";
-    import Achievements from "/src/components/sections/Achievements.svelte";
-    import About from "/src/components/sections/About.svelte";
-    import Label from "/src/components/sections/Label.svelte";
-    import Products from "/src/components/sections/Products.svelte";
-    import SecondLabel from "/src/components/sections/SecondLabel.svelte";
+    import Hero from "$lib/components/sections/hero.svelte";
+    import Caption from "$lib/components/sections/caption.svelte";
+    import Cooperation from "$lib/components/sections/cooperation.svelte";
+    import Popular from "$lib/components/sections/popular.svelte";
+    import Achievements from "$lib/components/sections/achievements.svelte";
+    import About from "$lib/components/sections/about.svelte";
+    import Label from "$lib/components/sections/label.svelte";
+    import Products from "$lib/components/sections/products.svelte";
+    import SecondLabel from "$lib/components/sections/second-label.svelte";
     let translation;
 
     $: {

@@ -1,7 +1,7 @@
 <script>
-    import ForgotPasswordForm from '/src/components/forms/ForgotPassword.svelte';
-	import SignUpForm from '/src/components/forms/SignUp.svelte';
-	import SignInForm from '/src/components/forms/SignIn.svelte';
+    import ForgotPasswordForm from '$lib/components/forms/forgot-password.svelte';
+	import SignUpForm from '$lib/components/forms/sign-up.svelte';
+	import SignInForm from '$lib/components/forms/sign-in.svelte';
 
     import { fly } from 'svelte/transition';
     export let translation;
@@ -29,7 +29,7 @@
         {#if currentForm === 'signIn'}
             <div>
                 <div class="flex items-center justify-between">
-                    <h5 class="font-montserrat font-medium text-[40px]">{translation?.sign_in?.title}</h5>
+                    <h5 class="font-medium text-[40px]">{translation?.sign_in?.title}</h5>
 
                     <button type="button" on:click={() => toggleCloseModal()} aria-label="Close modal">
                         ✕
@@ -43,13 +43,13 @@
         {:else if currentForm === 'signUp'}
             <div>
                 <div class="flex items-center justify-between">
-                    <h5 class="font-montserrat font-medium text-[40px]">{translation?.sign_up?.title}</h5>
+                    <h5 class="font-medium text-[40px]">{translation?.sign_up?.title}</h5>
                     <button type="button" on:click={() => toggleCloseModal()} aria-label="Close modal">
                         ✕
                     </button>
                 </div>
 
-                <span class="text-sm font-montserrat">{translation?.sign_up?.description} <button type="button" on:click={currentForm = 'signIn'} class="font-semibold cursor-pointer hover:underline">{translation?.sign_up?.next[0]}</button>
+                <span class="text-sm">{translation?.sign_up?.description} <button type="button" on:click={currentForm = 'signIn'} class="font-semibold cursor-pointer hover:underline">{translation?.sign_up?.next[0]}</button>
             </div>
 
             <SignUpForm {translation} />
@@ -57,12 +57,12 @@
 
             <div>
                 <div class="flex items-center justify-between">
-                    <h5 class="font-montserrat font-medium text-[40px]">{translation?.forgot_password?.title}</h5>
+                    <h5 class="font-medium text-[40px]">{translation?.forgot_password?.title}</h5>
                     <button type="button" on:click={() => toggleCloseModal()} aria-label="Close modal">
                         ✕
                     </button>
                 </div>
-                <span class="text-sm font-montserrat">{translation?.forgot_password?.description}
+                <span class="text-sm">{translation?.forgot_password?.description}
                     <button type="button"  on:click={currentForm = 'signIn'} class="font-semibold cursor-pointer hover:underline">{translation?.forgot_password?.next[0]}</button>
                 </span>
             </div>
