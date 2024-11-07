@@ -8,5 +8,5 @@
       {translation?.main?.simillar?.label}        
     </h2>
 
-    <Products />
+    <Products {translation}/>
 </section>

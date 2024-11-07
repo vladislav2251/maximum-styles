@@ -1,7 +1,7 @@
 <script>
     import ForgotPasswordForm from '$lib/components/forms/forgot-password.svelte';
-	import SignUpForm from '$lib/components/forms/sign-up.svelte';
-	import SignInForm from '$lib/components/forms/sign-in.svelte';
+    import SignUpForm from '$lib/components/forms/sign-up.svelte';
+    import SignInForm from '$lib/components/forms/sign-in.svelte';
 
     import { fly } from 'svelte/transition';
     export let translation;
@@ -36,7 +36,12 @@
                     </button>
                 </div>
 
-                <span class="text-sm font-montserrat">{translation?.sign_in?.description} <button type="button" on:click={currentForm = 'signUp'} class="font-semibold cursor-pointer hover:underline">{translation?.sign_in?.next[0]}</button></span>
+                <span class="text-sm font-montserrat">
+                    {translation?.sign_in?.description} 
+                    <button type="button" on:click={() => currentForm = 'signUp'} class="font-semibold cursor-pointer hover:underline">
+                        {translation?.sign_in?.next[0]}
+                    </button>
+                </span>
             </div>
 
             <SignInForm {translation} switchToForgotPassword={switchToForgotPassword}/>
@@ -49,12 +54,16 @@
                     </button>
                 </div>
 
-                <span class="text-sm">{translation?.sign_up?.description} <button type="button" on:click={currentForm = 'signIn'} class="font-semibold cursor-pointer hover:underline">{translation?.sign_up?.next[0]}</button>
+                <span class="text-sm">
+                    {translation?.sign_up?.description} 
+                    <button type="button" on:click={() => currentForm = 'signIn'} class="font-semibold cursor-pointer hover:underline">
+                        {translation?.sign_up?.next[0]}
+                    </button>
+                </span>
             </div>
 
             <SignUpForm {translation} />
         {:else if currentForm === "forgotPassword"}
-
             <div>
                 <div class="flex items-center justify-between">
                     <h5 class="font-medium text-[40px]">{translation?.forgot_password?.title}</h5>
@@ -62,8 +71,12 @@
                         ✕
                     </button>
                 </div>
-                <span class="text-sm">{translation?.forgot_password?.description}
-                    <button type="button"  on:click={currentForm = 'signIn'} class="font-semibold cursor-pointer hover:underline">{translation?.forgot_password?.next[0]}</button>
+
+                <span class="text-sm">
+                    {translation?.forgot_password?.description}
+                    <button type="button" on:click={() => currentForm = 'signIn'} class="font-semibold cursor-pointer hover:underline">
+                        {translation?.forgot_password?.next[0]}
+                    </button>
                 </span>
             </div>
 
@@ -72,7 +85,8 @@
     </div>
 {/if}
 
-<button class="fixed flex inset-0 bg-black/50 cursor-default backdrop-blur-sm transition-opacity duration-300 z-40"
+<button 
+    class="fixed flex inset-0 bg-black/50 cursor-default backdrop-blur-sm transition-opacity duration-300 z-40"
     on:click={() => toggleCloseModal()}
     aria-label="Close menu"
     tabindex="0" 

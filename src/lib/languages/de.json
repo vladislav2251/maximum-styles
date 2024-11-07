@@ -62,7 +62,8 @@
         },
         "product_detail" : {
             "add_to_cart": "In den Warenkorb",
-            "info": "Informationen"
+            "info": "Informationen",
+            "article": "Artikelnummer:"
         },
         "profile": {
             "my_account": "Mein Konto",
@@ -123,7 +124,7 @@
         "title": "Registrieren",
         "description": "Bereits ein Konto?",
         "next": [
-            "Ich stimme zu",
+            "Anmelden",
             "und",
             "Datenschutzbestimmungen",
             "Nutzungsbedingungen"
@@ -133,10 +134,10 @@
                 "placeholder": "Vorname"
             },
             {
-                "placeholder": "Nachname"
+                "placeholder": "E-Mail-Adresse"
             },
             {
-                "placeholder": "E-Mail-Adresse"
+                "placeholder": "Passwort"
             },
             {
                 "placeholder": "Passwort"

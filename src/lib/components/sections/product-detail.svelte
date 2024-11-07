@@ -34,7 +34,7 @@
             <h1 class="font-bold text-[var(--color-black)] text-2xl md:text-4xl">{label}</h1>
 
             <div class="flex max-md:flex-col md:items-center gap-8">
-                <p class="text-[var(--color-gray100)] text-md font-medium">Артикул: {articul}</p>
+                <p class="text-[var(--color-gray100)] text-md font-medium">{translation?.main?.product_detail?.article} {articul}</p>
                 <p class="text-[var(--color-black)] text-md font-medium">{bestseller}</p>
                 <p class="text-[var(--color-black)] text-md font-medium">{last}</p>
             </div>

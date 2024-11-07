@@ -62,7 +62,8 @@
         },
         "product_detail" : {
             "add_to_cart": "Add to Cart",
-            "info": "Information"
+            "info": "Information",
+            "article": "Article Number:"
         },
         "profile": {
             "my_account": "My Account",
@@ -123,23 +124,23 @@
         "title": "Sign Up",
         "description": "Already have an account?",
         "next": [
-            "I agree with",
+            "Sign in",
             "and",
             "Privacy Policy",
             "Terms of Use"
         ],
         "inputs": [
             {
-                "placeholder": "Your name"
-            },
-            {
-                "placeholder": "Last name"
-            },
-            {
                 "placeholder": "Email address"
             },
             {
+                "placeholder": "Your name"
+            },
+            {
                 "placeholder": "Password"
+            },
+            {
+                "placeholder": "Repeat Password"
             }
         ],
         "remember": "Remember me",
@@ -157,6 +158,10 @@
             }
         ],
         "btn": "Send"
+    },
+    "cart": {
+        "title": "Cart",
+        "empty": "Cart is Empty"
     },
     "footer": {
         "menuItems": {

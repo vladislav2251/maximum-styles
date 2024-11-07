@@ -1,6 +1,8 @@
 import { writable } from "svelte/store";
 import { languagesList } from "$lib/context/language.js";
 
+export const isLogged = writable(false);
+
 const currentLangInit = (startValue) => {
 	const store = writable(startValue);
 
@@ -21,4 +23,4 @@ const currentLangInit = (startValue) => {
 	return store;
 };
 
-export const language = currentLangInit(languagesList[0])
+export const language = currentLangInit(languagesList[0]) 

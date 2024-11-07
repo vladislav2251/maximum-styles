@@ -1,4 +1,6 @@
 <script>
+    import { language } from "$lib/context/store.js";
+
     import Contact from "$lib/components/sections/contact.svelte";
     import ProductDescription from "$lib/components/sections/product-description.svelte";
     import ProductDetail from "$lib/components/sections/product-detail.svelte";
@@ -7,6 +9,14 @@
     const details = [
         { id: 1, smallImage: "/img/productSmall.webp", largeImage: "/img/image.jpg", label: "Acnocell Multillululu", articul: "1234567891234", oldPrice: "250", newPrice: "200", currency: "$", characteristic: "Lorem ipsum dolor sit amet consectetur"}
     ]
+
+    let translation;
+
+    $: {
+        if ($language) {
+            translation = $language.langFile; 
+        }
+    }
 </script>
 
 {#each details as product}
@@ -22,8 +32,10 @@
         newPrice={product.newPrice}
         currency={product.currency}
         characteristic={product.characteristic}
+
+        {translation}
     />
 {/each }
-<ProductDescription />
-<Simillar />
-<Contact />
+<ProductDescription {translation}/>
+<Simillar {translation}/>
+<Contact {translation}/>

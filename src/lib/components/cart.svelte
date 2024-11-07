@@ -1,17 +1,12 @@
 <script>
-    import EmptyForm from '$lib/components/forms/cart-empty.svelte';
-    import OrderForm from '$lib/components/forms/order-form.svelte';
-
+    import { cart } from "/src/stores/user.js";
     import { fly } from 'svelte/transition';
     export let translation;
     export let isCartOpen;
     export let closeCart;
 
-    let currentForm = 'empty';
-
     const toggleCloseCart = () => {
         closeCart();
-        currentForm = 'empty';
     };
 </script>
 
@@ -28,13 +23,13 @@
             </button>
         </div>
 
-        {#if currentForm === 'empty'}
-            <EmptyForm {translation}/>
-        {:else if currentForm === 'order'}
-            <div class="grid md:grid-cols-2 mt-8">
-                <OrderForm {translation}/>
-            </div>
-        {/if}
+        {#if $cart.length > 0}
+        й
+        {:else}
+			<div class="products-container">
+				<h2>На жаль, Ви сюди нічого не додали :(</h2>
+			</div>
+		{/if}
     </div>
 {/if}
 

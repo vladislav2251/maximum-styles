@@ -11,6 +11,7 @@
         translation = $language.langFile; 
     }
     }
+    export let data;
 </script>
 
 <div class="flex gap-2 max-md:flex-col container py-12">
@@ -18,6 +19,6 @@
 
     <div class="flex-1">
         <Search {translation}/>
-        <Products {translation}/>
+        <Products {translation} {data}/>
     </div>
 </div>
