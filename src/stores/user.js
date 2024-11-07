@@ -1,7 +1,7 @@
 import { isLogged } from "$lib/context/store.js";
 import Cookies from "js-cookie";
 import axiosInstance from "$lib/context/api.js";
-export const cart = cartStore;
+// export const cart = cartStore;
 export const checkLogged = async () => {
 	const token = Cookies.get("auth_token");
 	if (token) {
