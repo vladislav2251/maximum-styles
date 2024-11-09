@@ -13,7 +13,7 @@
 
     $: {
         if ($language) {
-            translation = $language.langFile; 
+            translation = $language.langFile;
         }
     }
 </script>
@@ -23,12 +23,15 @@
 <Cooperation {translation}/>
 <Popular {translation}/>
 <Achievements {translation}/>
-<About {translation}/>
+<About {translation} id="about"/>
 <Label {translation}/>
+
 <div class="container">
     <Products {translation}/>
 </div>
+
 <SecondLabel {translation}/>
+
 <div class="container">
     <Products {translation}/>
 </div>

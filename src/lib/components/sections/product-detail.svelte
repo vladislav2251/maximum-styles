@@ -1,6 +1,10 @@
 <script>
-    export let translation;
+    import * as FancyboxModule from "@fancyapps/ui";
+    import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
+    const { Fancybox } = FancyboxModule;
+
+    export let translation;
     import Quantity from '$lib/components/sections/quantity.svelte';
 
     export let id;
@@ -15,6 +19,11 @@
     export let currency;
     export let characteristic;
 
+    import { onMount } from "svelte";
+
+    onMount(() => {
+        Fancybox.bind("[data-fancybox]", {});
+    });
 </script>
 
 <section class="py-12 container" id={id}>

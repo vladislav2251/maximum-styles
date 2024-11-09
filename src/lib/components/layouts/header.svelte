@@ -13,7 +13,7 @@
     const menuItems = [
         { label: translation?.header?.menuItems?.home, href: "/" },
         { label: translation?.header?.menuItems?.store, href: "/store" },
-        { label: translation?.header?.menuItems?.about, href: "/about" }
+        { label: translation?.header?.menuItems?.about, href: "#about" }
     ];
 
     let resizeTimeout;
@@ -34,9 +34,15 @@
     };
 
     const toggleModal = () => {
-        isModalOpen = !isModalOpen;
-        toggleOverflow(isModalOpen);
-    };
+        const user = JSON.parse(localStorage.getItem("user"));
+
+        if (user && user.logged !== null) {
+            window.location.href = "profile";
+        } else {
+            isModalOpen = !isModalOpen;
+            toggleOverflow(isModalOpen);
+        }
+};
 
     const toggleMenu = () => {
         isMenuOpen = !isMenuOpen;

@@ -1,7 +1,8 @@
 <script>
 	import axiosInstance from "$lib/context/api.js";
 	import Cookies from "js-cookie";
-    export let translation;
+
+	export let translation;
 
 	let username = '';
 	let email = '';
@@ -17,12 +18,19 @@
 				password,
 				repeated_password
 			});
+			
+			if (response.status === 200) {
+				Cookies.set("auth_token", response.data.account.token, { expires: 7 });
+				localStorage.setItem("user", JSON.stringify({
+					username: response.data.account.username,
+                         email: response.data.account.email,
+					logged: true,
+				}));
 
-			if (response.data.status) {
-				Cookies.set("auth_token", response.data.token, { expires: 7 });
 				message = translation?.sign_up?.success_message || "Account created successfully!";
+				window.location.href = "http://localhost:5173/profile"
 			} else {
-				message = response.data.detail || "Error creating account";
+				message = response.data.detail;
 			}
 		} catch (error) {
 			console.error(error);
@@ -34,8 +42,8 @@
 <form class="grid gap-6" on:submit|preventDefault={registerUser} on:focusin={() => {message = ""}}>
     <input class="px-8 py-4 border-solid text-base w-full border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)] outline-none" bind:value={username} required type="text" autocomplete="given-name" placeholder={translation?.sign_up?.inputs[0]?.placeholder} />
     <input class="px-8 py-4 border-solid text-base w-full border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)] outline-none" bind:value={email} required type="email" autocomplete="email" placeholder={translation?.sign_up?.inputs[1]?.placeholder} />
-    <input class="px-8 py-4 border-solid text-base w-full border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)] outline-none" bind:value={password} required type="password" placeholder={translation?.sign_up?.inputs[2]?.placeholder} />
-    <input class="px-8 py-4 border-solid text-base w-full border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)] outline-none" bind:value={repeated_password} required type="password" placeholder={translation?.sign_up?.inputs[3]?.placeholder} />
+    <input class="px-8 py-4 border-solid text-base w-full border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)] outline-none" bind:value={password} required type="text" placeholder={translation?.sign_up?.inputs[2]?.placeholder} />
+    <input class="px-8 py-4 border-solid text-base w-full border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)] outline-none" bind:value={repeated_password} required type="pteassword" placeholder={translation?.sign_up?.inputs[3]?.placeholder} />
 
     <div class="flex items-center gap-2">
         <input id="default-checkbox" type="checkbox" class="w-4 h-4"/>

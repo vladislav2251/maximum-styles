@@ -1,5 +1,4 @@
 <script>
-	import { isLogged } from "$lib/context/store.js";
     import axiosInstance from "$lib/context/api.js";
 	import Cookies from "js-cookie";
     export let translation;
@@ -12,9 +11,17 @@
     const adminLogin = async () => {
 		try {
 			const response = await axiosInstance.post("/accounts/login/", { username_or_email, password });
-			if (response.data.status) {
-				Cookies.set("auth_token", response.data.token, { expires: 7 });
-				isLogged.set(true)
+			if (response.status === 200) {
+
+				Cookies.set("auth_token", response.data.account.token, { expires: 7 });
+
+                localStorage.setItem("user", JSON.stringify({
+					username: response.data.account.username,
+					logged: true,
+                    email: response.data.account.email,
+				}));
+
+				window.location.href = "http://localhost:5173/profile"
 			} else {
 				message = response.data.detail;
 			}

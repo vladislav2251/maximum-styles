@@ -161,7 +161,15 @@
     },
     "cart": {
         "title": "Cart",
-        "empty": "Cart is Empty"
+        "empty": "Cart is Empty",
+        "back": "back to shopping",
+        "restore": "Empty Cart",
+        "order_number": "Order number",
+        "sum": "Order amount (without discount)",
+        "sale": "Discount",
+        "vat": "vat",
+        "total": "Total",
+        "btn": "Place an order"
     },
     "footer": {
         "menuItems": {
