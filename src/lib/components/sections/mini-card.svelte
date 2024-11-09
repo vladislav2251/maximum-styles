@@ -30,10 +30,10 @@
 </div>
 
 <script>
-    export let img;
-    export let label;
-    export let price;
     export let translation;
+    export let product;
+
+    const apiUrl = import.meta.env.VITE_API_URL;
 
     let isLiked = false;
 

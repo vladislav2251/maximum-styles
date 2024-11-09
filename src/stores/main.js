@@ -28,9 +28,20 @@ export const getCategory = async (category_id) => {
 export const getProduct = async (product_id) => {
     try {
         const response = await axiosInstance.get(`/products/get/${product_id}/`);
-        return response.data.product;
+        return response.data.product || [];
+    } catch (error) {
+        // console.error(error);
+        return [];
+    }
+};
+
+
+export const getProducts = async () => {
+    try {
+        const response = await axiosInstance.get("/products/get/");
+        return response.data.products || [];
     } catch (error) {
         console.error(error);
-        return null; 
+        return [];
     }
 };
