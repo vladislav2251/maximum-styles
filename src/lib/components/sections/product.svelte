@@ -31,9 +31,9 @@
     export let translation;
     export let product;
 
-    let isLiked = false;
+    // let isLiked = false;
 
-    function toggleLike() {
-        isLiked = !isLiked;
-    }
+    // function toggleLike() {
+    //     isLiked = !isLiked;
+    // }
 </script>

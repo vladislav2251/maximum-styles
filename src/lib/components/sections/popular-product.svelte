@@ -14,7 +14,7 @@
     <div class="container py-4 md:p-5">
         <h2 class="text-[var(--color-gray800)] font-medium text-4xl">{label}</h2>
         <p class="text-[var(--color-gray200)] font-normal text-xl">{description}</p>
-        <div class="flex max-lg:flex-col  max-lg:items-start items-center max-md:gap-1 justify-between">
+        <div class="flex max-sm:flex-col max-sm:items-start items-center max-md:gap-1 justify-between">
             <div class="flex gap-2 items-center my-5">
                 <a href="/product">
                     <button type="button" class="bg-[var(--color-violet)] px-8 py-4 flex justify-between items-center border border-solid border-[var(--color-gray)] transition-all duration-300 hover:bg-[var(--color-purple)]">{translation?.main?.popular_product?.buy_now}</button>

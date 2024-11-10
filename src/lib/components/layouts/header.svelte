@@ -62,7 +62,7 @@
 <header class="grid items-center md:items-start w-full bg-[var(--color-violet)]" id="header">
     <div class="container">
         <div class="grid grid-cols-2 md:grid-cols-3">
-            <a href="/">
+            <a class="max-w-fit" href="/">
                 <img src="/svg/logo.svg" alt="logo" loading="lazy" />
             </a>
             <div class="hidden md:flex justify-center items-center">
@@ -104,7 +104,9 @@
     <div class="grid items-center place-items-center place-content-center gap-8">
         {#each menuItems as element}
             <li class="relative group">
-                <a href={element.href} class="px-4 flex items-center" aria-label={element.label}>{element.label}</a>
+                <a href={element.href} class="px-4 flex items-center" aria-label={element.label} on:click={closeMenu}>
+                    {element.label}
+                </a>
                 <span class="absolute left-0 top-[22px] h-[2px] w-0 bg-black rounded transition-all duration-500 group-active:w-3/4 group-hover:w-3/4"></span>
             </li>
         {/each}

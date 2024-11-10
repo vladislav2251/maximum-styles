@@ -154,6 +154,36 @@
     ],
     "btn": "Senden"
   },
+  "cart": {
+    "title": "Warenkorb",
+    "empty": "Warenkorb ist leer",
+    "back": "Zurück zum Einkaufen",
+    "restore": "Warenkorb leeren",
+    "order_number": "Bestellnummer",
+    "sum": "Bestellbetrag (ohne Rabatt)",
+    "sale": "Rabatt",
+    "vat": "MwSt",
+    "total": "Gesamt",
+    "btn": "Bestellung aufgeben",
+    "inputs": [
+      {
+        "label": "Vorname",
+        "placeholder": "Geben Sie Ihren Vornamen ein"
+      },
+      {
+        "label": "Nachname",
+        "placeholder": "Geben Sie Ihren Nachnamen ein"
+      },
+      {
+        "label": "E-Mail",
+        "placeholder": "Geben Sie Ihre E-Mail-Adresse ein"
+      },
+      {
+        "label": "Telefon",
+        "placeholder": "Geben Sie Ihre Telefonnummer ein"
+      }
+    ]
+  },
   "footer": {
     "menuItems": {
       "home": "Startseite",

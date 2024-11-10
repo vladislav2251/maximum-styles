@@ -159,7 +159,25 @@
     "sale": "Discount",
     "vat": "vat",
     "total": "Total",
-    "btn": "Place an order"
+    "btn": "Place an order",
+    "inputs": [
+      {
+        "label": "First name",
+        "placeholder": "Enter your first name"
+      },
+      {
+        "label": "Last name",
+        "placeholder": "Enter your last name"
+      },
+      {
+        "label": "Email",
+        "placeholder": "Enter your email"
+      },
+      {
+        "label": "Phone",
+        "placeholder": "Enter your phone number"
+      }
+    ]
   },
   "footer": {
     "menuItems": {
