@@ -1,5 +1,5 @@
 <script>
-    import MiniCard from "$lib/components/sections/mini-card.svelte";
+    import Product from "$lib/components/sections/product.svelte";
     export let translation;
 
     // const infoCards = [
@@ -14,7 +14,7 @@
 
   <section class= "py-12 grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 place-items-center gap-y-8">
       {#each products as product}
-          <MiniCard
+          <Product
               {translation}
               {product}
           />

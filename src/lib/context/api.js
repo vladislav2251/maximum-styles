@@ -6,7 +6,10 @@ const api = axios.create({
     headers: {
         "API-KEY": "test"
     },
-    baseURL: apiUrl
+
+    withCredentials: true,
+    responseType: 'json',
+    baseURL: apiUrl,
 });
 
 export default api;

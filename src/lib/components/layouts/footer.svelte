@@ -1,10 +1,10 @@
 <script>
-    $:menuItems = [
-        { label: translation?.footer?.menuItems?.home, href: "/" },
-        { label: translation?.footer?.menuItems?.store, href: "/store" },
-        { label: translation?.footer?.menuItems?.about, href: "/about" }
-    ];
 
+    $:menuItems = [
+        { label: translation?.header?.menuItems?.home, href: "/" },
+        { label: translation?.header?.menuItems?.store, href: "/products" },
+        { label: translation?.header?.menuItems?.about, href: "/about" }
+    ];
     export let translation;
 </script>
 

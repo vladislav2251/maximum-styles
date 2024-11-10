@@ -12,8 +12,8 @@
 
     const menuItems = [
         { label: translation?.header?.menuItems?.home, href: "/" },
-        { label: translation?.header?.menuItems?.store, href: "/store" },
-        { label: translation?.header?.menuItems?.about, href: "#about" }
+        { label: translation?.header?.menuItems?.store, href: "/products" },
+        { label: translation?.header?.menuItems?.about, href: "/about" }
     ];
 
     let resizeTimeout;

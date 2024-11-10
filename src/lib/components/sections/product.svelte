@@ -13,7 +13,7 @@
         >
     </button>
 
-    <img class="h-auto w-full object-cover" src={img} alt={label}>
+    <img class="h-auto w-full object-cover" src={apiUrl.product.photo} alt={label}>
 
     <div class="container">
         <h2 class="text-black font-medium text-sm max-h-12 overflow-hidden text-ellipsis whitespace-nowrap">
