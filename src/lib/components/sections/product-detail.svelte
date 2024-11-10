@@ -1,23 +1,12 @@
 <script>
     import * as FancyboxModule from "@fancyapps/ui";
     import "@fancyapps/ui/dist/fancybox/fancybox.css";
-
     const { Fancybox } = FancyboxModule;
 
-    export let translation;
     import Quantity from '$lib/components/sections/quantity.svelte';
 
-    export let id;
-    export let smallImage;
-    export let largeImage;
-    export let label;
-    export let articul;
-    export let bestseller;
-    export let last;
-    export let oldPrice;
-    export let newPrice;
-    export let currency;
-    export let characteristic;
+    export let translation;
+    export let data;
 
     import { onMount } from "svelte";
 
@@ -26,41 +15,39 @@
     });
 </script>
 
-<section class="py-12 container" id={id}>
+<section class="py-12 container" id={data._id}>
     <div class="grid lg:grid-cols-2 gap-8">
         <div class="flex gap-5">
             <div class="flex flex-col max-md:hidden gap-5">
-                <a data-fancybox="gallery" data-caption="Caption #1" href={smallImage}>
-                    <img src={smallImage} alt={label}>
-                </a>
-            </div>
-            <a data-fancybox data-caption="Single image" class="max-md:justify-center h-auto w-full flex overflow-hidden" href={largeImage}>
-                <img src={largeImage} alt={label} class="hover:scale-105 transition-all duration-500">
-            </a>
+          {#each data.photos as photo}
+          <a data-fancybox="gallery" data-caption="Caption #1" href='/asd'>
+            <img src={photo} alt="jopa" class="hover:scale-105 transition-all duration-500" />
+          </a>
+          {/each}
+        </div>
+        <a data-fancybox data-caption="Single image" class="max-md:justify-center w-full flex overflow-hidden" href='/asd'>
+            <img src={data.photo} alt={data.name} class="hover:scale-105 max-h-96 w-full object-contain transition-all duration-500">
+        </a>
         </div>
 
         <div class="flex flex-col gap-5">
-            <h1 class="font-bold text-[var(--color-black)] text-2xl md:text-4xl">{label}</h1>
-
+            <h1 class="font-bold text-[var(--color-black)] text-2xl md:text-4xl">{data.name}</h1>
             <div class="flex max-md:flex-col md:items-center gap-8">
-                <p class="text-[var(--color-gray100)] text-md font-medium">{translation?.main?.product_detail?.article} {articul}</p>
-                <p class="text-[var(--color-black)] text-md font-medium">{bestseller}</p>
-                <p class="text-[var(--color-black)] text-md font-medium">{last}</p>
+                <p class="text-[var(--color-gray100)] text-md font-medium">{translation?.main?.product_detail?.article} {data._id}</p>
+                <!-- <p class="text-[var(--color-black)] text-md font-medium">{bestseller}</p> -->
+                <!-- <p class="text-[var(--color-black)] text-md font-medium">{last}</p> -->
             </div>
-
             <div class="py-4">
                 <hr>
             </div>
-
             <div class="flex gap-3 items-center md:gap-5">
-                <p class="line-through text-2xl font-normal text-[var(--color-gray)]">{oldPrice} {currency}</p>
+                <p class="line-through text-2xl font-normal text-[var(--color-gray)]">{data.price.regular} $</p>
                 <h2 class="text-[var(--color-black)] text-4xl font-bold">
-                    {newPrice} {currency}
+                    {data.price.discount.regular} $
                 </h2>
 
                 <Quantity />
             </div>
-
             <div class="py-8">
                 <button
                     type="button"
@@ -71,7 +58,7 @@
             </div>
             <div class="flex flex-col gap-5">
                 <h2 class="text-[var(--color-black)] text-2xl font-bold">{translation?.main?.product_detail?.info}:</h2>
-                <p class="text-[var(--color-gray100)] text-md md:text-xl font-medium">-{characteristic}</p>
+                <p class="text-[var(--color-gray100)] text-md md:text-xl font-medium">-{data.description.detail.de}</p>
             </div>
         </div>
     </div>

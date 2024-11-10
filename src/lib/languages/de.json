@@ -1,178 +1,172 @@
 {
-    "language": {
-        "de": "DEU",
-        "en": "ENG",
-        "bg": "BG"
-    },
-    "header": {
-        "menuItems": {
-            "home": "Startseite",
-            "store": "Shop",
-            "about": "Über uns"
-        }
-    },
-    "main": {
-        "hero": {
-            "title": "Exklusive Kosmetik für höchste Ansprüche!",
-            "sub_title": "Werden Sie Teil unserer Community – entdecken Sie unsere Produkte und erzielen Sie herausragende Ergebnisse. Bleiben Sie uns als treuer Kunde treu und wachsen Sie mit uns auf dem Weg zur Schönheit und Perfektion!",
-            "btn": "Jetzt kaufen"
-        },
-        "cooperation": {
-            "name_surname": "Name Nachname",
-            "job_title": "Berufsbezeichnung"
-        },
-        "about": {
-            "title": "Treten Sie meinen Kursen bei und werden Sie ein gefragter Kosmetiker!",
-            "sub_title": "Ich, Anastasia Hartmann-Lupp, bin Spezialistin mit 20-jähriger Erfahrung in Kosmetologie und Salonmanagement in Deutschland. Mein Ziel ist es, Ihnen beizubringen, wie Sie ein Profi werden und moderne Techniken der ästhetischen Medizin beherrschen können. Sie erhalten nicht nur theoretisches Wissen, sondern auch umfassende praktische Schulungen, indem Sie an echten Modellen unter meiner Anleitung arbeiten. Meine Schülerinnen beginnen selbstbewusst ihre Karriere und erzielen dank meiner Methoden und Unterstützung Erfolg. Verpassen Sie nicht die Chance, Teil einer erfolgreichen Beauty-Community zu werden!",
-            "btn": "Jetzt kaufen"
-        },
-        "achievements": {
-            "organic_products": "Bioprodukte",
-            "annual_sales": "Jahresumsatz",
-            "satisfield_customers": "Zufriedene Kunden"
-        },
-        "caption": {
-            "caption": "Partnerschaften mit Unternehmen"
-        },
-        "contact": {
-            "question": "Haben Sie eine Frage? Rufen Sie uns an!"
-        },
-        "categories": {
-           "title": "Titel" 
-        },
-        "card": {
-            "in_cart": "Im Warenkorb"
-        },
-        "popular" : {
-            "title" : "Unsere beliebten Produkte",
-            "description": "Lorem Ipsum ist ein einfacher Dummy-Text in der Druck- und Satzindustrie. Lorem Ipsum ist der Standard-Dummy-Text der Industrie",
-            "link": "Alle Produkte anzeigen"
-        },
-        "popular_product": {
-            "buy_now": "Jetzt kaufen",
-            "add_to_cart": "In den Warenkorb"
-        },
-        "product_description": {
-            "description": "Beschreibung",
-            "description_content": "Beschreibung Inhalt",
-            "how_to_use": "Anwendung",
-            "usage": "Anwendungsanleitung",
-            "delivery": "Lieferung",
-            "delivery_content": "Lieferinformationen"
-        },
-        "product_detail" : {
-            "add_to_cart": "In den Warenkorb",
-            "info": "Informationen",
-            "article": "Artikelnummer:"
-        },
-        "profile": {
-            "my_account": "Mein Konto",
-            "personal_information": "Persönliche Informationen",
-            "link": "Meine Informationen",
-            "inputs": [
-                {
-                    "label": "Vorname",
-                    "placeholder": "Vasya"
-                },
-                {
-                    "label": "Nachname",
-                    "placeholder": "Pupkin"
-                },
-                {
-                    "label": "Anzeigename",
-                    "placeholder": "Professor"
-                },
-                {
-                    "label": "E-Mail",
-                    "placeholder": "numerpochty@gmail.com"
-                },
-                {
-                    "label": "Telefonnummer",
-                    "placeholder": "+48452245673"
-                }
-            ],
-
-            "change": "Ändern"
-        },
-        "search": {
-            "label": "Suche",
-            "placeholder": "Suche"
-        },
-        "simillar": {
-            "label": "Ähnliche Produkte"
-        }
-    },
-    "sign_in": {
-        "title": "Anmelden",
-        "description": "Noch kein Konto?",
-        "next": [
-            "Registrieren",
-            "Passwort vergessen?"
-        ],
-        "inputs": [
-            {
-                "placeholder": "E-Mail-Adresse"
-            },
-            {
-                "placeholder": "Passwort"
-            }
-        ],
-        "remember": "Angemeldet bleiben",
-        "btn": "Anmelden"
-    },
-    "sign_up": {
-        "title": "Registrieren",
-        "description": "Bereits ein Konto?",
-        "next": [
-            "Anmelden",
-            "und",
-            "Datenschutzbestimmungen",
-            "Nutzungsbedingungen"
-        ],
-        "inputs": [
-            {
-                "placeholder": "Vorname"
-            },
-            {
-                "placeholder": "E-Mail-Adresse"
-            },
-            {
-                "placeholder": "Passwort"
-            },
-            {
-                "placeholder": "Passwort"
-            }
-        ],
-        "remember": "Angemeldet bleiben",
-        "btn": "Registrieren"
-    },
-    "forgot_password": {
-        "title": "Passwort vergessen",
-        "description": "Passwort verloren? Bitte geben Sie Ihre E-Mail-Adresse ein. Sie erhalten einen Link, um ein neues Passwort zu erstellen.",
-        "next": [
-            "Zurück zur Anmeldung"
-        ],
-        "inputs": [
-            {
-                "placeholder": "E-Mail-Adresse"
-            }
-        ],
-        "btn": "Senden"
-    },
-    "footer": {
-        "menuItems": {
-            "home": "Startseite",
-            "store": "Shop",
-            "about": "Über uns"
-        },
-        "info": {
-            "title": "Abonnieren Sie, um unsere neuesten Nachrichten zu erhalten",
-            "btn": "Abonnieren",
-            "placeholder": "E-Mail eingeben",
-            "sub_title": "Werden Sie Teil unserer Community – entdecken Sie unsere Produkte und erzielen Sie herausragende Ergebnisse. Bleiben Sie uns als treuer Kunde treu und wachsen Sie mit uns auf dem Weg zur Schönheit und Perfektion!",
-            "link_title": "Schneller Link",
-            "second_link_title": "Kontaktieren Sie uns"
-        }
-
+  "language": {
+    "de": "DEU",
+    "en": "ENG",
+    "bg": "BG"
+  },
+  "header": {
+    "menuItems": {
+      "home": "Startseite",
+      "store": "Shop",
+      "about": "Über uns"
     }
+  },
+  "main": {
+    "hero": {
+      "title": "Exklusive Kosmetik für höchste Ansprüche!",
+      "sub_title": "Werden Sie Teil unserer Community – entdecken Sie unsere Produkte und erzielen Sie herausragende Ergebnisse. Bleiben Sie uns als treuer Kunde treu und wachsen Sie mit uns auf dem Weg zur Schönheit und Perfektion!",
+      "btn": "Jetzt kaufen"
+    },
+    "cooperation": {
+      "name_surname": "Name Nachname",
+      "job_title": "Berufsbezeichnung"
+    },
+    "about": {
+      "title": "Treten Sie meinen Kursen bei und werden Sie ein gefragter Kosmetiker!",
+      "sub_title": "Ich, Anastasia Hartmann-Lupp, bin Spezialistin mit 20-jähriger Erfahrung in Kosmetologie und Salonmanagement in Deutschland. Mein Ziel ist es, Ihnen beizubringen, wie Sie ein Profi werden und moderne Techniken der ästhetischen Medizin beherrschen können. Sie erhalten nicht nur theoretisches Wissen, sondern auch umfassende praktische Schulungen, indem Sie an echten Modellen unter meiner Anleitung arbeiten. Meine Schülerinnen beginnen selbstbewusst ihre Karriere und erzielen dank meiner Methoden und Unterstützung Erfolg. Verpassen Sie nicht die Chance, Teil einer erfolgreichen Beauty-Community zu werden!",
+      "btn": "Jetzt kaufen"
+    },
+    "achievements": {
+      "organic_products": "Bioprodukte",
+      "annual_sales": "Jahresumsatz",
+      "satisfield_customers": "Zufriedene Kunden"
+    },
+    "caption": {
+      "caption": "Partnerschaften mit Unternehmen"
+    },
+    "contact": {
+      "question": "Haben Sie eine Frage? Rufen Sie uns an!"
+    },
+    "categories": {
+      "title": "Titel"
+    },
+    "card": {
+      "in_cart": "Im Warenkorb"
+    },
+    "popular": {
+      "title": "Unsere beliebten Produkte",
+      "description": "Lorem Ipsum ist ein einfacher Dummy-Text in der Druck- und Satzindustrie. Lorem Ipsum ist der Standard-Dummy-Text der Industrie",
+      "link": "Alle Produkte anzeigen"
+    },
+    "popular_product": {
+      "buy_now": "Jetzt kaufen",
+      "add_to_cart": "In den Warenkorb"
+    },
+    "product_description": {
+      "description": "Beschreibung",
+      "description_content": "Beschreibung Inhalt",
+      "how_to_use": "Anwendung",
+      "usage": "Anwendungsanleitung",
+      "delivery": "Lieferung",
+      "delivery_content": "Lieferinformationen"
+    },
+    "product_detail": {
+      "add_to_cart": "In den Warenkorb",
+      "info": "Informationen",
+      "article": "Artikelnummer:"
+    },
+    "profile": {
+      "my_account": "Mein Konto",
+      "personal_information": "Persönliche Informationen",
+      "link": "Meine Informationen",
+      "inputs": [
+        {
+          "label": "Vorname",
+          "placeholder": "Vasya"
+        },
+        {
+          "label": "Nachname",
+          "placeholder": "Pupkin"
+        },
+        {
+          "label": "Anzeigename",
+          "placeholder": "Professor"
+        },
+        {
+          "label": "E-Mail",
+          "placeholder": "numerpochty@gmail.com"
+        },
+        {
+          "label": "Telefonnummer",
+          "placeholder": "+48452245673"
+        }
+      ],
+
+      "change": "Ändern"
+    },
+    "search": {
+      "label": "Suche",
+      "placeholder": "Suche"
+    },
+    "simillar": {
+      "label": "Ähnliche Produkte"
+    }
+  },
+  "sign_in": {
+    "title": "Anmelden",
+    "description": "Noch kein Konto?",
+    "next": ["Registrieren", "Passwort vergessen?"],
+    "inputs": [
+      {
+        "placeholder": "E-Mail-Adresse"
+      },
+      {
+        "placeholder": "Passwort"
+      }
+    ],
+    "remember": "Angemeldet bleiben",
+    "btn": "Anmelden"
+  },
+  "sign_up": {
+    "title": "Registrieren",
+    "description": "Bereits ein Konto?",
+    "next": [
+      "Anmelden",
+      "und",
+      "Datenschutzbestimmungen",
+      "Nutzungsbedingungen"
+    ],
+    "inputs": [
+      {
+        "placeholder": "Vorname"
+      },
+      {
+        "placeholder": "E-Mail-Adresse"
+      },
+      {
+        "placeholder": "Passwort"
+      },
+      {
+        "placeholder": "Passwort"
+      }
+    ],
+    "remember": "Angemeldet bleiben",
+    "btn": "Registrieren"
+  },
+  "forgot_password": {
+    "title": "Passwort vergessen",
+    "description": "Passwort verloren? Bitte geben Sie Ihre E-Mail-Adresse ein. Sie erhalten einen Link, um ein neues Passwort zu erstellen.",
+    "next": ["Zurück zur Anmeldung"],
+    "inputs": [
+      {
+        "placeholder": "E-Mail-Adresse"
+      }
+    ],
+    "btn": "Senden"
+  },
+  "footer": {
+    "menuItems": {
+      "home": "Startseite",
+      "store": "Shop",
+      "about": "Über uns"
+    },
+    "info": {
+      "title": "Abonnieren Sie, um unsere neuesten Nachrichten zu erhalten",
+      "btn": "Abonnieren",
+      "placeholder": "E-Mail eingeben",
+      "sub_title": "Werden Sie Teil unserer Community – entdecken Sie unsere Produkte und erzielen Sie herausragende Ergebnisse. Bleiben Sie uns als treuer Kunde treu und wachsen Sie mit uns auf dem Weg zur Schönheit und Perfektion!",
+      "link_title": "Schneller Link",
+      "second_link_title": "Kontaktieren Sie uns"
+    }
+  }
 }

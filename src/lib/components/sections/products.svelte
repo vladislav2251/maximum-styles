@@ -1,14 +1,6 @@
 <script>
     import Product from "$lib/components/sections/product.svelte";
     export let translation;
-
-    // const infoCards = [
-    //       { img: '/img/miniCard.webp', label: "Ala Factor JeuDerm Expert", price: "250" },
-    //       { img: '/img/miniCard.webp', label: "Ala Factor JeuDerm Expert", price: "250" },
-    //       { img: '/img/miniCard.webp', label: "Ala Factor JeuDerm Expert", price: "250" },
-    //       { img: '/img/miniCard.webp', label: "Milk Shine Bright 430 Freckle Stars", price: "250" },
-    //   ]
-
     export let products;
   </script>
 

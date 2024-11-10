@@ -1,11 +1,12 @@
 <script>
-    $:tabs = [
-        { name: translation?.main?.product_description?.description , content: translation?.main?.product_description?.description_content },
-        { name: translation?.main?.product_description?.how_to_use, content: translation?.main?.product_description?.usage },
-        { name: translation?.main?.product_description?.delivery, content: translation?.main?.product_description?.delivery_content }
-    ];
-
     export let translation;
+
+    export let description;
+    $:tabs = [
+      { name: translation?.main?.product_description?.description , content: description.short.de },
+      { name: translation?.main?.product_description?.how_to_use, content: description.usage.de },
+      { name: translation?.main?.product_description?.delivery, content: description.ingredients.de },
+    ];
 
     let activeTab = 0;
 
