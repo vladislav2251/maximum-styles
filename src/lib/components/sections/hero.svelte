@@ -11,7 +11,7 @@
                 <p class="text-[var(--color-gray200)] font-normal text-base">{translation?.main?.hero?.sub_title}</p>
                 
                 <div class="relative flex items-center md:mt-14">
-                    <input type="search" class="py-4 pl-14 pr-3 outline-none w-[65%]">
+                    <input type="search" class="py-4 pl-14 pr-3 outline-none w-full md:w-[65%]">
                     <div class="absolute left-1.5 bg-[var(--color-violet)] w-10 h-10 flex items-center justify-center">
                         <img src="/svg/search.svg" alt="search icon">
                     </div>
