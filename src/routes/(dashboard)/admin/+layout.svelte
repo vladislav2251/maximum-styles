@@ -1,6 +1,7 @@
 <script>
     import { language } from "$lib/context/store.js";
-    import Menu from "$lib/components/admin/Menu.svelte";
+    import "$lib/styles/styles.css";
+    import Menu from "$lib/components/admin/menu.svelte";
     let translation;
 
     $: {
@@ -11,9 +12,11 @@
 </script>
 
 <svelte:head>
-    <title>{translation.dashboard.title}</title>
+    <title>{translation?.dashboard?.title}</title>
 </svelte:head>
 
-<Menu {translation}/>
+<div class="container">
+    <Menu {translation}/>
 
-<slot />
+    <slot/>
+</div>

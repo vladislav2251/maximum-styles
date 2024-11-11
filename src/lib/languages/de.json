@@ -184,6 +184,16 @@
       }
     ]
   },
+  "dashboard": {
+    "title": "Dashboard",
+    "menu": {
+      "title": "Menü",
+      "products": "Produkte",
+      "categories": "Kategorien",
+      "orders": "Bestellungen",
+      "users": "Benutzer"
+    }
+  },
   "footer": {
     "menuItems": {
       "home": "Startseite",
