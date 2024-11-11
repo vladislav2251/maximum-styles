@@ -16,12 +16,12 @@
 </script>
 
 <section class="py-12 container">
-    <div class="flex flex-col gap-5">
-        <div class="flex max-md:flex-col gap-8">
+    <div class="grid gap-5">
+        <div class="flex max-md:flex-col max-md:items-start gap-8">
             {#each tabs as tab, index}
                 <button
                     on:click={() => setActiveTab(index)}
-                    class="font-bold text-xl uppercase transition-all duration-200 outline-none 
+                    class="font-bold text-xl uppercase transition-all duration-300 outline-none 
                            {activeTab === index ? 'text-[var(--color-gray)]' : ''}"
                 >
                     {tab.name}

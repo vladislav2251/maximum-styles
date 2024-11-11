@@ -23,7 +23,7 @@
 <Cooperation {translation}/>
 <Popular {translation}/>
 <Achievements {translation}/>
-<About {translation} id="about"/>
+<About {translation}/>
 <Label {translation}/>
 
 <div class="container">

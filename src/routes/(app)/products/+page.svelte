@@ -15,10 +15,11 @@
     export let data;
 
     const products = data.products;
+    const categories = data.categories;
 </script>
 
 <div class="flex gap-2 max-md:flex-col container py-12">
-    <Categories {translation}/>
+    <Categories {translation} {categories}/>
 
     <div class="flex-1">
         <Search {translation}/>

@@ -1,13 +1,13 @@
 import axiosInstance from '$lib/context/api.js';
 
 export const getCategories = async () => {
-  try {
-    const response = await axiosInstance.get('/categories/get/');
-    return response.data.categories;
-  } catch (error) {
-    console.error(error);
-    return [];
-  }
+    try {
+        const response = await axiosInstance.get('/categories/get/');
+        return response.data.categories;
+    } catch (error) {
+        console.error('Error fetching categories:', error);
+        return [];
+    }
 };
 
 export const getCategory = async (category_id) => {
@@ -17,8 +17,8 @@ export const getCategory = async (category_id) => {
       return null;
     }
 
-    const response = await axiosInstance.get(`/category/get/${category_id}/`);
-    return response.data.category;
+    const response = await axiosInstance.get(`/categories/get/${category_id}/`);
+    return response.data.categories || [];
   } catch (error) {
     console.error(error);
     return null;

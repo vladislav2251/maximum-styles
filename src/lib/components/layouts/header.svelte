@@ -68,7 +68,7 @@
             <div class="hidden md:flex justify-center items-center">
                 {#each menuItems as element}
                         <li class="relative group">
-                            <a href={element.href} class="px-4 flex items-center" aria-label={element.label}>{element.label}</a>
+                            <a href={element.href} class="px-2.5 flex items-center" aria-label={element.label}>{element.label}</a>
                             <span class="absolute left-0 top-[22px] h-[2px] w-0 bg-black rounded transition-all duration-500 group-active:w-3/4 group-hover:w-full"></span>
                         </li>
                 {/each}

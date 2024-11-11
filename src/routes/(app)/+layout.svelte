@@ -14,8 +14,10 @@
     }
 </script>
 
-<Header {translation} />
-<main>
-    <slot />
-</main>
-<Footer {translation} />
+<div class="flex flex-col min-h-screen">
+    <Header {translation} />
+    <main class="flex-grow">
+        <slot />
+    </main>
+    <Footer {translation} />
+</div>

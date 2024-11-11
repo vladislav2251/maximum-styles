@@ -18,7 +18,7 @@
 <section class="py-12 container" id={data._id}>
     <div class="grid lg:grid-cols-2 gap-8">
         <div class="flex gap-5">
-            <div class="flex flex-col max-md:hidden gap-5">
+            <div class="grid max-md:hidden gap-5">
           {#each data.photos as photo}
           <a data-fancybox="gallery" data-caption="Caption #1" href='/asd'>
             <img src={photo} alt="jopa" class="hover:scale-105 transition-all duration-500" />
@@ -30,7 +30,7 @@
         </a>
         </div>
 
-        <div class="flex flex-col gap-5">
+        <div class="grid gap-5">
             <h1 class="font-bold text-[var(--color-black)] text-2xl md:text-4xl">{data.name}</h1>
             <div class="flex max-md:flex-col md:items-center gap-8">
                 <p class="text-[var(--color-gray100)] text-md font-medium">{translation?.main?.product_detail?.article} {data._id}</p>
@@ -56,7 +56,7 @@
                     {translation?.main?.product_detail?.add_to_cart}
                 </button>
             </div>
-            <div class="flex flex-col gap-5">
+            <div class="grid gap-5">
                 <h2 class="text-[var(--color-black)] text-2xl font-bold">{translation?.main?.product_detail?.info}:</h2>
                 <p class="text-[var(--color-gray100)] text-md md:text-xl font-medium">-{data.description.detail.de}</p>
             </div>

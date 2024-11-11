@@ -4,8 +4,8 @@
 
 <section style="background: linear-gradient(180deg, #c7c9de 33.52%, #d6dee9 79.87%);" class="py-12">
     <div class="container">
-        <div class="grid md:grid-cols-2 gap-8">
-            <div class="flex-col flex gap-4 md:gap-7">
+        <div class="grid lg:grid-cols-2 gap-8">
+            <div class="grid gap-4 md:gap-7">
                 <h2 class="text-[var(--color-black)] font-medium text-4xl">{translation?.main?.hero?.title}</h2>
     
                 <p class="text-[var(--color-gray200)] font-normal text-base">{translation?.main?.hero?.sub_title}</p>
@@ -17,7 +17,7 @@
                     </div>
                 </div>
 
-                <a href="/store">
+                <a class="max-w-fit" href="/store">
                     <button type="button" class="bg-[var(--color-violet)] border border-solid border-[var(--color-gray)] px-8 py-4 flex active:scale-x-105 hover:scale-x-105 justify-between items-center transition-all duration-600 hover:bg-[var(--color-purple)]">{translation?.main?.hero?.btn}</button>
                 </a>
             </div>

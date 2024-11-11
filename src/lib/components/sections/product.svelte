@@ -1,4 +1,11 @@
-<div class="relative w-60 h-80 p-[12px_16px_20px_16px] shadow-xl items-center">
+<div
+    role="link"
+    tabindex="0"
+    on:click={onclickRedirect}
+    on:keydown={(e) => e.key === 'Enter' && onclickRedirect()}
+    class="relative w-60 h-80 p-[12px_16px_20px_16px] shadow-xl items-center hover:cursor-pointer hover:scale-105 transition-all duration-300"
+    aria-label={`View product ${product.name}`}
+>
     <!-- <button -->
     <!--     type="button" -->
     <!--     class="absolute top-3 right-3 bg-transparent p-0 cursor-pointer w-6 h-6" -->
@@ -30,7 +37,11 @@
 <script>
     export let translation;
     export let product;
+    import { goto} from "$app/navigation";
 
+    function onclickRedirect() {
+        goto(`/product/${product._id}`);
+    }
     // let isLiked = false;
 
     // function toggleLike() {
