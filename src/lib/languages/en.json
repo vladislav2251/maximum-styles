@@ -179,6 +179,16 @@
       }
     ]
   },
+  "dashboard": {
+    "title": "Dashboard",
+    "menu": {
+      "title": "Menu",
+      "products": "Products",
+      "categories": "Categories",
+      "orders": "Orders",
+      "users": "Users"
+    }
+  },
   "footer": {
     "menuItems": {
       "home": "Home",

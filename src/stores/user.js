@@ -1,4 +1,4 @@
-// import { isLogged } from "$lib/context/store.js";
+import { isLogged } from "$lib/context/store.js";
 // import Cookies from "js-cookie";
 // import axiosInstance from "$lib/context/api.js";
 // // export const cart = cartStore;
