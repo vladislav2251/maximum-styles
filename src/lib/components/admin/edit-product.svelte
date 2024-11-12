@@ -1,6 +1,7 @@
 <script>
 import { onMount } from "svelte";
 import { getCategories, getManufacturers } from '@/stores/main.js';
+import { productBuilder } from "$lib/builders/product.builder.js";
 
 export let translation;
 export let data;
@@ -37,12 +38,12 @@ async function handleSubmit(event) {
     values[key] = value;
   });
 
-  const product = {
-    name: values.name,
-    category_id: Number(values.category),
-    manufacturer_id: Number(values.manufacturer),
-    description:{
-      short:{
+  const product = productBuilder
+    .setName(values.name)
+    .setCategory_id(Number(values.category))
+    .setManufacturer_id(Number(values.manufacturer))
+    .setDescription({
+      short: {
         de: values.short_de,
         bg: values.short_bg
       },
@@ -58,16 +59,49 @@ async function handleSubmit(event) {
         de: values.ingredients_de,
         bg: values.ingredients_bg
       }
-    },
-    price:{
-      regular:Number(values.regular_price),
-      specialist:Number(values.specialist_price),
-      discount:{
-        regular:values.discount_price ? Number(values.discount_price) : 0,
-        specialist:values.specialist_discount ? Number(values.specialist_discount) : 0
+    })
+    .setPrice({
+      regular: Number(values.regular_price),
+      specialist: Number(values.specialist_price),
+      discount: {
+        regular: values.discount_price ? Number(values.discount_price) : 0,
+        specialist: values.specialist_discount ? Number(values.specialist_discount) : 0
       }
-    }
-  }    
+    })
+    .build();
+  // console.log(product);
+
+  // const product = {
+  //   name: values.name,
+  //   category_id: Number(values.category),
+  //   manufacturer_id: Number(values.manufacturer),
+  //   description:{
+  //     short:{
+  //       de: values.short_de,
+  //       bg: values.short_bg
+  //     },
+  //     detail: {
+  //       de: values.detail_de,
+  //       bg: values.detail_bg
+  //     },
+  //     usage: {
+  //       de: values.usage_de,
+  //       bg:  values.usage_bg
+  //     },
+  //     ingredients: {
+  //       de: values.ingredients_de,
+  //       bg: values.ingredients_bg
+  //     }
+  //   },
+  //   price:{
+  //     regular:Number(values.regular_price),
+  //     specialist:Number(values.specialist_price),
+  //     discount:{
+  //       regular:values.discount_price ? Number(values.discount_price) : 0,
+  //       specialist:values.specialist_discount ? Number(values.specialist_discount) : 0
+  //     }
+  //   }
+  // }    
 } 
 </script>
 
@@ -79,7 +113,7 @@ async function handleSubmit(event) {
       <legend class="text-lg font-semibold">Product Information</legend>
 
       <label for="name">Name</label>
-      <input id="name" required name="name" class="px-8 py-4 border-solid outline-none text-base w-full md:w-3/4 border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)];" type="text" placeholder="Names">
+      <input bind:value={product.name} id="name" required name="name" class="px-8 py-4 border-solid outline-none text-base w-full md:w-3/4 border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)];" type="text" placeholder="Names">
       <label for="category">Category</label>
       <select id="category" required name="category" class="px-8 py-4 border-solid outline-none text-base w-full md:w-3/4 border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)];">
         {#each categories as category}
@@ -99,32 +133,32 @@ async function handleSubmit(event) {
 
       <div class="flex flex-col w-full gap-4 items-center" role="group" aria-labelledby="pricing_for_regulars">
         <p id="pricing_for_regulars">Pricing for regulars</p>
-        <input id="regular_price" required name="regular_price" class="px-8 py-4 border-solid outline-none text-base w-full md:w-3/4 border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)];" type="text" placeholder="{translation?.createProduct?.inputs[4]?.placeholder}">
-        <input id="discount_price" required name="discount_price" class="px-8 py-4 border-solid outline-none text-base w-full md:w-3/4 border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)];" type="text" placeholder="Discount">
+        <input bind:value={product.price.regular} id="regular_price" required name="regular_price" class="px-8 py-4 border-solid outline-none text-base w-full md:w-3/4 border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)];" type="text" placeholder="{translation?.createProduct?.inputs[4]?.placeholder}">
+        <input bind:value={product.price.discount.regular} id="discount_price" required name="discount_price" class="px-8 py-4 border-solid outline-none text-base w-full md:w-3/4 border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)];" type="text" placeholder="Discount">
       </div>
       <div class="flex flex-col w-full gap-4 items-center" role="group" aria-labelledby="pricing_for_specialists">
         <p id="pricing_for_specialists">Pricing for specialists</p>
-        <input id="specialist_price" required name="specialist_price" class="px-8 py-4 border-solid outline-none text-base w-full md:w-3/4 border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)];" type="text" placeholder="Specialist Price">
-        <input id="specialist_discount" required name="specialist_discount" class="px-8 py-4 border-solid outline-none text-base w-full md:w-3/4 border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)];" type="text" placeholder="Specialist Discount">
+        <input bind:value={product.price.specialist} id="specialist_price" required name="specialist_price" class="px-8 py-4 border-solid outline-none text-base w-full md:w-3/4 border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)];" type="text" placeholder="Specialist Price">
+        <input bind:value={product.price.discount.specialist} id="specialist_discount" required name="specialist_discount" class="px-8 py-4 border-solid outline-none text-base w-full md:w-3/4 border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)];" type="text" placeholder="Specialist Discount">
       </div>
     </fieldset>
 
     <fieldset class="flex items-center justify-center flex-col w-full gap-2 page" class:show={page === 3}>
       <legend class="text-lg font-semibold">Description in De</legend>
 
-      <textarea id="detail_de" required name="detail_de" class="px-8 py-4 border-solid outline-none text-base w-full md:w-3/4 border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)];" placeholder="{translation?.createProduct?.inputs[1]?.placeholder}"></textarea>
-      <textarea id="short_de" required name="short_de" class="px-8 py-4 border-solid outline-none text-base w-full md:w-3/4 border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)];" placeholder="short description"></textarea> 
-      <textarea id="usage_de" required name="usage_de" class="px-8 py-4 border-solid outline-none text-base w-full md:w-3/4 border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)];" placeholder="{translation?.createProduct?.inputs[2]?.placeholder}"></textarea>
-      <textarea id="ingredients_de" required name="ingredients_de" class="px-8 py-4 border-solid outline-none text-base w-full md:w-3/4 border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)];" placeholder="{translation?.createProduct?.inputs[3]?.placeholder}"></textarea>
+      <textarea bind:value={product.description.detail.de} id="detail_de" required name="detail_de" class="px-8 py-4 border-solid outline-none text-base w-full md:w-3/4 border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)];" placeholder="{translation?.createProduct?.inputs[1]?.placeholder}"></textarea>
+      <textarea bind:value={product.description.short.de} id="short_de" required name="short_de" class="px-8 py-4 border-solid outline-none text-base w-full md:w-3/4 border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)];" placeholder="short description"></textarea> 
+      <textarea bind:value={product.description.usage.de} id="usage_de" required name="usage_de" class="px-8 py-4 border-solid outline-none text-base w-full md:w-3/4 border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)];" placeholder="{translation?.createProduct?.inputs[2]?.placeholder}"></textarea>
+      <textarea bind:value={product.description.ingredients.de} id="ingredients_de" required name="ingredients_de" class="px-8 py-4 border-solid outline-none text-base w-full md:w-3/4 border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)];" placeholder="{translation?.createProduct?.inputs[3]?.placeholder}"></textarea>
     </fieldset>
 
     <fieldset class="flex items-center justify-center flex-col w-full gap-2 page" class:show={page === 4}>
       <legend class="text-lg font-semibold">Description in Bg</legend>
 
-      <textarea id="detail_bg" required name="detail_bg" class="px-8 py-4 border-solid outline-none text-base w-full md:w-3/4 border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)];" placeholder="{translation?.createProduct?.inputs[1]?.placeholder}"></textarea>
-      <textarea id="short_bg" required name="short_bg" class="px-8 py-4 border-solid outline-none text-base w-full md:w-3/4 border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)];" placeholder="short description"></textarea> 
-      <textarea id="usage_bg" required name="usage_bg" class="px-8 py-4 border-solid outline-none text-base w-full md:w-3/4 border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)];" placeholder="{translation?.createProduct?.inputs[2]?.placeholder}"></textarea>
-      <textarea id="ingredients_bg" required name="ingredients_bg" class="px-8 py-4 border-solid outline-none text-base w-full md:w-3/4 border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)];" placeholder="{translation?.createProduct?.inputs[3]?.placeholder}"></textarea>
+      <textarea bind:value={product.description.detail.bg} id="detail_bg" required name="detail_bg" class="px-8 py-4 border-solid outline-none text-base w-full md:w-3/4 border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)];" placeholder="{translation?.createProduct?.inputs[1]?.placeholder}"></textarea>
+      <textarea bind:value={product.description.short.bg} id="short_bg" required name="short_bg" class="px-8 py-4 border-solid outline-none text-base w-full md:w-3/4 border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)];" placeholder="short description"></textarea> 
+      <textarea bind:value={product.description.usage.bg} id="usage_bg" required name="usage_bg" class="px-8 py-4 border-solid outline-none text-base w-full md:w-3/4 border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)];" placeholder="{translation?.createProduct?.inputs[2]?.placeholder}"></textarea>
+      <textarea bind:value={product.description.ingredients.bg} id="ingredients_bg" required name="ingredients_bg" class="px-8 py-4 border-solid outline-none text-base w-full md:w-3/4 border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)];" placeholder="{translation?.createProduct?.inputs[3]?.placeholder}"></textarea>
     </fieldset>
 
 
