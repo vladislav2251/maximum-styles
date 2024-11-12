@@ -11,6 +11,9 @@ let page = 1;
 let manufacturers = [];  
 let categories = [];
 
+let currentCategory = data.product.category_id ? data.product.category_id : 1;
+let currentManufacturer = data.product.manufacturer_id ? data.product.manufacturer_id : 1;
+
 const nextPage = () => {
   page++;
 }
@@ -115,13 +118,13 @@ async function handleSubmit(event) {
       <label for="name">Name</label>
       <input bind:value={product.name} id="name" required name="name" class="px-8 py-4 border-solid outline-none text-base w-full md:w-3/4 border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)];" type="text" placeholder="Names">
       <label for="category">Category</label>
-      <select id="category" required name="category" class="px-8 py-4 border-solid outline-none text-base w-full md:w-3/4 border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)];">
+      <select bind:value={currentCategory} id="category" required name="category" class="px-8 py-4 border-solid outline-none text-base w-full md:w-3/4 border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)];">
         {#each categories as category}
-          <option value={category._id}>{category.name.de}/{category.name.bg}</option>
+          <option value={category._id} selected={currentCategory === product.category_id}>{category.name.de}/{category.name.bg}</option>
         {/each}
       </select>
       <label for="manufacturer">Manufacturer</label>
-      <select id="manufacturer" required name="manufacturer" class="px-8 py-4 border-solid outline-none text-base w-full md:w-3/4 border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)];">
+      <select bind:value={currentManufacturer} id="manufacturer" required name="manufacturer" class="px-8 py-4 border-solid outline-none text-base w-full md:w-3/4 border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)];">
         {#each manufacturers as manufacturer}
           <option value={manufacturer._id}>{manufacturer.name.de}/{manufacturer.name.bg}</option>
         {/each}
