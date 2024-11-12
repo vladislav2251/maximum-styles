@@ -21,6 +21,8 @@
 	"dependencies": {
 		"@fancyapps/ui": "^5.0.36",
 		"axios": "^1.7.7",
-		"js-cookie": "^3.0.5"
+		"jquery": "^3.7.1",
+		"js-cookie": "^3.0.5",
+		"wysibb": "^1.0.3"
 	}
 }
