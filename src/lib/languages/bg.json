@@ -189,6 +189,45 @@
       "users": "Потребители"
     }
   },
+  "createProduct": {
+    "title": "Създаване на продукт",
+    "inputs": [
+      {
+        "placeholder": "Име"
+      },
+      {
+        "placeholder": "Описание"
+      },
+      {
+        "placeholder": "Как да се използва"
+      },
+      {
+        "placeholder": "Ингредиенти"
+      },
+      {
+        "placeholder": "Цена"
+      },
+      {
+        "placeholder": "Категория"
+      },
+      {
+        "placeholder": "Марка"
+      }
+    ],
+    "btn": "Създаване"
+  },
+  "createCategory": {
+    "title": "Създаване на категория",
+    "inputs": [
+      {
+        "placeholder": "Име"
+      },
+      {
+        "placeholder": "Опция"
+      }
+    ],
+    "create": "Създаване"
+  }, 
   "footer": {
     "menuItems": {
       "home": "Начало",

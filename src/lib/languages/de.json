@@ -194,6 +194,45 @@
       "users": "Benutzer"
     }
   },
+  "createCategory": {
+    "title": "Kategorie erstellen",
+    "inputs": [
+      {
+        "placeholder": "Name"
+      },
+      {
+        "placeholder": "Option"
+      }
+    ],
+    "create": "Erstellen"
+  },
+  "createProduct": {
+    "title": "Produkt erstellen",
+    "inputs": [
+      {
+        "placeholder": "Name"
+      },
+      {
+        "placeholder": "Beschreibung"
+      },
+      {
+        "placeholder": "Wie zu verwenden"
+      },
+      {
+        "placeholder": "Zutaten"
+      },
+      {
+        "placeholder": "Preis"
+      },
+      {
+        "placeholder": "Kategorie"
+      },
+      {
+        "placeholder": "Marke"
+      }
+    ],
+    "btn": "Erstellen"
+  },
   "footer": {
     "menuItems": {
       "home": "Startseite",

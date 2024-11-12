@@ -2,17 +2,17 @@
     import * as FancyboxModule from "@fancyapps/ui";
     import "@fancyapps/ui/dist/fancybox/fancybox.css";
     const { Fancybox } = FancyboxModule;
+    import { onMount } from "svelte";
+
+    onMount(() => {
+        Fancybox.bind("[data-fancybox]", {});
+    });
 
     import Quantity from '$lib/components/sections/quantity.svelte';
 
     export let translation;
     export let data;
 
-    import { onMount } from "svelte";
-
-    onMount(() => {
-        Fancybox.bind("[data-fancybox]", {});
-    });
 </script>
 
 <section class="py-12 container" id={data._id}>

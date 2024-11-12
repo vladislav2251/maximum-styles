@@ -2,7 +2,7 @@
     import { language } from "$lib/context/store.js";
     import "$lib/styles/styles.css";
     import Menu from "$lib/components/admin/menu.svelte";
-    let translation;
+    export let translation;
 
     $: {
         if ($language) {

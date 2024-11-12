@@ -189,6 +189,45 @@
       "users": "Users"
     }
   },
+  "createCategory": {
+    "title": "Create Category",
+    "inputs": [
+      {
+        "placeholder": "Name"
+      },
+      {
+        "placeholder": "Option"
+      }
+    ],
+    "create": "Create"
+  },
+  "createProduct": {
+    "title": "Create Product",
+    "inputs": [
+      {
+        "placeholder": "Name"
+      },
+      {
+        "placeholder": "Description"
+      },
+      {
+        "placeholder": "How to use"
+      },
+      {
+        "placeholder": "Ingredients"
+      },
+      {
+        "placeholder": "Price"
+      },
+      {
+        "placeholder": "Category"
+      },
+      {
+        "placeholder": "Brand"
+      }
+    ],
+    "btn": "Create"
+  },
   "footer": {
     "menuItems": {
       "home": "Home",

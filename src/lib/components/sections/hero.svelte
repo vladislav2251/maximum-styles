@@ -1,5 +1,7 @@
 <script>
     export let translation;
+
+    
 </script>
 
 <section style="background: linear-gradient(180deg, #c7c9de 33.52%, #d6dee9 79.87%);" class="py-12">

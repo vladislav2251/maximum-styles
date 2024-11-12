@@ -1,16 +1,15 @@
 <script>
     import { language } from "$lib/context/store.js";
     
+    let translation;
+    
     $: {
         if ($language) {
             translation = $language.langFile;
         }
     }
-    
-    export let translation;
-    
 
-    import CreateProduct from "$lib/components/admin/create-product.svelte";
+    import CreateCategory from "$lib/components/admin/create-category.svelte";
 </script>
 
-<CreateProduct {translation}/>
+<CreateCategory {translation}/>

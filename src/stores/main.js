@@ -44,3 +44,17 @@ export const getProducts = async () => {
     return [];
   }
 };
+
+export const addProduct = async (account_id, product_id, amount) => {
+  try {
+    const response = await axiosInstance.post('/carts/product/add/', {
+      account_id,
+      product_id,
+      amount
+    });
+    return response.data.carts || [];
+  } catch (error) {
+    console.error('Error adding product:', error);
+    throw error; 
+  }
+};

@@ -5,6 +5,13 @@
     import { onMount } from "svelte";
 
     export let translation;
+    export let data;
+
+    let cart = []; 
+
+    if (data && data.cart) {
+        cart = data.cart;
+    }
 
     let isMenuOpen = false;
     let isModalOpen = false;
@@ -129,6 +136,7 @@
         isCartOpen = false;
         toggleOverflow(false);
     }}
+    cart={cart || []}
 />
 
 <button class="fixed lg:hidden inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-300 z-20 cursor-default"
