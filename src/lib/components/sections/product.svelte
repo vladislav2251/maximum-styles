@@ -29,7 +29,7 @@
   <div class="flex justify-between items-center">
     <h2 class="text-red-500 text-xl font-bold">{product.price.regular} $</h2>
     <a href={`/product/${product._id}`}>
-      <p class="text-gray-600 mt-[7px] font-medium text-[18px] leading-7">{translation?.main?.card?.in_cart}</p>
+      <p class="text-gray-600 mt-[7px] font-medium text-[18px] leading-7">{translation?.main?.cart?.to_cart}</p>
     </a>
   </div>
 </div>

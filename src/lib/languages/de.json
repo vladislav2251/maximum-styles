@@ -40,8 +40,8 @@
     "categories": {
       "title": "Titel"
     },
-    "card": {
-      "in_cart": "Im Warenkorb"
+    "cart": {
+      "to_cart": "Zum Warenkorb"
     },
     "popular": {
       "title": "Unsere beliebten Produkte",

@@ -1,31 +1,17 @@
 <script>
     import { fly } from 'svelte/transition';
     import Quantity from '$lib/components/sections/quantity.svelte';
-    import { onMount } from 'svelte';
     export let translation;
     export let isCartOpen;
     export let closeCart;
-    import { addProduct } from "@/stores/main.js" 
 
-
-    // let cart = [
-    //     { img: "/img/miniCard.webp", label: "Sample Item 1", price: 200, sale: 500, quantity: 1 },
-    //     { img: "/img/miniCard.webp", label: "Sample Item 2", price: 150, sale: 300, quantity: 1 },
-    //     { img: "/img/miniCard.webp", label: "Sample Item 3", price: 150, sale: 300, quantity: 1 },
-    // ];
+    let cart = [
+        { img: "/img/miniCard.webp", label: "Sample Item 1", price: 200, sale: 500, quantity: 1 },
+        { img: "/img/miniCard.webp", label: "Sample Item 2", price: 150, sale: 300, quantity: 1 },
+        { img: "/img/miniCard.webp", label: "Sample Item 3", price: 150, sale: 300, quantity: 1 },
+    ];
     let id = '1';
 
-    export let cart;
-
-    onMount(async () => {
-    try {
-        const carts = await addProduct(1, 1, 1);
-        cart = carts;
-        console.log(cart);
-    } catch (error) {
-        console.error('Failed to add product to cart:', error);
-    }
-});
     const toggleCloseCart = () => {
         closeCart();
     };
