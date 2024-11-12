@@ -1,7 +1,7 @@
 <script>
 import { onMount } from "svelte";
-import { getCategories, getManufacturers } from '@/stores/main.js';
-import { productBuilder } from "$lib/builders/product.builder.js";
+import { getCategories, getManufacturers, updateProduct } from '@/stores/main.js';
+import { goto } from "$app/navigation";
 
 export let translation;
 export let data;
@@ -41,12 +41,12 @@ async function handleSubmit(event) {
     values[key] = value;
   });
 
-  const product = productBuilder
-    .setName(values.name)
-    .setCategory_id(Number(values.category))
-    .setManufacturer_id(Number(values.manufacturer))
-    .setDescription({
-      short: {
+  const newProduct = {
+    name: values.name,
+    category_id: Number(values.category),
+    manufacturer_id: Number(values.manufacturer),
+    description:{
+      short:{
         de: values.short_de,
         bg: values.short_bg
       },
@@ -62,49 +62,19 @@ async function handleSubmit(event) {
         de: values.ingredients_de,
         bg: values.ingredients_bg
       }
-    })
-    .setPrice({
-      regular: Number(values.regular_price),
-      specialist: Number(values.specialist_price),
-      discount: {
-        regular: values.discount_price ? Number(values.discount_price) : 0,
-        specialist: values.specialist_discount ? Number(values.specialist_discount) : 0
+    },
+    price:{
+      regular:Number(values.regular_price),
+      specialist:Number(values.specialist_price),
+      discount:{
+        regular:values.discount_price ? Number(values.discount_price) : 0,
+        specialist:values.specialist_discount ? Number(values.specialist_discount) : 0
       }
-    })
-    .build();
+    }
+  }    
   // console.log(product);
-
-  // const product = {
-  //   name: values.name,
-  //   category_id: Number(values.category),
-  //   manufacturer_id: Number(values.manufacturer),
-  //   description:{
-  //     short:{
-  //       de: values.short_de,
-  //       bg: values.short_bg
-  //     },
-  //     detail: {
-  //       de: values.detail_de,
-  //       bg: values.detail_bg
-  //     },
-  //     usage: {
-  //       de: values.usage_de,
-  //       bg:  values.usage_bg
-  //     },
-  //     ingredients: {
-  //       de: values.ingredients_de,
-  //       bg: values.ingredients_bg
-  //     }
-  //   },
-  //   price:{
-  //     regular:Number(values.regular_price),
-  //     specialist:Number(values.specialist_price),
-  //     discount:{
-  //       regular:values.discount_price ? Number(values.discount_price) : 0,
-  //       specialist:values.specialist_discount ? Number(values.specialist_discount) : 0
-  //     }
-  //   }
-  // }    
+  await updateProduct(product._id, newProduct);
+  goto(`/admin/product/edit/${product._id}`);
 } 
 </script>
 

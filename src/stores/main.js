@@ -69,3 +69,15 @@ export const addProduct = async (account_id, product_id, amount) => {
   }
 };
 
+export const updateProduct = async (product_id, newProduct) => {
+  try {
+    const response = await axiosInstance.patch(
+      `/products/update/${product_id}/`,
+      newProduct
+    );
+    return response.data.product || [];
+  } catch (error) {
+    console.error('Error updating product:', error);
+    throw error;
+  }
+};
