@@ -8,7 +8,6 @@
     }
     
     export let translation;
-    
 
     import CreateProduct from "$lib/components/admin/create-product.svelte";
 </script>

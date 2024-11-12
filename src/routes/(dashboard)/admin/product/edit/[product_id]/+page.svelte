@@ -1,0 +1,15 @@
+<script>
+    import CreateProduct from "@components/admin/create-product.svelte";
+    import { language } from "$lib/context/store.js";
+
+    $: {
+        if ($language) {
+            translation = $language.langFile;
+        }
+    }
+
+    export let translation;
+    export let data;
+</script>
+
+<CreateProduct {translation} product={data.product}/>
