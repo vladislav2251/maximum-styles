@@ -1,13 +1,23 @@
 import axiosInstance from '$lib/context/api.js';
 
 export const getCategories = async () => {
-    try {
-        const response = await axiosInstance.get('/categories/get/');
-        return response.data.categories;
-    } catch (error) {
-        console.error('Error fetching categories:', error);
-        return [];
-    }
+  try {
+    const response = await axiosInstance.get('/categories/get/');
+    return response.data.categories;
+  } catch (error) {
+    console.error('Error fetching categories:', error);
+    return [];
+  }
+};
+
+export const getManufacturers = async () => {
+  try {
+    const response = await axiosInstance.get('/manufacturers/get/');
+    return response.data.manufacturers;
+  } catch (error) {
+    console.error('Error fetching manufacturers:', error);
+    return [];
+  }
 };
 
 export const getCategory = async (category_id) => {
@@ -50,11 +60,12 @@ export const addProduct = async (account_id, product_id, amount) => {
     const response = await axiosInstance.post('/carts/product/add/', {
       account_id,
       product_id,
-      amount
+      amount,
     });
     return response.data.carts || [];
   } catch (error) {
     console.error('Error adding product:', error);
-    throw error; 
+    throw error;
   }
 };
+
