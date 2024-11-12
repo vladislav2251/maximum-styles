@@ -1,21 +1,14 @@
 <script>
     import Lang from "$lib/components/sections/lang.svelte";
     import AuthModal from '$lib/components/auth.svelte';
-    import CartModal from '$lib/components/cart.svelte';
     import { onMount } from "svelte";
 
+    
     export let translation;
-    export let data;
 
-    let cart = []; 
-
-    if (data && data.cart) {
-        cart = data.cart;
-    }
 
     let isMenuOpen = false;
     let isModalOpen = false;
-    let isCartOpen = false;
 
     const menuItems = [
         { label: translation?.header?.menuItems?.home, href: "/" },
@@ -33,11 +26,6 @@
 
     const toggleOverflow = (state) => {
         document.body.style.overflow = state ? "hidden" : "auto";
-    };
-
-    const toggleCart = () => {
-        isCartOpen = !isCartOpen;
-        toggleOverflow(isCartOpen);
     };
 
     const toggleModal = () => {
@@ -63,6 +51,7 @@
         window.removeEventListener("resize", handleResize);
     };
 
+    
     onMount(() => () => window.removeEventListener("resize", handleResize));
 </script>
 
@@ -86,11 +75,6 @@
                 <button type="button" on:click={toggleModal} aria-label="Profile">
                     <img src="/svg/profile.svg" alt="profile icon" loading="lazy" />
                 </button>
-                
-                <button type="button" on:click={toggleCart} aria-label="Cart">
-                    <img src="/svg/cart.svg" alt="cart icon" loading="lazy" />
-                </button>
-
                 <button type="button" class="md:hidden" on:click={toggleMenu} aria-label="Menu">
                     <img class="w-[24px]" src="/svg/burger.svg" alt="burger" loading="lazy" />
                 </button>
@@ -129,15 +113,6 @@
     }}
 />
 
-<CartModal 
-    {translation}
-    isCartOpen={isCartOpen}
-    closeCart={() => {
-        isCartOpen = false;
-        toggleOverflow(false);
-    }}
-    cart={cart || []}
-/>
 
 <button class="fixed lg:hidden inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-300 z-20 cursor-default"
     on:click={toggleMenu}

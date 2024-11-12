@@ -12,6 +12,8 @@
 
     export let translation;
     export let data;
+    export let addToCart;
+
 
 </script>
 
@@ -50,6 +52,7 @@
             </div>
             <div class="py-8">
                 <button
+                on:click={(e) => { e.stopPropagation(); addToCart(data._id); }} 
                     type="button"
                     class="bg-[var(--color-violet)] py-4 px-6 active:scale-x-105 hover:scale-x-105 md:py-5 md:px-10 uppercase shadow-sm flex justify-center items-center text-[var(--color-white)] font-bold text-md md:text-2xl hover:bg-[var(--color-purple)] transition-all duration-300"
                 >
