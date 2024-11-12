@@ -242,5 +242,8 @@
       "link_title": "Quick Link",
       "second_link_title": "Contact Us"
     }
+  },
+  "editProduct": {
+    "title": "Edit Product"
   }
 }

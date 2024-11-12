@@ -3,6 +3,8 @@ import { onMount } from "svelte";
 import { getCategories, getManufacturers } from '@/stores/main.js';
 
 export let translation;
+export let data;
+const { product } = data;
 
 let page = 1; 
 let manufacturers = [];  

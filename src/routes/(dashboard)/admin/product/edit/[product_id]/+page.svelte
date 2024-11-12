@@ -1,5 +1,5 @@
 <script>
-    import CreateProduct from "@components/admin/create-product.svelte";
+import EditProduct from "@components/admin/edit-product.svelte";
     import { language } from "$lib/context/store.js";
 
     $: {
@@ -12,4 +12,4 @@
     export let data;
 </script>
 
-<CreateProduct {translation} product={data.product}/>
+<EditProduct {translation} data={data}/>
