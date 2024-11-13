@@ -14,12 +14,12 @@
   tabindex="0"
   on:click={onclickRedirect}
   on:keydown={(e) => e.key === 'Enter' && onclickRedirect()}
-  class="relative w-60 h-80 p-[12px_16px_20px_16px] shadow-xl items-center hover:cursor-pointer hover:shadow-2xl transition-all duration-300"
+  class="relative w-60 h-80 p-[12px_16px_20px_16px] shadow items-center hover:cursor-pointer hover:shadow-2xl transition-all duration-300"
   aria-label={`View product ${product.name}`}
 >
   <img
     class="h-[184px] w-[140px] m-auto object-cover"
-    src="http://192.168.1.15:3000/img/image.jpg"
+    src={product.photo}
     alt={product.label}
   />
 

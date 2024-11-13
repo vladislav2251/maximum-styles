@@ -26,7 +26,7 @@
 
     <button
       on:click={toggleCart}
-      class="fixed bottom-10 right-5 p-4 bg-[var(--color-black)] text-white rounded-full"
+      class="fixed bottom-20 right-10 p-4 bg-[var(--color-black)] text-white rounded-full"
       aria-label="cart"
     >
       <svg

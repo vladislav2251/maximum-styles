@@ -10,7 +10,7 @@
   const menuItems = [
     {
       label: translation?.dashboard?.menu?.products,
-      href: '/admin/create-product',
+      href: '/admin/product/create',
     },
     {
       label: translation?.dashboard?.menu?.categories,

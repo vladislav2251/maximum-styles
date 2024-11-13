@@ -12,7 +12,7 @@
       content: description.usage.de,
     },
     {
-      name: translation?.main?.product_description?.delivery,
+      name: translation?.main?.product_description?.ingredients,
       content: description.ingredients.de,
     },
   ];

@@ -20,7 +20,7 @@
     <div class="flex gap-5">
       <div class="grid max-md:hidden gap-5">
         {#each data.photos as photo}
-          <a data-fancybox="gallery" data-caption="Caption #1" href="/asd">
+          <a data-fancybox="gallery" data-caption="Caption #1" href={photo}>
             <img
               src={photo}
               alt="jopa"
@@ -33,7 +33,7 @@
         data-fancybox
         data-caption="Single image"
         class="max-md:justify-center w-full flex overflow-hidden"
-        href="/asd"
+        href={data.photo}
       >
         <img
           src={data.photo}
