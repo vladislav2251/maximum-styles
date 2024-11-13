@@ -24,30 +24,32 @@
   aria-label={`View product ${product.name || 'Без имени'}`}
 >
   <img
-    class="h-[184px] w-[140px] m-auto object-cover"
+    class="h-[184px] w-[140px] m-auto object-contain"
     src={product?.photo || '/default-image.jpg'}
     alt={product?.label || 'Без описания'}
   />
 
+ <div class="flex justify-between flex-col max-h-24">
   <h2
-    class="w-full text-wrap max-h-[42px] text-black font-medium m-[28px_0_10px_0] text-sm overflow-hidden text-ellipsis whitespace-nowrap"
-  >
-    {product?.name || 'Без имени'}
-  </h2>
+  class="w-full text-wrap max-h-[42px] text-black font-medium m-[28px_0_10px_0] text-sm overflow-hidden text-ellipsis whitespace-nowrap"
+>
+  {product?.name || 'Без имени'}
+</h2>
 
-  <div class="flex justify-between items-center">
-    <h2 class="text-red-500 text-xl font-bold">
-      {product?.price?.regular || 'Цена не указана'} $
-    </h2>
-    <button
-      type="button"
-      on:click={(e) => {
-        e.stopPropagation(); // Останавливаем событие от всплытия
-        addToCart(product._id); // Добавляем в корзину
-      }}
-      class="text-gray-600 mt-[7px] font-medium text-[18px] leading-7"
-    >
-      {translation?.main?.cart?.to_cart || 'Добавить в корзину'}
-    </button>
-  </div>
+<div class="flex justify-between items-center">
+  <h2 class="text-red-500 text-xl font-bold">
+    {product?.price?.regular || 'Цена не указана'} $
+  </h2>
+  <button
+    type="button"
+    on:click={(e) => {
+      e.stopPropagation(); // Останавливаем событие от всплытия
+      addToCart(product._id); // Добавляем в корзину
+    }}
+    class="text-gray-600 mt-[7px] font-medium text-[18px] leading-7"
+  >
+    {translation?.main?.cart?.to_cart || 'Добавить в корзину'}
+  </button>
+</div>
+ </div>
 </div>

@@ -21,7 +21,7 @@
       </a>
     </div>
 
-    <div class="overflow-hidden">
+    <div class="overflow-hidden max-w-fit">
       <img
         class="max-md:mx-auto transition-all duration-500 hover:scale-105"
         src="/img/anastasia.webp"

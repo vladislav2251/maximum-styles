@@ -17,17 +17,16 @@
 
   import Quantity from '$lib/components/sections/quantity.svelte';
 
-
-  import { addProduct } from '../../../stores/main'
+  import { addProduct } from '../../../stores/main';
   import { cartStore, toggleCart } from '$lib/context/cart.js';
-  
+
   let quantity = 1;
   export let translation;
   export let data;
 
   function handleQuantityChange(newQuantity) {
     quantity = newQuantity;
-  };
+  }
 </script>
 
 <section class="py-12 container" id={data._id}>
@@ -83,14 +82,14 @@
             : data.price.regular} $
         </h2>
 
-        <Quantity bind:quantity={quantity} max={25} onChange={handleQuantityChange} />
+        <Quantity bind:quantity max={25} onChange={handleQuantityChange} />
       </div>
       <div class="py-8">
         <button
           on:click={(e) => {
             e.stopPropagation();
             addProduct(2, data._id, quantity);
-            toggleCart()
+            toggleCart();
           }}
           type="button"
           class="bg-[var(--color-violet)] py-4 px-6 active:scale-x-105 hover:scale-x-105 md:py-5 md:px-10 uppercase shadow-sm flex justify-center items-center text-[var(--color-white)] font-bold text-md md:text-2xl hover:bg-[var(--color-purple)] transition-all duration-300"

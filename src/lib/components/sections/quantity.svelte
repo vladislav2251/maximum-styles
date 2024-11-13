@@ -18,7 +18,11 @@
 <div
   class="flex max-w-40 gap-3 px-3 py-1 border border-solid border-[var(--color-gray)] items-center justify-between rounded-lg"
 >
-  <button class="text-2xl font-semibold" on:click={() => changeCounter('minus')}>-</button>
+  <button class="text-2xl font-semibold" on:click={() => changeCounter('minus')}
+    >-</button
+  >
   <h2 class="text-xl font-semibold">{quantity}</h2>
-  <button class="text-2xl font-semibold" on:click={() => changeCounter('plus')}>+</button>
+  <button class="text-2xl font-semibold" on:click={() => changeCounter('plus')}
+    >+</button
+  >
 </div>

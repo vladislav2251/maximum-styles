@@ -1,18 +1,18 @@
 <script>
-    import {language} from '$lib/context/store.js';
-    import Profile from '$lib/components/sections/profile.svelte';
+  import { language } from '$lib/context/store.js';
+  import Profile from '$lib/components/sections/profile.svelte';
 
-    let translation;
+  let translation;
 
-    $: {
-        if ($language) {
-            translation = $language.langFile;
-        }
+  $: {
+    if ($language) {
+      translation = $language.langFile;
     }
+  }
 
-    export let data;
+  export let data;
 
-    const accountData = data.account
+  const accountData = data.account;
 </script>
 
-<Profile {translation} {accountData}/>
+<Profile {translation} {accountData} />

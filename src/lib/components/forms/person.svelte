@@ -9,9 +9,7 @@
 
   <div class="grid grid-cols-3 w-full gap-3">
     <div class="flex flex-col gap-2">
-      <label for="first_name"
-        >{translation?.main?.profile?.[7]?.label}</label
-      >
+      <label for="first_name">{translation?.main?.profile?.[7]?.label}</label>
       <input
         type="text"
         name="first_name"

@@ -1,8 +1,5 @@
 <script>
-  import {
-    cartStore,
-    toggleCart,
-  } from '$lib/context/cart.js';
+  import { cartStore, toggleCart } from '$lib/context/cart.js';
   import Quantity from '$lib/components/sections/quantity.svelte';
   import { fly } from 'svelte/transition';
   import { getCart, getProduct } from '../../stores/main';
@@ -14,7 +11,10 @@
   // Автоматично підписуємось на store `cartStore`
   $: items = $cartStore.items;
   $: isCartOpen = $cartStore.isCartOpen;
-  $: total = products.reduce((acc, item) => acc + item.price.regular * item.amount, 0);
+  $: total = products.reduce(
+    (acc, item) => acc + item.price.regular * item.amount,
+    0
+  );
   $: totalSale = items.reduce(
     (acc, item) => acc + item.sale * item.quantity,
     0
@@ -26,11 +26,11 @@
     products = await Promise.all(
       cartItems.map(async (item) => {
         const productDetails = await getProduct(item.product_id);
-        console.log(productDetails)
+        console.log(productDetails);
         return { ...productDetails, amount: item.amount };
       })
     );
-  })
+  });
 </script>
 
 {#if isCartOpen}
