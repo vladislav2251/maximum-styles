@@ -51,11 +51,11 @@
   </button>
 </div>
 
-<div class="mb-4">
+<!-- <div class="mb-4">
   <select class="px-4 py-2 border rounded" bind:value={sortOption}>
     <option value="name_asc">{translation?.main?.sort?.name_asc}</option>
     <option value="name_desc">{translation?.main?.sort?.name_desc}</option>
     <option value="price_asc">{translation?.main?.sort?.price_asc}</option>
     <option value="price_desc">{translation?.main?.sort?.price_desc}</option>
   </select>
-</div>
+</div> -->
