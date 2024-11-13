@@ -1,9 +1,9 @@
 <script>
   import { goto } from '$app/navigation';
 
-  export let translation;  // Переводы
-  export let addToCart;    // Функция добавления в корзину
-  export let product;      // Данные одного продукта
+  export let translation; // Переводы
+  export let addToCart; // Функция добавления в корзину
+  export let product; // Данные одного продукта
 
   // Функция для редиректа на страницу с деталями продукта
   function onclickRedirect() {
@@ -12,7 +12,7 @@
     }
   }
 
-  console.log(product);  // Для отладки
+  console.log(product); // Для отладки
 </script>
 
 <div
@@ -25,7 +25,7 @@
 >
   <img
     class="h-[184px] w-[140px] m-auto object-cover"
-    src={product?.photo || '/default-image.jpg'} 
+    src={product?.photo || '/default-image.jpg'}
     alt={product?.label || 'Без описания'}
   />
 
@@ -42,8 +42,8 @@
     <button
       type="button"
       on:click={(e) => {
-        e.stopPropagation();  // Останавливаем событие от всплытия
-        addToCart(product._id);  // Добавляем в корзину
+        e.stopPropagation(); // Останавливаем событие от всплытия
+        addToCart(product._id); // Добавляем в корзину
       }}
       class="text-gray-600 mt-[7px] font-medium text-[18px] leading-7"
     >

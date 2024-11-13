@@ -7,7 +7,7 @@
   let isMenuOpen = false;
   let isModalOpen = false;
 
-  const menuItems = [
+  $: menuItems = [
     {
       label: translation?.dashboard?.menu?.products,
       href: '/admin/product/create',

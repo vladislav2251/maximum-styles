@@ -9,10 +9,10 @@
   $: filteredProducts = filter(products);
 
   function filter(products) {
-    const filtered = products.filter(product =>
+    const filtered = products.filter((product) =>
       product.name.toLowerCase().includes(searchQuery.toLowerCase())
     );
-    
+
     return filtered.sort(sortProducts);
   }
 
@@ -52,10 +52,7 @@
 </div>
 
 <div class="mb-4">
-  <select
-    class="px-4 py-2 border rounded"
-    bind:value={sortOption}
-  >
+  <select class="px-4 py-2 border rounded" bind:value={sortOption}>
     <option value="name_asc">{translation?.main?.sort?.name_asc}</option>
     <option value="name_desc">{translation?.main?.sort?.name_desc}</option>
     <option value="price_asc">{translation?.main?.sort?.price_asc}</option>

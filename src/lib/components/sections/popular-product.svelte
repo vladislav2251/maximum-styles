@@ -23,7 +23,7 @@
       class="flex max-xl:flex-col items-start xl:items-center max-md:gap-1 justify-between"
     >
       <div class="flex gap-2 items-center my-5">
-        <a href="/product">
+        <a href="/products">
           <button
             type="button"
             class="bg-[var(--color-violet)] px-8 py-4 flex justify-between items-center border border-solid border-[var(--color-gray)] transition-all duration-300 hover:bg-[var(--color-purple)]"

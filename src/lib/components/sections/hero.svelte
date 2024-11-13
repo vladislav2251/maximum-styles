@@ -29,7 +29,7 @@
           </div>
         </div>
 
-        <a class="max-w-fit" href="/store">
+        <a class="max-w-fit" href="/products">
           <button
             type="button"
             class="bg-[var(--color-violet)] border border-solid border-[var(--color-gray)] px-8 py-4 flex active:scale-x-105 hover:scale-x-105 justify-between items-center transition-all duration-600 hover:bg-[var(--color-purple)]"
