@@ -41,7 +41,8 @@
       "title": "Titel"
     },
     "cart": {
-      "to_cart": "Zum Warenkorb"
+      "to_cart": "Zum Warenkorb",
+      "btn": "Bestellung aufgeben"
     },
     "popular": {
       "title": "Unsere beliebten Produkte",

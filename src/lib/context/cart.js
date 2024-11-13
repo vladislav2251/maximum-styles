@@ -5,10 +5,14 @@ export const cartStore = writable({
 });
 
 export function addProductToCart(product) {
+  console.log(product);
   cartStore.update((store) => {
+    console.log(store);
     const existingItem = store.items.find((item) => item.id === product.id);
+
+    console.log(existingItem);
     if (existingItem) {
-      existingItem.quantity += product.quantity;
+      existingItem.amount += product.amount;
     } else {
       store.items = [...store.items, product];
     }

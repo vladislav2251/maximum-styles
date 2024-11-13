@@ -2,18 +2,26 @@
   export let translation;
 
   export let description;
+
+  import { language } from '$lib/context/store.js';
+
+  let currentLang;
+  language.subscribe((lang) => {
+    currentLang = lang.code;
+  });
+
   $: tabs = [
     {
       name: translation?.main?.product_description?.description,
-      content: description.short.de,
+      content: description.short[currentLang],
     },
     {
       name: translation?.main?.product_description?.how_to_use,
-      content: description.usage.de,
+      content: description.usage[currentLang],
     },
     {
       name: translation?.main?.product_description?.ingredients,
-      content: description.ingredients.de,
+      content: description.ingredients[currentLang],
     },
   ];
 

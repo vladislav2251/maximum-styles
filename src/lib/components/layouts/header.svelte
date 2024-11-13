@@ -8,7 +8,7 @@
   let isMenuOpen = false;
   let isModalOpen = false;
 
-  const menuItems = [
+  $: menuItems = [
     { label: translation?.header?.menuItems?.home, href: '/' },
     { label: translation?.header?.menuItems?.store, href: '/products' },
     { label: translation?.header?.menuItems?.about, href: '/about' },
