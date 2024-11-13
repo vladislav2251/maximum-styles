@@ -41,7 +41,8 @@
       "title": "Title"
     },
     "cart": {
-      "to_cart": "To Cart"
+      "to_cart": "To Cart",
+      "btn": "Place an order"
     },
     "popular": {
       "title": "Our Popular Products",

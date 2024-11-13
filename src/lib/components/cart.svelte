@@ -2,26 +2,35 @@
   import {
     cartStore,
     toggleCart,
-    removeProductFromCart,
   } from '$lib/context/cart.js';
   import Quantity from '$lib/components/sections/quantity.svelte';
   import { fly } from 'svelte/transition';
+  import { getCart, getProduct } from '../../stores/main';
+  import { onMount } from 'svelte';
 
   export let translation;
+  let products = [];
 
   // Автоматично підписуємось на store `cartStore`
   $: items = $cartStore.items;
   $: isCartOpen = $cartStore.isCartOpen;
-  $: total = items.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  $: total = products.reduce((acc, item) => acc + item.price.regular * item.amount, 0);
   $: totalSale = items.reduce(
     (acc, item) => acc + item.sale * item.quantity,
     0
   );
   $: vat = (total * 0.2).toFixed(2);
 
-  function handleRemove(item) {
-    removeProductFromCart(item.id);
-  }
+  onMount(async () => {
+    const cartItems = await getCart(2);
+    products = await Promise.all(
+      cartItems.map(async (item) => {
+        const productDetails = await getProduct(item.product_id);
+        console.log(productDetails)
+        return { ...productDetails, amount: item.amount };
+      })
+    );
+  })
 </script>
 
 {#if isCartOpen}
@@ -35,7 +44,7 @@
       <button type="button" on:click={toggleCart}>✕</button>
     </div>
 
-    {#if items.length > 0}
+    {#if products.length > 0}
       <div class="flex flex-col gap-5">
         <div class="flex justify-between mb-5">
           <button on:click={toggleCart} type="button"
@@ -46,7 +55,7 @@
 
         <div class="flex max-md:flex-col gap-5">
           <div class="max-h-[300px] overflow-x-hidden overflow-scroll w-full">
-            {#each items as { id, photo, name, price, sale, quantity }, index}
+            {#each products as { id, photo, name, price, sale, amount }, index}
               <div
                 class="flex items-center max-sm:flex-col max-sm:gap-5 justify-between md:grid md:grid-cols-5"
               >
@@ -58,13 +67,13 @@
                 <img src={photo} alt={name} />
                 <h2 class="text-base">{name}</h2>
                 <Quantity
-                  {quantity}
+                  bind:quantity={amount}
                   onChange={(newQuantity) => updateQuantity(index, newQuantity)}
                 />
                 <div class="flex sm:flex-col gap-2 items-center">
-                  <p class="text-xl">${price * quantity}</p>
+                  <p class="text-xl">${amount * price.regular}</p>
                   <p class="text-base text-[var(--color-gray100)] line-through">
-                    ${sale * quantity}
+                    ${price.discount.regular}
                   </p>
                 </div>
                 <button
@@ -104,8 +113,8 @@
             <button
               type="button"
               class="px-8 py-4 bg-[var(--color-violet)] w-full rounded-sm text-md font-base hover:bg-[var(--color-purple)] transition-all duration-300 active:scale-x-105 hover:scale-x-105"
-              >{translation?.cart?.btn}</button
-            >
+              >{translation?.main?.cart?.btn}
+            </button>
           </div>
         </div>
       </div>
