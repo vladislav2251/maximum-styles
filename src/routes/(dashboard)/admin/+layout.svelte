@@ -1,7 +1,7 @@
 <script>
   import { language } from '$lib/context/store.js';
   import '$lib/styles/styles.css';
-  import Menu from '$lib/components/admin/menu.svelte';
+  import Menu from '$lib/components/admin/Menu.svelte';
   export let translation;
 
   $: {
