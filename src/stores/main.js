@@ -62,12 +62,51 @@ export const addProduct = async (account_id, product_id, amount) => {
       product_id,
       amount,
     });
+
     return response.data.carts || [];
   } catch (error) {
     console.error('Error adding product:', error);
     throw error;
   }
 };
+
+export const getCart = async (account_id) => {
+  try {
+    const response = await axiosInstance.get(`/carts/get/${account_id}/`);
+    return response.data.cart.products || [];
+  } catch (error) {
+    console.error('Error fetching cart:', error);
+    throw error;
+  }
+};
+
+export const removeProductFromCart = async () => {
+  try {
+    const response = await axiosInstance.post('/carts/product/delete/', {
+      account_id,
+      product_id,
+    });
+
+    return response.data.carts || [];
+  } catch (error) {
+    console.error('Error adding product:', error);
+    throw error;
+  }
+}
+
+export const substructProductFromCart = async () => {
+  try {
+    const response = await axiosInstance.post('/carts/product/subtract/', {
+      account_id,
+      product_id,
+    });
+
+    return response.data.carts || [];
+  } catch (error) {
+    console.error('Error adding product:', error);
+    throw error;
+  }
+}
 
 export const updateProduct = async (product_id, newProduct) => {
   try {

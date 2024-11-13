@@ -46,7 +46,7 @@
     </button>
 
     {#if $cartStore.isCartOpen}
-      <Cart {cart} closeCart={() => toggleCart()} />
+      <Cart {translation} {cart} closeCart={() => toggleCart()} />
     {/if}
   </main>
   <Footer {translation} />
