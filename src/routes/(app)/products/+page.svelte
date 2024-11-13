@@ -14,7 +14,6 @@
   export let data;
   const categories = data.categories;
 
-
   let products = data.products;
   let filteredProducts = products;
 

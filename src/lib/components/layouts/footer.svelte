@@ -35,48 +35,49 @@
     <div class="py-12">
       <hr class="border border-[var(--color-gray)]" />
     </div> -->
-    <div
-      class="grid md:grid-cols-3 max-md:gap-5 items-center md:place-items-center"
-    >
-      <div class="flex flex-gap gap-5">
-        <a href="/">
-          <img src="/svg/logo.svg" alt="logo icon" />
+      <div
+        class="grid md:grid-cols-3 max-md:gap-5 items-center md:place-items-center"
+      >
+        <div class="flex flex-gap gap-5">
+          <a href="/">
+            <img src="/svg/logo.svg" alt="logo icon" />
 
-          <p class="text-[var(--color-gray200)] font-normal text-xl">
-            {translation?.footer?.info?.sub_title}
-          </p>
-        </a>
-      </div>
-      <div class="flex flex-col gap-5">
-        <p class="text-[var(--color-gray200)] font-normal text-2xl">
-          {translation?.footer?.info?.link_title}
-        </p>
-
-        <div class="flex flex-col gap-4">
-          {#each menuItems as element}
-            <a class="underline" href={element.href}>
-              {element.label}
-            </a>
-          {/each}
+            <p class="text-[var(--color-gray200)] font-normal text-xl">
+              {translation?.footer?.info?.sub_title}
+            </p>
+          </a>
         </div>
-      </div>
-      <div class="flex flex-col gap-5">
-        <p class="text-[var(--color-gray200)] font-normal text-2xl">
-          {translation?.footer?.info?.second_link_title}
-        </p>
+        <div class="flex flex-col gap-5">
+          <p class="text-[var(--color-gray200)] font-normal text-2xl">
+            {translation?.footer?.info?.link_title}
+          </p>
 
-        <a href="mailto:maximumstyle@email.com">maximumstyle@email.com</a>
-        <a href="tel:+123456789">+123456789</a>
-        <div class="flex gap-4">
-          <a href="/">
-            <img src="/svg/facebook.svg" alt="facebook icon" />
-          </a>
-          <a href="/">
-            <img src="/svg/twitter.svg" alt="twitter icon" />
-          </a>
-          <a href="/">
-            <img src="/svg/insta.svg" alt="insta icon" />
-          </a>
+          <div class="flex flex-col gap-4">
+            {#each menuItems as element}
+              <a class="underline" href={element.href}>
+                {element.label}
+              </a>
+            {/each}
+          </div>
+        </div>
+        <div class="flex flex-col gap-5">
+          <p class="text-[var(--color-gray200)] font-normal text-2xl">
+            {translation?.footer?.info?.second_link_title}
+          </p>
+
+          <a href="mailto:maximumstyle@email.com">maximumstyle@email.com</a>
+          <a href="tel:+123456789">+123456789</a>
+          <div class="flex gap-4">
+            <a href="/">
+              <img src="/svg/facebook.svg" alt="facebook icon" />
+            </a>
+            <a href="/">
+              <img src="/svg/twitter.svg" alt="twitter icon" />
+            </a>
+            <a href="/">
+              <img src="/svg/insta.svg" alt="insta icon" />
+            </a>
+          </div>
         </div>
       </div>
     </div>

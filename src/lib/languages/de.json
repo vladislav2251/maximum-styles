@@ -89,7 +89,22 @@
         {
           "label": "Telefonnummer",
           "placeholder": "+48452245673"
+        },
+        {
+          "label": "Status",
+          "options": [
+            "Natururliche Person", "Firma"
+          ]
+        },
+        {
+          "label": "Geschlecht",
+          "placeholder": "männlich"
+        },
+        {
+          "label": "Geburtsdatum",
+          "placeholder": ""
         }
+        
       ],
 
       "change": "Ändern"

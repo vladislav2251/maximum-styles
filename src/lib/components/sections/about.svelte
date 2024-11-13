@@ -12,7 +12,7 @@
         {translation?.main?.about?.sub_title}
       </p>
 
-      <a href="/store">
+      <a href="/products">
         <button
           type="button"
           class="bg-[var(--color-violet)] px-8 py-4 flex justify-center items-center border border-solid border-[var(--color-gray)] active:scale-x-105 hover:scale-x-105 transition-all duration-300 max-md:w-full hover:bg-[var(--color-purple)]"

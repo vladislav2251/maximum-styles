@@ -82,7 +82,7 @@
     placeholder={translation?.sign_up?.inputs[3]?.placeholder}
   />
 
-  <div class="flex items-center gap-2">
+  <!-- <div class="flex items-center gap-2">
     <input id="default-checkbox" type="checkbox" class="w-4 h-4" />
     <label for="default-checkbox" class="text-base font-montserrat"
       >{translation?.sign_up?.next[0]}
@@ -94,7 +94,7 @@
         >{translation?.sign_up?.next[3]}</a
       ></label
     >
-  </div>
+  </div> -->
 
   <p class="mt-2">{message}</p>
 

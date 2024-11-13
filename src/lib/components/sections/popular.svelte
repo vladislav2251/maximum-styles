@@ -32,7 +32,7 @@
       </div>
 
       <div class="flex gap-2 md:gap-4 items-center md:justify-end">
-        <a href="/store">
+        <a href="/products">
           <p class="underline text-2xl font-medium text-[var(--color-gray800)]">
             {translation?.main?.popular?.link}
           </p>

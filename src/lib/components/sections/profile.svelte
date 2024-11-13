@@ -1,4 +1,8 @@
 <script>
+  import Person from '$lib/components/forms/person.svelte';
+  import Firma from '$lib/components/forms/firma.svelte';
+  let status = '1';
+
   export let translation;
 
   $: links = [{ href: '/info', label: translation?.main?.profile?.link }];
@@ -104,6 +108,41 @@
             placeholder={translation?.main?.profile?.inputs[4]?.placeholder}
           />
         </div>
+
+        <label for="status"
+          >{translation?.main?.profile?.inputs[5]?.label}</label
+        >
+
+        <div class="flex gap-2">
+          <input
+            type="radio"
+            name="status"
+            id="status"
+            bind:group={status}
+            value="1"
+            checked
+            required
+          />
+          <span>{translation?.main?.profile?.inputs[5]?.options[0]}</span>
+        </div>
+        <div class="flex gap-2">
+          <input
+            type="radio"
+            name="status"
+            id="status"
+            bind:group={status}
+            value="2"
+            checked
+            required
+          />
+          <span>{translation?.main?.profile?.inputs[5]?.options[1]}</span>
+        </div>
+
+        {#if status === '1'}
+          <Person {translation} />
+        {:else if status === '2'}
+          <Firma {translation} />
+        {/if}
 
         <button
           class="px-8 py-4 bg-[var(--color-violet)] w-full md:w-1/3 rounded-sm text-md font-base hover:bg-[var(--color-purple)] transition-all duration-300 active:scale-x-105 hover:scale-x-105"
