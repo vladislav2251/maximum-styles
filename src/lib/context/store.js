@@ -30,4 +30,3 @@ const currentLangInit = (startValue) => {
 };
 
 export const language = currentLangInit(languagesList[0]);
-

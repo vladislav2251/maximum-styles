@@ -1,28 +1,28 @@
 <script>
-    import { language } from "$lib/context/store.js";
-    
-    import Categories from "$lib/components/sections/categories.svelte";
-    import Search from "$lib/components/sections/search.svelte";
-    import Products from "$lib/components/sections/products.svelte";
-    let translation;
+  import { language } from '$lib/context/store.js';
 
-    $: {
-        if ($language) {
-            translation = $language.langFile;
-        }
+  import Categories from '$lib/components/sections/categories.svelte';
+  import Search from '$lib/components/sections/search.svelte';
+  import Products from '$lib/components/sections/products.svelte';
+  let translation;
+
+  $: {
+    if ($language) {
+      translation = $language.langFile;
     }
+  }
 
-    export let data;
+  export let data;
 
-    const products = data.products;
-    const categories = data.categories;
+  const products = data.products;
+  const categories = data.categories;
 </script>
 
 <div class="flex gap-2 max-md:flex-col container py-12">
-    <Categories {translation} {categories}/>
+  <Categories {translation} {categories} />
 
-    <div class="flex-1">
-        <Search {translation}/>
-        <Products {translation} {products}/>
-    </div>
+  <div class="flex-1">
+    <Search {translation} />
+    <Products {translation} {products} />
+  </div>
 </div>

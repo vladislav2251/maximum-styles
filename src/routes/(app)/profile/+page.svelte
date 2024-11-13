@@ -1,14 +1,14 @@
 <script>
-    import { language } from "$lib/context/store.js";
-    import Profile from "$lib/components/sections/profile.svelte";
+  import { language } from '$lib/context/store.js';
+  import Profile from '$lib/components/sections/profile.svelte';
 
-    let translation;
+  let translation;
 
-    $: {
-        if ($language) {
-            translation = $language.langFile;
-        }
+  $: {
+    if ($language) {
+      translation = $language.langFile;
     }
+  }
 </script>
 
 <Profile {translation} />

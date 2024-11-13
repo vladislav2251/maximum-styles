@@ -1,37 +1,37 @@
 <script>
-    import { language } from "$lib/context/store.js";
-    import Hero from "$lib/components/sections/hero.svelte";
-    import Caption from "$lib/components/sections/caption.svelte";
-    import Cooperation from "$lib/components/sections/cooperation.svelte";
-    import Popular from "$lib/components/sections/popular.svelte";
-    import Achievements from "$lib/components/sections/achievements.svelte";
-    import About from "$lib/components/sections/about.svelte";
-    import Label from "$lib/components/sections/label.svelte";
-    import Products from "$lib/components/sections/products.svelte";
-    import SecondLabel from "$lib/components/sections/second-label.svelte";
-    let translation;
+  import { language } from '$lib/context/store.js';
+  import Hero from '$lib/components/sections/hero.svelte';
+  import Caption from '$lib/components/sections/caption.svelte';
+  import Cooperation from '$lib/components/sections/cooperation.svelte';
+  import Popular from '$lib/components/sections/popular.svelte';
+  import Achievements from '$lib/components/sections/achievements.svelte';
+  import About from '$lib/components/sections/about.svelte';
+  import Label from '$lib/components/sections/label.svelte';
+  import Products from '$lib/components/sections/products.svelte';
+  import SecondLabel from '$lib/components/sections/second-label.svelte';
+  let translation;
 
-    $: {
-        if ($language) {
-            translation = $language.langFile;
-        }
+  $: {
+    if ($language) {
+      translation = $language.langFile;
     }
+  }
 </script>
 
-<Hero {translation}/>
-<Caption {translation}/>
-<Cooperation {translation}/>
-<Popular {translation}/>
-<Achievements {translation}/>
-<About {translation}/>
-<Label {translation}/>
+<Hero {translation} />
+<Caption {translation} />
+<Cooperation {translation} />
+<Popular {translation} />
+<Achievements {translation} />
+<About {translation} />
+<Label {translation} />
 
 <div class="container">
-    <Products {translation}/>
+  <Products {translation} />
 </div>
 
-<SecondLabel {translation}/>
+<SecondLabel {translation} />
 
 <div class="container">
-    <Products {translation}/>
+  <Products {translation} />
 </div>
