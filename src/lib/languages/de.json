@@ -88,9 +88,7 @@
         },
         {
           "label": "Status",
-          "options": [
-            "Natururliche Person", "Firma"
-          ]
+          "options": ["Natururliche Person", "Firma"]
         },
         {
           "label": "Geschlecht",
@@ -100,7 +98,6 @@
           "label": "Geburtsdatum",
           "placeholder": ""
         }
-        
       ],
 
       "change": "Ändern"
@@ -253,6 +250,7 @@
     ],
     "btn": {
       "create": "Erstellen",
+      "edit": "Redigieren",
       "prev": "Zurück",
       "next": "Weiter"
     }

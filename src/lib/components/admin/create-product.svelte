@@ -84,7 +84,9 @@
       class="flex items-center justify-center w-full gap-2 flex-col md:flex-row page"
       class:show={page === 1}
     >
-      <legend class="text-lg font-semibold">{translation?.createProduct?.title}</legend>
+      <legend class="text-lg font-semibold"
+        >{translation?.createProduct?.title}</legend
+      >
 
       <label for="name">{translation?.createProduct?.inputs[0].label}</label>
       <input
@@ -95,7 +97,8 @@
         type="text"
         placeholder={translation?.createProduct?.inputs[0].placeholder}
       />
-      <label for="category">{translation?.createProduct?.inputs[1].label}</label>
+      <label for="category">{translation?.createProduct?.inputs[1].label}</label
+      >
       <select
         id="category"
         required
@@ -108,7 +111,9 @@
           >
         {/each}
       </select>
-      <label for="manufacturer">{translation?.createProduct?.inputs[2].label}</label>
+      <label for="manufacturer"
+        >{translation?.createProduct?.inputs[2].label}</label
+      >
       <select
         id="manufacturer"
         required
@@ -127,14 +132,18 @@
       class="flex items-center justify-center w-full gap-2 flex-col md:flex-row page"
       class:show={page === 2}
     >
-      <legend class="text-lg font-semibold">{translation?.createProduct?.title2}</legend>
+      <legend class="text-lg font-semibold"
+        >{translation?.createProduct?.title2}</legend
+      >
 
       <div
         class="flex flex-col w-full gap-4 items-center"
         role="group"
         aria-labelledby="pricing_for_regulars"
       >
-        <p id="pricing_for_regulars">{translation?.createProduct?.inputs[3]?.placeholder}</p>
+        <p id="pricing_for_regulars">
+          {translation?.createProduct?.inputs[3]?.placeholder}
+        </p>
         <input
           id="regular_price"
           required
@@ -157,7 +166,9 @@
         role="group"
         aria-labelledby="pricing_for_specialists"
       >
-        <p id="pricing_for_specialists">{translation?.createProduct?.inputs[4]?.placeholder}</p>
+        <p id="pricing_for_specialists">
+          {translation?.createProduct?.inputs[4]?.placeholder}
+        </p>
         <input
           id="specialist_price"
           required
@@ -181,7 +192,9 @@
       class="flex items-center justify-center flex-col w-full gap-2 page"
       class:show={page === 3}
     >
-      <legend class="text-lg font-semibold">{translation?.createProduct?.inputs[6]?.label}</legend>
+      <legend class="text-lg font-semibold"
+        >{translation?.createProduct?.inputs[6]?.label}</legend
+      >
 
       <textarea
         id="detail_de"
@@ -217,7 +230,9 @@
       class="flex items-center justify-center flex-col w-full gap-2 page"
       class:show={page === 4}
     >
-      <legend class="text-lg font-semibold">{translation?.createProduct?.inputs[6]?.label1}</legend>
+      <legend class="text-lg font-semibold"
+        >{translation?.createProduct?.inputs[6]?.label1}</legend
+      >
 
       <textarea
         id="detail_bg"
@@ -250,7 +265,7 @@
     </fieldset>
 
     <button type="submit" class="page" class:show={page === 4}
-      >{translation?.createProduct?.create}</button
+      >{translation?.createProduct?.btn?.create}</button
     >
     <button on:click={nextPage} class:page={page === 4} disabled={page === 4}
       >{translation?.createProduct?.btn?.next}</button

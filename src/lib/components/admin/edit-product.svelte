@@ -282,7 +282,7 @@
     </fieldset>
 
     <button type="submit" class="page" class:show={page === 4}
-      >{translation?.createProduct?.btn}</button
+      >{translation?.createProduct?.btn.edit}</button
     >
     <button on:click={nextPage} class:page={page === 4} disabled={page === 4}
       >Next</button
@@ -290,6 +290,7 @@
     <button
       on:click={previousPage}
       class:page={page === 1}
+      class:show={page === 4}
       disabled={page === 1}>Previous</button
     >
   </form>
