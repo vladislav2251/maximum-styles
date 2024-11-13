@@ -1,9 +1,4 @@
 {
-  "language": {
-    "de": "DEU",
-    "en": "ENG",
-    "bg": "BG"
-  },
   "header": {
     "menuItems": {
       "home": "Начало",
@@ -191,31 +186,44 @@
     }
   },
   "createProduct": {
-    "title": "Създаване на продукт",
+    "title": "Информация за продукта",
+    "title2": "Ценообразование",    
     "inputs": [
       {
-        "placeholder": "Име"
+        "label": "Име",
+        "placeholder": "Имена"
       },
       {
-        "placeholder": "Описание"
+        "label": "Категория"
       },
       {
-        "placeholder": "Как да се използва"
+        "label": "Производител"
       },
       {
-        "placeholder": "Ингредиенти"
+        "placeholder": "Цени за постоянни клиенти"
       },
       {
-        "placeholder": "Цена"
+        "placeholder": "Ценообразуване за специалисти",
+        "label1": "Специалист цена",
+        "label2": "Специалист отстъпка"
       },
       {
-        "placeholder": "Категория"
+        "placeholder": "Oтстъпка"
       },
       {
-        "placeholder": "Марка"
+        "label": "Описание в Български",
+        "label1": "Описание в Немски",
+        "placeholder1": "Описание",
+        "placeholder2": "Кратко описание",
+        "placeholder3": "Как да използвате",
+        "placeholder4": "Съставки"
       }
     ],
-    "btn": "Създаване"
+    "btn": {
+      "create": "Създавам",
+      "prev": "Предишна",
+      "next": "Следващия"
+    }
   },
   "createCategory": {
     "title": "Създаване на категория",

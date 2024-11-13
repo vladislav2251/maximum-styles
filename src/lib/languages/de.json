@@ -1,9 +1,4 @@
 {
-  "language": {
-    "de": "DEU",
-    "en": "ENG",
-    "bg": "BG"
-  },
   "header": {
     "menuItems": {
       "home": "Startseite",
@@ -208,31 +203,44 @@
     "create": "Erstellen"
   },
   "createProduct": {
-    "title": "Produkt erstellen",
+    "title": "Produktinformationen",
+    "title2": "Preismodell",
     "inputs": [
       {
-        "placeholder": "Name"
+        "label": "Name",
+        "placeholder": "Namen"
       },
       {
-        "placeholder": "Beschreibung"
+        "label": "Kategorie"
       },
       {
-        "placeholder": "Wie zu verwenden"
+        "label": "Hersteller"
       },
       {
-        "placeholder": "Zutaten"
+        "placeholder": "Preise für Stammkunden"
       },
       {
-        "placeholder": "Preis"
+        "placeholder": "Preisgestaltung für Fachleute",
+        "label1": "Fachpreis",
+        "label2": "Fachrabatt"
       },
       {
-        "placeholder": "Kategorie"
+        "placeholder": "Rabatt"
       },
       {
-        "placeholder": "Marke"
+        "label": "Beschreibung auf Bulgarisch",
+        "label1": "Beschreibung auf Deutsch",
+        "placeholder1": "Beschreibung",
+        "placeholder2": "Kurze Beschreibung",
+        "placeholder3": "Wie man es verwendet",
+        "placeholder4": "Zutaten"
       }
     ],
-    "btn": "Erstellen"
+    "btn": {
+      "create": "Erstellen",
+      "prev": "Zurück",
+      "next": "Weiter"
+    }
   },
   "footer": {
     "menuItems": {

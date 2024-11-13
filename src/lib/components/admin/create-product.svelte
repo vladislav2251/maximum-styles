@@ -84,18 +84,18 @@
       class="flex items-center justify-center w-full gap-2 flex-col md:flex-row page"
       class:show={page === 1}
     >
-      <legend class="text-lg font-semibold">Product Information</legend>
+      <legend class="text-lg font-semibold">{translation?.createProduct?.title}</legend>
 
-      <label for="name">Name</label>
+      <label for="name">{translation?.createProduct?.inputs[0].label}</label>
       <input
         id="name"
         required
         name="name"
         class="px-8 py-4 border-solid outline-none text-base w-full md:w-3/4 border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)];"
         type="text"
-        placeholder="Names"
+        placeholder={translation?.createProduct?.inputs[0].placeholder}
       />
-      <label for="category">Category</label>
+      <label for="category">{translation?.createProduct?.inputs[1].label}</label>
       <select
         id="category"
         required
@@ -108,7 +108,7 @@
           >
         {/each}
       </select>
-      <label for="manufacturer">Manufacturer</label>
+      <label for="manufacturer">{translation?.createProduct?.inputs[2].label}</label>
       <select
         id="manufacturer"
         required
@@ -127,14 +127,14 @@
       class="flex items-center justify-center w-full gap-2 flex-col md:flex-row page"
       class:show={page === 2}
     >
-      <legend class="text-lg font-semibold">Pricing</legend>
+      <legend class="text-lg font-semibold">{translation?.createProduct?.title2}</legend>
 
       <div
         class="flex flex-col w-full gap-4 items-center"
         role="group"
         aria-labelledby="pricing_for_regulars"
       >
-        <p id="pricing_for_regulars">Pricing for regulars</p>
+        <p id="pricing_for_regulars">{translation?.createProduct?.inputs[3]?.placeholder}</p>
         <input
           id="regular_price"
           required
@@ -149,7 +149,7 @@
           name="discount_price"
           class="px-8 py-4 border-solid outline-none text-base w-full md:w-3/4 border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)];"
           type="text"
-          placeholder="Discount"
+          placeholder={translation?.createProduct?.inputs[5]?.placeholder}
         />
       </div>
       <div
@@ -157,14 +157,14 @@
         role="group"
         aria-labelledby="pricing_for_specialists"
       >
-        <p id="pricing_for_specialists">Pricing for specialists</p>
+        <p id="pricing_for_specialists">{translation?.createProduct?.inputs[4]?.placeholder}</p>
         <input
           id="specialist_price"
           required
           name="specialist_price"
           class="px-8 py-4 border-solid outline-none text-base w-full md:w-3/4 border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)];"
           type="text"
-          placeholder="Specialist Price"
+          placeholder={translation?.createProduct?.inputs[4]?.label1}
         />
         <input
           id="specialist_discount"
@@ -172,7 +172,7 @@
           name="specialist_discount"
           class="px-8 py-4 border-solid outline-none text-base w-full md:w-3/4 border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)];"
           type="text"
-          placeholder="Specialist Discount"
+          placeholder={translation?.createProduct?.inputs[4]?.label2}
         />
       </div>
     </fieldset>
@@ -181,35 +181,35 @@
       class="flex items-center justify-center flex-col w-full gap-2 page"
       class:show={page === 3}
     >
-      <legend class="text-lg font-semibold">Description in De</legend>
+      <legend class="text-lg font-semibold">{translation?.createProduct?.inputs[6]?.label}</legend>
 
       <textarea
         id="detail_de"
         required
         name="detail_de"
         class="px-8 py-4 border-solid outline-none text-base w-full md:w-3/4 border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)];"
-        placeholder={translation?.createProduct?.inputs[1]?.placeholder}
+        placeholder={translation?.createProduct?.inputs[6]?.placeholder1}
       ></textarea>
       <textarea
         id="short_de"
         required
         name="short_de"
         class="px-8 py-4 border-solid outline-none text-base w-full md:w-3/4 border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)];"
-        placeholder="short description"
+        placeholder={translation?.createProduct?.inputs[6]?.placeholder2}
       ></textarea>
       <textarea
         id="usage_de"
         required
         name="usage_de"
         class="px-8 py-4 border-solid outline-none text-base w-full md:w-3/4 border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)];"
-        placeholder={translation?.createProduct?.inputs[2]?.placeholder}
+        placeholder={translation?.createProduct?.inputs[6]?.placeholder3}
       ></textarea>
       <textarea
         id="ingredients_de"
         required
         name="ingredients_de"
         class="px-8 py-4 border-solid outline-none text-base w-full md:w-3/4 border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)];"
-        placeholder={translation?.createProduct?.inputs[3]?.placeholder}
+        placeholder={translation?.createProduct?.inputs[6]?.placeholder4}
       ></textarea>
     </fieldset>
 
@@ -217,48 +217,48 @@
       class="flex items-center justify-center flex-col w-full gap-2 page"
       class:show={page === 4}
     >
-      <legend class="text-lg font-semibold">Description in Bg</legend>
+      <legend class="text-lg font-semibold">{translation?.createProduct?.inputs[6]?.label1}</legend>
 
       <textarea
         id="detail_bg"
         required
         name="detail_bg"
         class="px-8 py-4 border-solid outline-none text-base w-full md:w-3/4 border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)];"
-        placeholder={translation?.createProduct?.inputs[1]?.placeholder}
+        placeholder={translation?.createProduct?.inputs[6]?.placeholder1}
       ></textarea>
       <textarea
         id="short_bg"
         required
         name="short_bg"
         class="px-8 py-4 border-solid outline-none text-base w-full md:w-3/4 border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)];"
-        placeholder="short description"
+        placeholder={translation?.createProduct?.inputs[6]?.placeholder2}
       ></textarea>
       <textarea
         id="usage_bg"
         required
         name="usage_bg"
         class="px-8 py-4 border-solid outline-none text-base w-full md:w-3/4 border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)];"
-        placeholder={translation?.createProduct?.inputs[2]?.placeholder}
+        placeholder={translation?.createProduct?.inputs[6]?.placeholder3}
       ></textarea>
       <textarea
         id="ingredients_bg"
         required
         name="ingredients_bg"
         class="px-8 py-4 border-solid outline-none text-base w-full md:w-3/4 border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)];"
-        placeholder={translation?.createProduct?.inputs[3]?.placeholder}
+        placeholder={translation?.createProduct?.inputs[6]?.placeholder4}
       ></textarea>
     </fieldset>
 
     <button type="submit" class="page" class:show={page === 4}
-      >{translation?.createProduct?.btn}</button
+      >{translation?.createProduct?.create}</button
     >
     <button on:click={nextPage} class:page={page === 4} disabled={page === 4}
-      >Next</button
+      >{translation?.createProduct?.btn?.next}</button
     >
     <button
       on:click={previousPage}
       class:page={page === 1}
-      disabled={page === 1}>Previous</button
+      disabled={page === 1}>{translation?.createProduct?.btn?.prev}</button
     >
   </form>
 </div>
