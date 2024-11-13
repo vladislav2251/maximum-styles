@@ -124,6 +124,7 @@ export const updateProduct = async (product_id, newProduct) => {
 export const getAccount = async (token) => {
     try {
         const response = await axiosInstance.get(`/accounts/token-check/${token}/`);
+        console.log(response.data)
         return response.data.account || null
     } catch (error) {
         console.error(error)

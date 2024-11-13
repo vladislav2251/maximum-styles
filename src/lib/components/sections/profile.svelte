@@ -8,9 +8,9 @@
 
     $: links = [{href: '/info', label: translation?.main?.profile?.link}];
 
-    export let account;
+    export let accountData;
 
-    console.log(account)
+    console.log(accountData)
 </script>
 
 <section class="py-12 container mx-auto px-4">
@@ -146,10 +146,10 @@
                 {/if}
 
                 <button
-                        class="px-8 py-4 bg-[var(--color-violet)] w-full md:w-1/3 rounded-sm text-md font-base hover:bg-[var(--color-purple)] transition-all duration-300 active:scale-x-105 hover:scale-x-105"
-                        type="submit"
-                        name="button">{translation?.main?.profile?.change}</button
-                >
+                    class="px-8 py-4 bg-[var(--color-violet)] w-full md:w-1/3 rounded-sm text-md font-base hover:bg-[var(--color-purple)] transition-all duration-300 active:scale-x-105 hover:scale-x-105"
+                    type="submit"
+                    name="button">{translation?.main?.profile?.change}
+                </button>
             </form>
         </div>
     </div>
