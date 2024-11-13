@@ -4,6 +4,6 @@ export async function load({ params }) {
   const products = await getProducts();
 
   return {
-    products: products,
+    products,
   };
 }

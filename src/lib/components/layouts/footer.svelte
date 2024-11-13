@@ -10,7 +10,7 @@
 <section class="py-12 bg-[var(--color-white100)]">
   <div class="container">
     <div class="flex max-lg:flex-col lg:justify-between max-lg:gap-5">
-      <h2 class="text-[var(--color-gray800)] font-medium text-4xl">
+      <!-- <h2 class="text-[var(--color-gray800)] font-medium text-4xl">
         {translation?.footer?.info?.title}
       </h2>
 
@@ -34,7 +34,7 @@
     </div>
     <div class="py-12">
       <hr class="border border-[var(--color-gray)]" />
-    </div>
+    </div> -->
     <div
       class="grid md:grid-cols-3 max-md:gap-5 items-center md:place-items-center"
     >
