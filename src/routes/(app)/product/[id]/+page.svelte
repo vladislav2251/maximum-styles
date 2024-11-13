@@ -18,7 +18,6 @@
   export let data;
 </script>
 
-<!-- Компонент ProductDetail -->
 <ProductDetail {data} {translation} addToCart={addProductToCart} />
 
 <ProductDescription {translation} description={data.description} />

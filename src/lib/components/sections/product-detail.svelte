@@ -3,6 +3,13 @@
   import '@fancyapps/ui/dist/fancybox/fancybox.css';
   const { Fancybox } = FancyboxModule;
   import { onMount } from 'svelte';
+  import { language } from '$lib/context/store.js';
+
+  let currentLang;
+  language.subscribe((lang) => {
+    currentLang = lang.code;
+    console.log(lang);
+  });
 
   onMount(() => {
     Fancybox.bind('[data-fancybox]', {});
@@ -60,10 +67,12 @@
       </div>
       <div class="flex gap-3 items-center md:gap-5">
         <p class="line-through text-2xl font-normal text-[var(--color-gray)]">
-          {data.price.regular} $
+          {data.price.discount.regular ? data.price.regular + ' $' : null}
         </p>
         <h2 class="text-[var(--color-black)] text-4xl font-bold">
-          {data.price.discount.regular} $
+          {data.price.discount.regular
+            ? data.price.regular * (1 - data.price.discount.regular / 100)
+            : data.price.regular} $
         </h2>
 
         <Quantity />
@@ -85,7 +94,7 @@
           {translation?.main?.product_detail?.info}:
         </h2>
         <p class="text-[var(--color-gray100)] text-md md:text-xl font-medium">
-          -{data.description.detail.de}
+          {@html data.description.detail[currentLang]}
         </p>
       </div>
     </div>
