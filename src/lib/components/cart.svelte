@@ -54,10 +54,10 @@
         </div>
 
         <div class="flex max-md:flex-col gap-5">
-          <div class="max-h-[300px] overflow-x-hidden overflow-scroll w-full">
+          <div class="max-h-[300px] md:overflow-x-hidden overflow-scroll w-full">
             {#each products as { id, photo, name, price, sale, amount }, index}
               <div
-                class="flex items-center max-sm:flex-col max-sm:gap-5 justify-between md:grid md:grid-cols-5"
+                class="flex items-center max-sm:flex-col max-sm:gap-1 justify-between md:grid md:grid-cols-5 border-b border-solid border-[var(--color-white200)] py-3 px-5"
               >
                 <button
                   class="sm:hidden grid place-content-end w-full"
@@ -118,6 +118,24 @@
           </div>
         </div>
       </div>
+      <div class="grid gap-5">
+        <form class="grid gap-5 md:w-3/4">
+            <div class="flex flex-col gap-3">
+                <label for="displayName">{translation?.cart?.inputs[0]?.label}</label>
+                <input class="px-8 py-4 border-solid text-base w-full border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)] outline-none" type="text" id="displayName" name="displayName" required minlength="2" maxlength="30" placeholder="{translation?.cart?.inputs[0]?.placeholder}" />
+            </div>
+            <div class="flex flex-col gap-3">
+                <label for="email">{translation?.cart?.inputs[1]?.label}</label>
+                <input class="px-8 py-4 border-solid text-base w-full border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)] outline-none" autocomplete="email" type="email" id="email" name="email" required placeholder="{translation?.cart?.inputs[1]?.placeholder}" />
+            </div>
+            <div class="flex flex-col gap-3">
+                <label for="phone">{translation?.cart?.inputs[2]?.label}</label>
+                <input class="px-8 py-4 border-solid text-base w-full border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)] outline-none" type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required placeholder="{translation?.cart?.inputs[2]?.placeholder}" />
+            </div>
+
+            <button class="px-8 py-4 bg-[var(--color-violet)] w-full md:w-1/3 rounded-sm text-md font-base hover:bg-[var(--color-purple)] transition-all duration-300 active:scale-x-105 hover:scale-x-105" type="submit" name="button">{translation?.main?.profile?.change}</button>
+        </form>
+    </div>
     {:else}
       <div class="products-container">
         <h2>{translation?.cart?.empty}</h2>

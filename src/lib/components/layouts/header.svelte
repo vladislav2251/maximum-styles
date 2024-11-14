@@ -56,9 +56,9 @@
   class="grid items-center md:items-start w-full bg-[var(--color-violet)]"
   id="header"
 >
-  <div class="container">
-    <div class="grid grid-cols-2 md:grid-cols-3">
-      <a class="max-w-fit" href="/">
+  <div class="container pt-4">
+    <div class="grid max-md:flex max-md:justify-between items-center md:grid-cols-3">
+      <a class="max-w-fit max-sm:w-24" href="/">
         <img src="/svg/logo.svg" alt="logo" loading="lazy" />
       </a>
       <div class="hidden md:flex justify-center items-center">
@@ -75,8 +75,8 @@
           </li>
         {/each}
       </div>
-      <div class="flex items-center justify-between">
-        <div class="flex justify-between items-center gap-4 md:gap-6">
+      <div class="flex items-center gap-3 md:gap-6 max-xl:justify-end justify-between">
+        <div class="flex items-center gap-3 md:gap-6">
           <a aria-label="phone" href="tel:+79991234567">
             <div class="flex items-center gap-2">
               <svg
@@ -110,17 +110,17 @@
                 </defs>
               </svg>
 
-              <h2 class="font-medium text-black text-sm">+79991234567</h2>
+              <h2 class="font-medium text-black text-sm max-xl:hidden">+79991234567</h2>
             </div>
           </a>
           <a aria-label="email" href="mailto:mail@mail.com"> 
             <div class="flex items-center gap-2">
               <svg height="20" width="30" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path style="fill:#231F20;" d="M425.367,72.125H86.633C38.752,72.125,0,111.131,0,158.759v194.482 c0,47.839,38.98,86.633,86.633,86.633h338.734c47.741,0,86.633-38.888,86.633-86.633V158.759 C512,111.069,473.187,72.125,425.367,72.125z M425.367,110.411c9.804,0,18.928,2.942,26.556,7.976l-184.231,120.58 c-7.102,4.649-16.282,4.649-23.386,0l-184.23-120.58C76.732,107.394,58.236,110.411,425.367,110.411z M39.03,150.368 l126.776,82.975L38.286,350.222C38.286,142.169,37.967,156.414,39.03,150.368z M425.367,401.589H86.633 c-12.865,0-24.563-5.061-33.235-13.284l145.463-133.326c59.59,39.003,66.629,31.186,114.278,0l145.463,133.326 C449.931,396.528,438.232,401.589,425.367,401.589z M473.716,350.222l-127.52-116.879l126.776-82.975 C474.035,156.414,473.716,142.206,473.716,350.222z"></path> </g> </g> </g></svg>
-              <h2 class="font-medium text-black text-sm">mail@mail.com</h2>
+              <h2 class="font-medium text-black text-sm max-xl:hidden">mail@mail.com</h2>
             </div>
           </a>
         </div>
-        <div class="flex gap-4 md:gap-6">
+        <div class="flex gap-3 items-center md:gap-6">
           <Lang {translation} />
 
           <button type="button" on:click={toggleModal} aria-label="Profile">
