@@ -75,8 +75,8 @@
           </li>
         {/each}
       </div>
-      <div class="flex items-center gap-3 md:gap-6 max-xl:justify-end justify-between">
-        <div class="flex items-center gap-3 md:gap-6">
+      <div class="flex items-center gap-3 sm:gap-6 max-xl:justify-end justify-between">
+        <div class="flex items-center gap-3 sm:gap-6">
           <a aria-label="phone" href="tel:+79991234567">
             <div class="flex items-center gap-2">
               <svg
@@ -120,7 +120,7 @@
             </div>
           </a>
         </div>
-        <div class="flex gap-3 items-center md:gap-6">
+        <div class="flex gap-3 items-center sm:gap-6">
           <Lang {translation} />
 
           <button type="button" on:click={toggleModal} aria-label="Profile">
