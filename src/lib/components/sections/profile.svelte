@@ -11,6 +11,13 @@
   export let accountData;
 
   console.log(accountData);
+  const onFormSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const values = Object.fromEntries(formData.entries());
+
+    console.log(values);
+  };
 </script>
 
 <section class="py-12 container mx-auto px-4">
@@ -37,7 +44,7 @@
       <h2 class="text-3xl lg:text-4xl font-bold">
         {translation?.main?.profile?.personal_information}
       </h2>
-      <form class="grid gap-5 md:w-1/2">
+      <form class="grid gap-5 md:w-1/2" on:submit={onFormSubmit}>
         <div class="flex flex-col md:flex-row gap-5">
           <div class="flex flex-col gap-3 w-full md:w-1/2">
             <label for="firstName"
@@ -48,7 +55,7 @@
               type="text"
               id="firstName"
               name="firstName"
-              required
+              bind:value={accountData.first_name}
               minlength="2"
               maxlength="30"
               placeholder={translation?.main?.profile?.inputs[0]?.placeholder}
@@ -63,7 +70,7 @@
               type="text"
               id="lastName"
               name="lastName"
-              required
+              bind:value={accountData.last_name}
               minlength="2"
               maxlength="30"
               placeholder={translation?.main?.profile?.inputs[1]?.placeholder}
@@ -77,9 +84,9 @@
           <input
             class="px-8 py-4 border-solid text-base w-full border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)] outline-none"
             type="text"
-            id="displayName"
-            name="displayName"
-            required
+            id="username"
+            name="username"
+            bind:value={accountData.username}
             minlength="2"
             maxlength="30"
             placeholder={translation?.main?.profile?.inputs[2]?.placeholder}
@@ -94,8 +101,8 @@
             autocomplete="email"
             type="email"
             id="email"
+            bind:value={accountData.email}
             name="email"
-            required
             placeholder={translation?.main?.profile?.inputs[3]?.placeholder}
           />
         </div>
@@ -108,8 +115,7 @@
             type="tel"
             id="phone"
             name="phone"
-            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-            required
+            bind:value={accountData.phone}
             placeholder={translation?.main?.profile?.inputs[4]?.placeholder}
           />
         </div>
@@ -125,7 +131,6 @@
             id="status"
             bind:group={status}
             value="1"
-            checked
             required
           />
           <span>{translation?.main?.profile?.inputs[5]?.options[0]}</span>
@@ -137,7 +142,6 @@
             id="status"
             bind:group={status}
             value="2"
-            checked
             required
           />
           <span>{translation?.main?.profile?.inputs[5]?.options[1]}</span>

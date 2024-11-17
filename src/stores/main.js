@@ -131,3 +131,49 @@ export const getAccount = async (token) => {
     return null;
   }
 };
+
+export const updateAccount = async (account_id, account) => {
+  try {
+    const response = await axiosInstance.patch(
+      `/accounts/update/${account_id}/`,
+      account
+    );
+    return response.data.account || [];
+  } catch (error) {
+    console.error('Error updating account:', error);
+    throw error;
+  }
+};
+
+export const getOrders = async () => {
+  try {
+    const response = await axiosInstance.get('/orders/get/');
+    return response.data.orders || [];
+  } catch (error) {
+    console.error('Error fetching orders:', error);
+    return [];
+  }
+};
+
+export const getOrder = async (order_id) => {
+  try {
+    const response = await axiosInstance.get(`/orders/get/${order_id}/`);
+    return response.data.order || [];
+  } catch (error) {
+    console.error('Error fetching order:', error);
+    return [];
+  }
+};
+
+export const updateOrderStatus = async (order_id, status) => {
+  try {
+    const response = await axiosInstance.patch(
+      `/orders/change-status/${order_id}/`,
+      status
+    );
+    return response.data.order || [];
+  } catch (error) {
+    console.error('Error updating order:', error);
+    throw error;
+  }
+};
