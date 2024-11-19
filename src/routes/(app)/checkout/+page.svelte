@@ -1,6 +1,16 @@
 <script>
+  import Checkout from '$lib/components/sections/checkout.svelte';
+  import { language } from '$lib/context/store.js';
+
+  $: {
+    if ($language) {
+      translation = $language.langFile;
+    }
+  }
+
+  export let translation;
+
   export let data;
-  console.log(data.account);
 </script>
 
-<h1>Checkout</h1>
+<Checkout {translation} products={data.products} account={data.account} />
