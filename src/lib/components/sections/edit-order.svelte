@@ -1,4 +1,5 @@
 <script>
+  import { goto } from '$app/navigation';
   import { updateOrderStatus } from '@/stores/main.js';
   export let translation;
   export let data;
@@ -13,6 +14,11 @@
     { value: 3, label: 'Delivered', color: 'bg-purple-500' },
     { value: 5, label: 'Cancelled', color: 'bg-red-500' },
   ];
+
+  const onBackButtonClick = (e) => {
+    e.preventDefault();
+    goto('/admin/orders/all');
+  };
 
   const onButtonClick = async (e) => {
     e.preventDefault();
@@ -30,6 +36,11 @@
 
 <section class="size-full flex flex-col gap-4">
   <h1 class="font-bold text-5xl">Order Data</h1>
+  <button
+    on:click={onBackButtonClick}
+    type="button"
+    class="rounded-xl w-32 h-8 font-bold bg-stone-400">Go Back</button
+  >
   <form on:submit={onButtonClick} class="w-full flex gap-4 justify-end">
     <select
       id="status"
@@ -45,76 +56,75 @@
       Update
     </button>
   </form>
-  <table class="min-w-full table-auto">
-    <thead class="bg-gray-100">
-      <tr>
-        <th class="p-2 text-left">Field</th>
-        <th class="p-2 text-left">Value</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Customer Data Section -->
-      <tr class="bg-gray-200">
-        <td colspan="2" class="p-2 font-bold">Customer Data</td>
-      </tr>
-      <tr>
-        <td class="p-2">Customer ID</td>
-        <td class="p-2">{parsedData.account_id}</td>
-      </tr>
-      <tr>
-        <td class="p-2">First Name</td>
-        <td class="p-2">{parsedData.personal_data.first_name}</td>
-      </tr>
-      <tr>
-        <td class="p-2">Last Name</td>
-        <td class="p-2">{parsedData.personal_data.last_name}</td>
-      </tr>
+  <div class="w-full overflow-auto">
+    <table class="min-w-[1244px] table-auto">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="p-2 text-left">Field</th>
+          <th class="p-2 text-left">Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="bg-gray-200">
+          <td colspan="2" class="p-2 font-bold">Customer Data</td>
+        </tr>
+        <tr>
+          <td class="p-2">Customer ID</td>
+          <td class="p-2">{parsedData.account_id}</td>
+        </tr>
+        <tr>
+          <td class="p-2">First Name</td>
+          <td class="p-2">{parsedData.personal_data.first_name}</td>
+        </tr>
+        <tr>
+          <td class="p-2">Last Name</td>
+          <td class="p-2">{parsedData.personal_data.last_name}</td>
+        </tr>
 
-      <!-- Order Data Section -->
-      <tr class="bg-gray-200">
-        <td colspan="2" class="p-2 font-bold">Order Data</td>
-      </tr>
-      <tr>
-        <td class="p-2">Order ID</td>
-        <td class="p-2">{parsedData._id}</td>
-      </tr>
-      <tr>
-        <td class="p-2">Order Status</td>
-        <td class="p-2">
-          <span
-            class={`inline-block px-2 py-1 rounded-md ${getStatusColor(
-              parsedData.status
-            )}`}
-          >
-            {getStatusLabel(parsedData.status)}
-          </span>
-        </td>
-      </tr>
-      <tr>
-        <td class="p-2">Total Price</td>
-        <td class="p-2">{parsedData.price}</td>
-      </tr>
+        <tr class="bg-gray-200">
+          <td colspan="2" class="p-2 font-bold">Order Data</td>
+        </tr>
+        <tr>
+          <td class="p-2">Order ID</td>
+          <td class="p-2">{parsedData._id}</td>
+        </tr>
+        <tr>
+          <td class="p-2">Order Status</td>
+          <td class="p-2">
+            <span
+              class={`inline-block px-2 py-1 rounded-md ${getStatusColor(
+                parsedData.status
+              )}`}
+            >
+              {getStatusLabel(parsedData.status)}
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td class="p-2">Total Price</td>
+          <td class="p-2">{parsedData.price}</td>
+        </tr>
 
-      <!-- Delivery Data Section -->
-      <tr class="bg-gray-200">
-        <td colspan="2" class="p-2 font-bold">Delivery Data</td>
-      </tr>
-      <tr>
-        <td class="p-2">Country</td>
-        <td class="p-2">{parsedData.personal_data.delivery_data.country}</td>
-      </tr>
-      <tr>
-        <td class="p-2">City</td>
-        <td class="p-2">{parsedData.personal_data.delivery_data.city}</td>
-      </tr>
-      <tr>
-        <td class="p-2">Address</td>
-        <td class="p-2">{parsedData.personal_data.delivery_data.address}</td>
-      </tr>
-      <tr>
-        <td class="p-2">Postcode</td>
-        <td class="p-2">{parsedData.personal_data.delivery_data.postcode}</td>
-      </tr>
-    </tbody>
-  </table>
+        <tr class="bg-gray-200">
+          <td colspan="2" class="p-2 font-bold">Delivery Data</td>
+        </tr>
+        <tr>
+          <td class="p-2">Country</td>
+          <td class="p-2">{parsedData.personal_data.delivery_data.country}</td>
+        </tr>
+        <tr>
+          <td class="p-2">City</td>
+          <td class="p-2">{parsedData.personal_data.delivery_data.city}</td>
+        </tr>
+        <tr>
+          <td class="p-2">Address</td>
+          <td class="p-2">{parsedData.personal_data.delivery_data.address}</td>
+        </tr>
+        <tr>
+          <td class="p-2">Postcode</td>
+          <td class="p-2">{parsedData.personal_data.delivery_data.postcode}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </section>

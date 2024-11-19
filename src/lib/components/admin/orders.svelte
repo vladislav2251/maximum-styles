@@ -15,8 +15,8 @@
   };
 </script>
 
-<section class="w-full">
-  <table class="w-full border-collapse">
+<section class="w-full overflow-auto">
+  <table class="min-w-[1244px] w-full border-collapse">
     <thead class="bg-gray-300">
       <tr>
         <th class="p-2 text-left">First Name</th>
