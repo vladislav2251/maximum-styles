@@ -1,5 +1,6 @@
 <script>
   export let translation;
+  export let deliveryData;
 </script>
 
 <fieldset class="grid gap-2">
@@ -14,6 +15,7 @@
         type="text"
         name="country"
         id="country"
+        bind:value={deliveryData.country}
         placeholder={translation?.main?.profile?.country?.placeholder}
         class="px-8 py-4 border-solid text-base w-full border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)] outline-none"
       />
@@ -24,18 +26,20 @@
         type="text"
         name="city"
         id="city"
+        bind:value={deliveryData.city}
         placeholder={translation?.main?.profile?.city.placeholder}
         class="px-8 py-4 border-solid text-base w-full border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)] outline-none"
       />
     </div>
     <div class="flex flex-col gap-2">
-      <label for="post_code"
+      <label for="postcode"
         >{translation?.main?.profile?.post?.label}</label
       >
       <input
         type="text"
-        name="post_code"
-        id="post_code"
+        name="postcode"
+        id="postcode"
+        bind:value={deliveryData.postcode}
         placeholder={translation?.main?.profile?.post?.placeholder}
         class="px-8 py-4 border-solid text-base w-full border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)] outline-none"
       />
@@ -48,6 +52,7 @@
       type="text"
       name="address"
       id="address"
+      bind:value={deliveryData.address}
       placeholder={translation?.main?.profile?.adress?.placeholder}
       class="px-8 py-4 border-solid text-base w-full border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)] outline-none"
     />
