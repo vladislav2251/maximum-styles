@@ -1,6 +1,7 @@
 <script>
   import Person from '$lib/components/forms/person.svelte';
   import Firma from '$lib/components/forms/firma.svelte';
+  import { updateAccount } from '@stores/main';
 
   let status = '1';
 
@@ -10,12 +11,37 @@
 
   export let accountData;
 
-  console.log(accountData);
-  const onFormSubmit = (e) => {
+  const onFormSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const values = Object.fromEntries(formData.entries());
-    console.log(values);
+    const {
+      first_name,
+      last_name,
+      username,
+      email,
+      phone,
+      country,
+      city,
+      post_code,
+      address,
+    } = values;
+    const newAccountValues = {
+      username,
+      email,
+      personal_data: {
+        first_name,
+        last_name,
+        phone,
+      },
+      delivery_data: {
+        country,
+        city,
+        post_code,
+        address,
+      },
+    };
+    await updateAccount(accountData._id, newAccountValues);
   };
 </script>
 
@@ -46,14 +72,14 @@
       <form class="grid gap-5 md:w-1/2" on:submit={onFormSubmit}>
         <div class="flex flex-col md:flex-row gap-5">
           <div class="flex flex-col gap-3 w-full md:w-1/2">
-            <label for="firstName"
+            <label for="first_name"
               >{translation?.main?.profile?.inputs[0]?.label}</label
             >
             <input
               class="px-8 py-4 border-solid text-base w-full border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)] outline-none"
               type="text"
-              id="firstName"
-              name="firstName"
+              id="first_name"
+              name="first_name"
               bind:value={accountData.first_name}
               minlength="2"
               maxlength="30"
@@ -61,14 +87,14 @@
             />
           </div>
           <div class="flex flex-col gap-3 w-full md:w-1/2">
-            <label for="lastName"
+            <label for="last_name"
               >{translation?.main?.profile?.inputs[1]?.label}</label
             >
             <input
               class="px-8 py-4 border-solid text-base w-full border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)] outline-none"
               type="text"
-              id="lastName"
-              name="lastName"
+              id="last_name"
+              name="last_name"
               bind:value={accountData.last_name}
               minlength="2"
               maxlength="30"
