@@ -9,46 +9,46 @@
 
   <div class="grid grid-cols-3 w-full gap-3">
     <div class="flex flex-col gap-2">
-      <label for="country">{translation?.main?.profile?.[7]?.label}</label>
+      <label for="country">{translation?.main?.profile?.country?.label}</label>
       <input
         type="text"
         name="country"
         id="country"
-        placeholder={translation?.main?.profile?.inputs[7]?.placeholder}
+        placeholder={translation?.main?.profile?.country?.placeholder}
         class="px-8 py-4 border-solid text-base w-full border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)] outline-none"
       />
     </div>
     <div class="flex flex-col gap-2">
-      <label for="city">{translation?.main?.profile?.inputs[8]?.label}</label>
+      <label for="city">{translation?.main?.profile?.city?.label}</label>
       <input
         type="text"
         name="city"
         id="city"
-        placeholder={translation?.main?.profile?.inputs[8]?.placeholder}
+        placeholder={translation?.main?.profile?.city.placeholder}
         class="px-8 py-4 border-solid text-base w-full border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)] outline-none"
       />
     </div>
     <div class="flex flex-col gap-2">
       <label for="post_code"
-        >{translation?.main?.profile?.inputs[9]?.label}</label
+        >{translation?.main?.profile?.post?.label}</label
       >
       <input
         type="text"
         name="post_code"
         id="post_code"
-        placeholder={translation?.main?.profile?.inputs[9]?.placeholder}
+        placeholder={translation?.main?.profile?.post?.placeholder}
         class="px-8 py-4 border-solid text-base w-full border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)] outline-none"
       />
     </div>
   </div>
 
   <div class="flex flex-col gap-2">
-    <label for="address">{translation?.main?.profile?.inputs[9]?.label}</label>
+    <label for="address">{translation?.main?.profile?.address?.label}</label>
     <input
       type="text"
       name="address"
       id="address"
-      placeholder={translation?.main?.profile?.inputs[9]?.placeholder}
+      placeholder={translation?.main?.profile?.adress?.placeholder}
       class="px-8 py-4 border-solid text-base w-full border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)] outline-none"
     />
   </div>

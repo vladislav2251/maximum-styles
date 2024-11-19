@@ -68,15 +68,15 @@
       "inputs": [
         {
           "label": "Vorname",
-          "placeholder": "Vasya"
+          "placeholder": "vorname"
         },
         {
           "label": "Nachname",
-          "placeholder": "Pupkin"
+          "placeholder": "nachname"
         },
         {
           "label": "Anzeigename",
-          "placeholder": "Professor"
+          "placeholder": "anzeigename"
         },
         {
           "label": "E-Mail",
@@ -96,10 +96,13 @@
         },
         {
           "label": "Geburtsdatum",
-          "placeholder": ""
+          "placeholder": "geburtsdatum"
         }
       ],
-
+      "city": "Stadt",
+      "country": "Land",
+      "post": "Postleitzahl",
+      "address": "Adresse",
       "change": "Ändern"
     },
     "search": {
