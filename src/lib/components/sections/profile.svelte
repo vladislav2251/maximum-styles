@@ -23,7 +23,7 @@
       phone,
       country,
       city,
-      post_code,
+      postcode,
       address,
     } = values;
     const newAccountValues = {
@@ -37,7 +37,7 @@
       delivery_data: {
         country,
         city,
-        post_code,
+        postcode: Number(postcode),
         address,
       },
     };
@@ -171,7 +171,7 @@
         </div>
 
         {#if status === '1'}
-          <Person {translation} />
+          <Person {translation} deliveryData={accountData.delivery_data} />
         {:else if status === '2'}
           <Firma {translation} />
         {/if}
