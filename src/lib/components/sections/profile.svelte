@@ -80,7 +80,7 @@
               type="text"
               id="first_name"
               name="first_name"
-              bind:value={accountData.first_name}
+              bind:value={accountData.personal_data.first_name}
               minlength="2"
               maxlength="30"
               placeholder={translation?.main?.profile?.inputs[0]?.placeholder}
@@ -95,7 +95,7 @@
               type="text"
               id="last_name"
               name="last_name"
-              bind:value={accountData.last_name}
+              bind:value={accountData.personal_data.last_name}
               minlength="2"
               maxlength="30"
               placeholder={translation?.main?.profile?.inputs[1]?.placeholder}
