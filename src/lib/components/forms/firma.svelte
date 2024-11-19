@@ -21,43 +21,43 @@
 
   <div class="flex flex-col gap-2">
     <label for="first_name"
-      >{translation?.main?.profile?.inputs[7]?.label}</label
+      >{translation?.main?.profile?.country}</label
     >
     <input
       type="text"
       name="first_name"
       id="first_name"
-      placeholder={translation?.main?.profile?.inputs[7]?.placeholder}
+      placeholder={translation?.main?.profile?.country}
       required
       class="px-8 py-4 border-solid text-base w-full border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)] outline-none"
     />
   </div>
   <div class="flex flex-col gap-2">
-    <label for="last_name">{translation?.main?.profile?.inputs[8]?.label}</label
+    <label for="last_name">{translation?.main?.profile?.city}</label
     >
     <input
       type="text"
       name="last_name"
       id="last_name"
-      placeholder={translation?.main?.profile?.inputs[8]?.placeholder}
+      placeholder={translation?.main?.profile?.city}
       required
       class="px-8 py-4 border-solid text-base w-full border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)] outline-none"
     />
   </div>
   <div class="flex flex-col gap-2">
-    <label for="last_name">{translation?.main?.profile?.inputs[9]?.label}</label
+    <label for="last_name">{translation?.main?.profile?.post}</label
     >
     <input
       type="text"
       name="last_name"
       id="last_name"
-      placeholder={translation?.main?.profile?.inputs[9]?.placeholder}
+      placeholder={translation?.main?.profile?.post}
       required
       class="px-8 py-4 border-solid text-base w-full border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)] outline-none"
     />
   </div>
 
-  <div class="flex flex-col gap-2">
+  <!-- <div class="flex flex-col gap-2">
     <label for="last_name">{translation?.main?.profile?.inputs[9]?.label}</label
     >
     <input
@@ -68,7 +68,7 @@
       required
       class="px-8 py-4 border-solid text-base w-full border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)] outline-none"
     />
-  </div>
+  </div> -->
 
   <div class="flex flex-col items-start gap-2">
     {#if uploadedImage}
