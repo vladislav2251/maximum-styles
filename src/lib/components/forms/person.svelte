@@ -39,7 +39,7 @@
         type="text"
         name="postcode"
         id="postcode"
-        bind:value={deliveryData.postcode}
+        bind:value={personal_data.postcode}
         placeholder={translation?.main?.profile?.post}
         class="px-8 py-4 border-solid text-base w-full border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)] outline-none"
       />
@@ -52,7 +52,7 @@
       type="text"
       name="address"
       id="address"
-      bind:value={deliveryData.address}
+      bind:value={personal_data.address}
       placeholder={translation?.main?.profile?.adress}
       class="px-8 py-4 border-solid text-base w-full border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)] outline-none"
     />
