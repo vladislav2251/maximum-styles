@@ -80,9 +80,9 @@
         },
       },
     };
-    // console.log(product);
     await updateProduct(product._id, newProduct);
-    goto(`/admin/product/edit/${product._id}`);
+    // goto(`/admin/product/edit/${product._id}`);
+    window.location.reload();
   }
 </script>
 

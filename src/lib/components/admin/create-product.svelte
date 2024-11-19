@@ -1,6 +1,10 @@
 <script>
   import { onMount } from 'svelte';
-  import { getCategories, getManufacturers } from '@/stores/main.js';
+  import {
+    getCategories,
+    getManufacturers,
+    createProduct,
+  } from '@/stores/main.js';
 
   export let translation;
 
@@ -29,11 +33,7 @@
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
-    const values = {};
-
-    formData.forEach((value, key) => {
-      values[key] = value;
-    });
+    const values = Object.fromEntries(formData.entries());
 
     const product = {
       name: values.name,
@@ -68,6 +68,7 @@
         },
       },
     };
+    const response = await createProduct(product);
   }
 </script>
 

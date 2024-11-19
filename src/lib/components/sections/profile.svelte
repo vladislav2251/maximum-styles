@@ -6,7 +6,7 @@
 
   export let translation;
 
-  $: links = [{ href: '/info', label: translation?.main?.profile?.link }];
+  // $: links = [{ href: '/profile', label: translation?.main?.profile?.link }];
 
   export let accountData;
 
@@ -15,30 +15,29 @@
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const values = Object.fromEntries(formData.entries());
-
     console.log(values);
   };
 </script>
 
 <section class="py-12 container mx-auto px-4">
   <div class="flex flex-col lg:flex-row gap-10">
-    <div class="flex flex-col gap-3 items-start w-full lg:w-auto">
-      <h2 class="text-2xl font-medium">
-        {translation?.main?.profile?.my_account}
-      </h2>
-      <div class="w-full">
-        <hr />
-      </div>
-      {#each links as link}
-        <a href={link.href} class="w-full">
-          <button
-            class="py-3 px-3 w-full text-left flex items-center hover:bg-[var(--color-white100)] rounded-sm transition-all duration-300"
-          >
-            {link.label}
-          </button>
-        </a>
-      {/each}
-    </div>
+    <!-- <div class="flex flex-col gap-3 items-start w-full lg:w-auto"> -->
+    <!--   <h2 class="text-2xl font-medium"> -->
+    <!--     {translation?.main?.profile?.my_account} -->
+    <!--   </h2> -->
+    <!--   <div class="w-full"> -->
+    <!--     <hr /> -->
+    <!--   </div> -->
+    <!--   {#each links as link} -->
+    <!--     <a href={link.href} class="w-full"> -->
+    <!--       <button -->
+    <!--         class="py-3 px-3 w-full text-left flex items-center hover:bg-[var(--color-white100)] rounded-sm transition-all duration-300" -->
+    <!--       > -->
+    <!--         {link.label} -->
+    <!--       </button> -->
+    <!--     </a> -->
+    <!--   {/each} -->
+    <!-- </div> -->
 
     <div class="flex-1 grid gap-5">
       <h2 class="text-3xl lg:text-4xl font-bold">
@@ -131,7 +130,6 @@
             id="status"
             bind:group={status}
             value="1"
-            required
           />
           <span>{translation?.main?.profile?.inputs[5]?.options[0]}</span>
         </div>
@@ -142,7 +140,6 @@
             id="status"
             bind:group={status}
             value="2"
-            required
           />
           <span>{translation?.main?.profile?.inputs[5]?.options[1]}</span>
         </div>

@@ -121,6 +121,16 @@ export const updateProduct = async (product_id, newProduct) => {
   }
 };
 
+export const createProduct = async (newProduct) => {
+  try {
+    const response = await axiosInstance.post('/products/create/', newProduct);
+    return response.data.product || [];
+  } catch (error) {
+    console.error('Error creating product:', error);
+    throw error;
+  }
+};
+
 export const getAccount = async (token) => {
   try {
     const response = await axiosInstance.get(`/accounts/token-check/${token}/`);

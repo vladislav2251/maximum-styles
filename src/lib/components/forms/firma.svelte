@@ -80,12 +80,10 @@
         />
       </a>
     {:else}
-      <!-- Поле загрузки с иконкой облака -->
       <label
         for="imageUpload"
         class="w-40 h-40 flex items-center justify-center border-2 border-dashed border-[var(--color-gray)] rounded-lg cursor-pointer hover:border-[var(--color-primary-300)] transition-colors duration-300"
       >
-        <!-- SVG иконка облака -->
         <svg
           height="40"
           width="40"
