@@ -1,7 +1,6 @@
 <script>
   export let translation;
   export let deliveryData;
-  console.log(deliveryData);
 </script>
 
 <fieldset class="grid gap-2">
