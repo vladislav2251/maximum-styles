@@ -140,7 +140,7 @@
             type="tel"
             id="phone"
             name="phone"
-            bind:value={accountData.phone}
+            bind:value={accountData.personal_data.phone}
             placeholder={translation?.main?.profile?.inputs[4]?.placeholder}
           />
         </div>

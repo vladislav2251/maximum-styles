@@ -2,7 +2,7 @@
   import { cartStore, toggleCart } from '$lib/context/cart.js';
   import Quantity from '$lib/components/sections/quantity.svelte';
   import { fly } from 'svelte/transition';
-  import { getCart, getProduct } from '../../stores/main';
+  import { getCart, getProduct, removeProductFromCart } from '@stores/main';
   import { onMount } from 'svelte';
 
   export let translation;
@@ -63,7 +63,7 @@
                 <button
                   class="sm:hidden grid place-content-end w-full"
                   type="button"
-                  on:click={() => handleRemove({ id })}>✕</button
+                  on:click={() => removeProductFromCart({ id })}>✕</button
                 >
                 <img src={photo} alt={name} />
                 <h2 class="text-base">{name}</h2>

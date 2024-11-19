@@ -68,7 +68,7 @@
         },
       },
     };
-    const response = await createProduct(product);
+    await createProduct(product);
   }
 </script>
 

@@ -32,14 +32,12 @@
       />
     </div>
     <div class="flex flex-col gap-2">
-      <label for="postcode"
-        >{translation?.main?.profile?.post}</label
-      >
+      <label for="postcode">{translation?.main?.profile?.post}</label>
       <input
         type="text"
         name="postcode"
         id="postcode"
-        bind:value={personal_data.postcode}
+        bind:value={deliveryData.postcode}
         placeholder={translation?.main?.profile?.post}
         class="px-8 py-4 border-solid text-base w-full border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)] outline-none"
       />
@@ -52,7 +50,7 @@
       type="text"
       name="address"
       id="address"
-      bind:value={personal_data.address}
+      bind:value={deliveryData.address}
       placeholder={translation?.main?.profile?.adress}
       class="px-8 py-4 border-solid text-base w-full border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)] outline-none"
     />
