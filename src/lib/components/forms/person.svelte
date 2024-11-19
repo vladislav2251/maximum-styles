@@ -10,50 +10,50 @@
 
   <div class="grid grid-cols-3 w-full gap-3">
     <div class="flex flex-col gap-2">
-      <label for="country">{translation?.main?.profile?.country?.label}</label>
+      <label for="country">{translation?.main?.profile?.country}</label>
       <input
         type="text"
         name="country"
         id="country"
         bind:value={deliveryData.country}
-        placeholder={translation?.main?.profile?.country?.placeholder}
+        placeholder={translation?.main?.profile?.country}
         class="px-8 py-4 border-solid text-base w-full border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)] outline-none"
       />
     </div>
     <div class="flex flex-col gap-2">
-      <label for="city">{translation?.main?.profile?.city?.label}</label>
+      <label for="city">{translation?.main?.profile?.city}</label>
       <input
         type="text"
         name="city"
         id="city"
         bind:value={deliveryData.city}
-        placeholder={translation?.main?.profile?.city.placeholder}
+        placeholder={translation?.main?.profile?.city}
         class="px-8 py-4 border-solid text-base w-full border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)] outline-none"
       />
     </div>
     <div class="flex flex-col gap-2">
       <label for="postcode"
-        >{translation?.main?.profile?.post?.label}</label
+        >{translation?.main?.profile?.post}</label
       >
       <input
         type="text"
         name="postcode"
         id="postcode"
         bind:value={deliveryData.postcode}
-        placeholder={translation?.main?.profile?.post?.placeholder}
+        placeholder={translation?.main?.profile?.post}
         class="px-8 py-4 border-solid text-base w-full border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)] outline-none"
       />
     </div>
   </div>
 
   <div class="flex flex-col gap-2">
-    <label for="address">{translation?.main?.profile?.address?.label}</label>
+    <label for="address">{translation?.main?.profile?.address}</label>
     <input
       type="text"
       name="address"
       id="address"
       bind:value={deliveryData.address}
-      placeholder={translation?.main?.profile?.adress?.placeholder}
+      placeholder={translation?.main?.profile?.adress}
       class="px-8 py-4 border-solid text-base w-full border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)] outline-none"
     />
   </div>
