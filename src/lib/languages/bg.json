@@ -63,6 +63,7 @@
     },
     "profile": {
       "my_account": "Моят профил",
+      "personal_information": "Лична информация",
       "delivery_info": "Иформация за лична доставка",
       "link": "Моята информация",
       "inputs": [
