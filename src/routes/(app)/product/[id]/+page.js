@@ -1,12 +1,15 @@
 import { getProduct } from '@/stores/main.js';
 import { error } from '@sveltejs/kit';
-export const load = async ({ params }) => {
+export const load = async ({ params, data }) => {
   try {
-    const data = await getProduct(params.id);
-    if (!data) {
+    const product = await getProduct(params.id);
+    if (!product) {
       error(404, 'Not found');
     }
-    return data;
+    return {
+      product,
+      account: data.account,
+    };
   } catch (e) {
     error(500, e.message);
   }

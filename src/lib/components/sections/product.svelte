@@ -1,18 +1,15 @@
 <script>
   import { goto } from '$app/navigation';
 
-  export let translation; // Переводы
-  export let addToCart; // Функция добавления в корзину
-  export let product; // Данные одного продукта
+  export let translation;
+  export let addToCart;
+  export let product;
 
-  // Функция для редиректа на страницу с деталями продукта
   function onclickRedirect() {
     if (product?._id) {
       goto(`/product/${product._id}`);
     }
   }
-
-  console.log(product); // Для отладки
 </script>
 
 <div

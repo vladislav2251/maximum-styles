@@ -66,6 +66,9 @@
                   <button
                     class="text-2xl font-semibold"
                     on:click={() => {
+                      if (amount === 1) {
+                        return;
+                      }
                       amount--;
                       saveInDb(_id, amount);
                     }}>-</button
@@ -80,9 +83,14 @@
                   >
                 </div>
                 <div class="flex sm:flex-col gap-2 items-center">
-                  <p class="text-xl">${amount * price.regular}</p>
+                  <p class="text-xl">{amount * price.regular}$</p>
                   <p class="text-base text-[var(--color-gray100)] line-through">
-                    ${price.discount.regular}
+                    {price.discount.regular
+                      ? amount *
+                          price.regular *
+                          (1 - price.discount.regular / 100) +
+                        '$'
+                      : null}
                   </p>
                 </div>
                 <button

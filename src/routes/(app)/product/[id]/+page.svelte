@@ -1,6 +1,4 @@
 <script>
-  import { addProductToCart } from '$lib/context/cart.js';
-
   import { language } from '$lib/context/store.js';
   import Contact from '$lib/components/sections/contact.svelte';
   import ProductDescription from '$lib/components/sections/product-description.svelte';
@@ -18,8 +16,7 @@
   export let data;
 </script>
 
-<ProductDetail {data} {translation} addToCart={addProductToCart} />
-
-<ProductDescription {translation} description={data.description} />
+<ProductDetail product={data.product} account={data.account} {translation} />
+<ProductDescription {translation} description={data.product.description} />
 <Simillar {translation} />
 <Contact {translation} />
