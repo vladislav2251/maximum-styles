@@ -1,15 +1,24 @@
 <script>
   import { goto } from '$app/navigation';
-
+  import { addProduct } from '@stores/main';
   export let translation;
-  export let addToCart;
   export let product;
+  export let account;
 
   function onclickRedirect() {
     if (product?._id) {
       goto(`/product/${product._id}`);
     }
   }
+  const addToCart = async (product_id) => {
+    if (account?._id) {
+      await addProduct({
+        account_id: account._id,
+        product_id,
+        amount: 1,
+      });
+    }
+  };
 </script>
 
 <div
@@ -40,8 +49,8 @@
       <button
         type="button"
         on:click={(e) => {
-          e.stopPropagation(); // Останавливаем событие от всплытия
-          addToCart(product._id); // Добавляем в корзину
+          e.stopPropagation();
+          addToCart(product._id);
         }}
         class="text-gray-600 mt-[7px] font-medium text-[18px] leading-7"
       >

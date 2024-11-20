@@ -1,9 +1,9 @@
 <script>
-  import { addProductToCart } from '$lib/context/cart.js';
   import Product from '$lib/components/sections/product.svelte';
 
   export let translation;
   export let products;
+  export let account;
 
   let filteredProducts = products;
   function setFilteredProducts(newProducts) {
@@ -13,6 +13,6 @@
 
 <section class="py-12 flex flex-wrap justify-center items-center gap-y-8">
   {#each filteredProducts as product (product._id)}
-    <Product {translation} {product} addToCart={addProductToCart} />
+    <Product {translation} {product} {account} />
   {/each}
 </section>

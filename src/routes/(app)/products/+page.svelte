@@ -16,6 +16,7 @@
 
   let products = data.products;
   let filteredProducts = products;
+  let account = data.account;
 
   function setFilteredProducts(newProducts) {
     filteredProducts = newProducts;
@@ -27,6 +28,6 @@
 
   <div class="flex-1">
     <Search {translation} {products} filterProducts={setFilteredProducts} />
-    <Products {translation} {products} {filteredProducts} />
+    <Products {translation} {products} {filteredProducts} {account} />
   </div>
 </div>
