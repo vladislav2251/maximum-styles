@@ -1,15 +1,13 @@
 <script>
   import { language } from '$lib/context/store.js';
   import '$lib/styles/styles.css';
-
   import Header from '$lib/components/layouts/header.svelte';
   import Footer from '$lib/components/layouts/footer.svelte';
-  import { cartStore, toggleCart } from '$lib/context/cart.js';
-  import Cart from '$lib/components/cart.svelte';
+  import { goto } from '$app/navigation';
 
-  let cart = [];
+  // import { cartStore } from '$lib/context/cart.js';
+  // $: $cartStore;
 
-  $: $cartStore;
   let translation;
 
   $: {
@@ -25,7 +23,9 @@
     <slot />
 
     <button
-      on:click={toggleCart}
+      on:click={() => {
+        goto('/checkout');
+      }}
       class="fixed bottom-10 right-5 md:bottom-20 md:right-10 p-4 bg-[var(--color-black)] text-white rounded-full"
       aria-label="cart"
     >
@@ -44,10 +44,6 @@
         />
       </svg>
     </button>
-
-    {#if $cartStore.isCartOpen}
-      <Cart {translation} {cart} closeCart={() => toggleCart()} />
-    {/if}
   </main>
   <Footer {translation} />
 </div>
