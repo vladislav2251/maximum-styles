@@ -55,7 +55,7 @@ export const getProducts = async () => {
   }
 };
 
-export const addProduct = async (account_id, product_id, amount) => {
+export const addProduct = async ({ account_id, product_id, amount }) => {
   try {
     const response = await axiosInstance.post('/carts/product/add/', {
       account_id,
@@ -80,9 +80,9 @@ export const getCart = async (account_id) => {
   }
 };
 
-export const removeProductFromCart = async () => {
+export const removeProductFromCart = async (account_id, product_id) => {
   try {
-    const response = await axiosInstance.post('/carts/product/delete/', {
+    const response = await axiosInstance.delete('/carts/product/delete/', {
       account_id,
       product_id,
     });

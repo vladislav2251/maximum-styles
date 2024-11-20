@@ -2,26 +2,8 @@
   export let products;
   export let account;
   export let translation;
-
-  function debounce(callback, delay) {
-    let timeout;
-
-    return function (...args) {
-      clearTimeout(timeout);
-      timeout = setTimeout(() => {
-        callback.apply(this, args);
-      }, delay);
-    };
-  }
-
-  function increment(value) {
-    debounce(function () {
-      value + 1;
-      console.log(amount);
-    }, 300);
-  }
-
-  $: allProducts = products ?? [];
+  import { addProduct, removeProductFromCart } from '@stores/main.js';
+  let allProducts = products ?? [];
   $: total = allProducts.reduce(
     (acc, item) => acc + item.price.regular * item.amount,
     0
@@ -31,6 +13,25 @@
     0
   );
   $: vat = (total * 0.2).toFixed(2);
+  const account_id = account._id;
+
+  function debounce(func, timeout = 300) {
+    let timer;
+    return (...args) => {
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        func.apply(this, args);
+      }, timeout);
+    };
+  }
+  const saveInDb = debounce(async (product_id, amount) => {
+    //Change this to whatever new endpoint you have for updating the amount in cart
+    await addProduct({ account_id, product_id, amount });
+  }, 500);
+
+  const removeProduct = async (product_id) => {
+    await removeProductFromCart(account_id, product_id);
+  };
 </script>
 
 <div class="container mx-auto p-6">
@@ -55,7 +56,7 @@
                 <button
                   class="sm:hidden grid place-content-end w-full"
                   type="button"
-                  on:click={() => removeProductFromCart({ id })}>✕</button
+                  on:click={() => removeProduct(_id)}>✕</button
                 >
                 <img src={photo} alt={name} />
                 <h2 class="text-base">{name}</h2>
@@ -65,14 +66,16 @@
                   <button
                     class="text-2xl font-semibold"
                     on:click={() => {
-                      increment(amount);
+                      amount--;
+                      saveInDb(_id, amount);
                     }}>-</button
                   >
                   <h2 class="text-xl font-semibold">{amount}</h2>
                   <button
                     class="text-2xl font-semibold"
                     on:click={() => {
-                      increment(amount);
+                      amount++;
+                      saveInDb(_id, amount);
                     }}>+</button
                   >
                 </div>
@@ -85,7 +88,7 @@
                 <button
                   class="max-sm:hidden"
                   type="button"
-                  on:click={() => handleRemove({ id })}>✕</button
+                  on:click={() => removeProduct(_id)}>✕</button
                 >
               </div>
             {/each}
@@ -113,7 +116,7 @@
             class="flex justify-between items-center border-t border-gray-200 pt-3"
           >
             <p>{translation?.cart?.total}</p>
-            <p>${total}</p>
+            <p>${Number(total) - Number(totalSale) + Number(vat)}</p>
           </div>
           <button
             type="button"
@@ -123,51 +126,51 @@
         </div>
       </div>
 
-      <form class="mt-8 grid gap-5 md:w-3/4">
-        <div class="flex flex-col gap-3">
-          <label for="displayName">{translation?.cart?.inputs[0]?.label}</label>
-          <input
-            class="px-8 py-4 border border-gray-300 rounded-md"
-            type="text"
-            id="displayName"
-            name="displayName"
-            required
-            minlength="2"
-            maxlength="30"
-            placeholder={translation?.cart?.inputs[0]?.placeholder}
-          />
-        </div>
-        <div class="flex flex-col gap-3">
-          <label for="email">{translation?.cart?.inputs[1]?.label}</label>
-          <input
-            class="px-8 py-4 border border-gray-300 rounded-md"
-            type="email"
-            id="email"
-            name="email"
-            required
-            placeholder={translation?.cart?.inputs[1]?.placeholder}
-          />
-        </div>
-        <div class="flex flex-col gap-3">
-          <label for="phone">{translation?.cart?.inputs[2]?.label}</label>
-          <input
-            class="px-8 py-4 border border-gray-300 rounded-md"
-            type="tel"
-            id="phone"
-            name="phone"
-            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-            required
-            placeholder={translation?.cart?.inputs[2]?.placeholder}
-          />
-        </div>
-
-        <button
-          class="px-8 py-4 bg-violet-600 text-white rounded-sm hover:bg-violet-700"
-          type="submit"
-        >
-          {translation?.main?.profile?.change}
-        </button>
-      </form>
+      <!-- <form class="mt-8 grid gap-5 md:w-3/4"> -->
+      <!--   <div class="flex flex-col gap-3"> -->
+      <!--     <label for="displayName">{translation?.cart?.inputs[0]?.label}</label> -->
+      <!--     <input -->
+      <!--       class="px-8 py-4 border border-gray-300 rounded-md" -->
+      <!--       type="text" -->
+      <!--       id="displayName" -->
+      <!--       name="displayName" -->
+      <!--       required -->
+      <!--       minlength="2" -->
+      <!--       maxlength="30" -->
+      <!--       placeholder={translation?.cart?.inputs[0]?.placeholder} -->
+      <!--     /> -->
+      <!--   </div> -->
+      <!--   <div class="flex flex-col gap-3"> -->
+      <!--     <label for="email">{translation?.cart?.inputs[1]?.label}</label> -->
+      <!--     <input -->
+      <!--       class="px-8 py-4 border border-gray-300 rounded-md" -->
+      <!--       type="email" -->
+      <!--       id="email" -->
+      <!--       name="email" -->
+      <!--       required -->
+      <!--       placeholder={translation?.cart?.inputs[1]?.placeholder} -->
+      <!--     /> -->
+      <!--   </div> -->
+      <!--   <div class="flex flex-col gap-3"> -->
+      <!--     <label for="phone">{translation?.cart?.inputs[2]?.label}</label> -->
+      <!--     <input -->
+      <!--       class="px-8 py-4 border border-gray-300 rounded-md" -->
+      <!--       type="tel" -->
+      <!--       id="phone" -->
+      <!--       name="phone" -->
+      <!--       pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" -->
+      <!--       required -->
+      <!--       placeholder={translation?.cart?.inputs[2]?.placeholder} -->
+      <!--     /> -->
+      <!--   </div> -->
+      <!---->
+      <!--   <button -->
+      <!--     class="px-8 py-4 bg-violet-600 text-white rounded-sm hover:bg-violet-700" -->
+      <!--     type="submit" -->
+      <!--   > -->
+      <!--     {translation?.main?.profile?.change} -->
+      <!--   </button> -->
+      <!-- </form> -->
     </div>
   {:else}
     <div class="text-center">

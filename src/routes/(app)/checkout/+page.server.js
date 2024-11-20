@@ -1,6 +1,5 @@
 import { redirect } from '@sveltejs/kit';
 import { getAccount } from '@stores/main.js';
-import Cookies from 'js-cookie';
 
 export const load = async ({ cookies }) => {
   try {
