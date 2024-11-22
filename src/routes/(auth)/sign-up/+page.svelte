@@ -1,5 +1,5 @@
 <script>
-  import SignUp from '../../../lib/components/forms/sign-up.svelte';
+  import SignUp from '$lib/components/auth/sign-up.svelte';
   import { language } from '$lib/context/store.js';
 
   $: {
