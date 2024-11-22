@@ -7,7 +7,7 @@
   import Achievements from '$lib/components/sections/achievements.svelte';
   import About from '$lib/components/sections/about.svelte';
   import Label from '$lib/components/sections/label.svelte';
-  import Products from '$lib/components/sections/products.svelte';
+  import Products from '$lib/components/sections/shop/products/products.svelte';
   import SecondLabel from '$lib/components/sections/second-label.svelte';
   let translation;
 

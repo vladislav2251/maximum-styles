@@ -2,7 +2,7 @@
   import { language } from '$lib/context/store.js';
   import Categories from '$lib/components/sections/categories.svelte';
   import Search from '$lib/components/sections/search.svelte';
-  import Products from '$lib/components/sections/products.svelte';
+  import Products from '$lib/components/sections/shop/products/products.svelte';
   let translation;
 
   $: {

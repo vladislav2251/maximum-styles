@@ -1,5 +1,5 @@
 <script>
-  import Checkout from '$lib/components/sections/checkout.svelte';
+  import Checkout from '../../../lib/components/sections/checkout.svelte';
   import { language } from '$lib/context/store.js';
 
   $: {

@@ -1,5 +1,5 @@
 <script>
-  import Products from '$lib/components/sections/products.svelte';
+  import Products from '../products/products.svelte';
 
   export let translation;
 </script>
