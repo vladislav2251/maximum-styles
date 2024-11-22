@@ -18,6 +18,7 @@
         amount: 1,
       });
     }
+    goto('/sign-in');
   };
 </script>
 

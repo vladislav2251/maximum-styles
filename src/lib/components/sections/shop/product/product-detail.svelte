@@ -5,6 +5,7 @@
   import { language } from '$lib/context/store.js';
   import Quantity from '$lib/components/sections/quantity.svelte';
   import { addProduct } from '@stores/main';
+  import { goto } from '$app/navigation';
 
   export let product;
   export let account;
@@ -88,7 +89,7 @@
           on:click={(e) => {
             e.stopPropagation();
             if (account_id === null) {
-              console.log('please login or register');
+              goto('/sign-in');
               return;
             }
             addProduct({
