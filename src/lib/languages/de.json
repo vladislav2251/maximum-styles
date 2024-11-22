@@ -148,11 +148,13 @@
         "placeholder": "Passwort"
       },
       {
-        "placeholder": "Passwort"
+        "placeholder": "Wiederholen Sie das Passwort"
       }
     ],
     "remember": "Angemeldet bleiben",
-    "btn": "Registrieren"
+    "btn": "Registrieren",
+    "pass_not_match": "Passwörter stimmen nicht überein",
+    "pass_requirements": "Das Passwort muss 6 bis 30 Zeichen lang sein, mindestens einen Kleinbuchstaben, einen Großbuchstaben, eine Ziffer und ein Sonderzeichen (@, $, !, %, *, ?, &) enthalten und darf nur englische Buchstaben, Zahlen und erlaubte Sonderzeichen enthalten."
   },
   "forgot_password": {
     "title": "Passwort vergessen",

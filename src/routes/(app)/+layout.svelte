@@ -5,9 +5,6 @@
   import Footer from '$lib/components/layouts/footer.svelte';
   import { goto } from '$app/navigation';
 
-  // import { cartStore } from '$lib/context/cart.js';
-  // $: $cartStore;
-
   let translation;
 
   $: {

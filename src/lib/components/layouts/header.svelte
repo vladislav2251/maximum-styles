@@ -1,15 +1,12 @@
 <script>
   import Lang from '$lib/components/sections/lang.svelte';
-  import AuthModal from '$lib/components/auth.svelte';
   import { onMount } from 'svelte';
   import Cookies from 'js-cookie';
   import { goto } from '$app/navigation';
-  import { redirect } from '@sveltejs/kit';
 
   export let translation;
 
   let isMenuOpen = false;
-  let isModalOpen = false;
 
   $: menuItems = [
     { label: translation?.header?.menuItems?.home, href: '/' },
@@ -18,6 +15,7 @@
   ];
 
   let resizeTimeout;
+
   const handleResize = () => {
     clearTimeout(resizeTimeout);
     resizeTimeout = setTimeout(() => {
@@ -29,10 +27,11 @@
     document.body.style.overflow = state ? 'hidden' : 'auto';
   };
 
-  const toggleModal = () => {
+  const onProfileClick = () => {
     const token = Cookies.get('auth_token');
     if (!token || token === 'undefined' || token === null) {
-      return (isModalOpen = !isModalOpen);
+      goto('/sign-in');
+      return;
     }
     goto('/profile');
   };
@@ -155,7 +154,7 @@
         <div class="flex gap-3 items-center sm:gap-6">
           <Lang {translation} />
 
-          <button type="button" on:click={toggleModal} aria-label="Profile">
+          <button type="button" on:click={onProfileClick} aria-label="Profile">
             <img src="/svg/profile.svg" alt="profile icon" loading="lazy" />
           </button>
           <button
@@ -208,15 +207,6 @@
     {/each}
   </div>
 </div>
-
-<AuthModal
-  {translation}
-  {isModalOpen}
-  closeModal={() => {
-    isModalOpen = false;
-    toggleOverflow(false);
-  }}
-/>
 
 <button
   class="fixed lg:hidden inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-300 z-20 cursor-default"
