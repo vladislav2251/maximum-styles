@@ -9,7 +9,7 @@
 
   export let translation;
 
-  import CreateProduct from '$lib/components/admin/create-product.svelte';
+  import CreateProduct from '$lib/components/admin/products/create-product.svelte';
 </script>
 
 <CreateProduct {translation} />

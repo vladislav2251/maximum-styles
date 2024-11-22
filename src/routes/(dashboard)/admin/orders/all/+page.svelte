@@ -1,6 +1,6 @@
 <script>
   import { language } from '$lib/context/store.js';
-  import Orders from '$lib/components/admin/orders.svelte';
+  import Orders from '$lib/components/admin/orders/orders.svelte';
 
   let translation;
   export let data;

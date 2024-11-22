@@ -1,5 +1,5 @@
 <script>
-  import EditProduct from '@components/admin/edit-product.svelte';
+  import EditProduct from '$lib/components/admin/products/edit-product.svelte';
   import { language } from '$lib/context/store.js';
 
   $: {

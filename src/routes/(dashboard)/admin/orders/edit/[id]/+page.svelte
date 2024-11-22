@@ -1,10 +1,9 @@
 <script>
   import { language } from '$lib/context/store.js';
-  import EditOrder from '../../../../../../lib/components/sections/edit-order.svelte';
+  import EditOrder from '$lib/components/admin/orders/edit-order.svelte';
 
   let translation;
   export let data;
-  console.log(data);
 
   $: {
     if ($language) {

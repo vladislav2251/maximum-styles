@@ -9,7 +9,7 @@
     }
   }
 
-  import CreateCategory from '$lib/components/admin/create-category.svelte';
+  import CreateCategory from '$lib/components/admin/categories/create-category.svelte';
 </script>
 
 <CreateCategory {translation} />
