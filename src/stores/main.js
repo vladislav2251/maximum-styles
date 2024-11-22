@@ -1,5 +1,15 @@
 import axiosInstance from '$lib/context/api.js';
 
+export const checkToken = async (token) => {
+  try {
+    const response = await axiosInstance.get(`/accounts/token-check/${token}`);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+};
+
 export const getCategories = async () => {
   try {
     const response = await axiosInstance.get('/categories/get/');

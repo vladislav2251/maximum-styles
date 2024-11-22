@@ -4,6 +4,7 @@
   import { onMount } from 'svelte';
   import Cookies from 'js-cookie';
   import { goto } from '$app/navigation';
+  import { redirect } from '@sveltejs/kit';
 
   export let translation;
 

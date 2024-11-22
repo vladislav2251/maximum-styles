@@ -16,7 +16,7 @@
       label: translation?.dashboard?.menu?.categories,
       href: '/admin/create-category',
     },
-    { label: translation?.dashboard?.menu?.orders, href: '/admin/orders' },
+    { label: translation?.dashboard?.menu?.orders, href: '/admin/orders/all' },
     { label: translation?.dashboard?.menu?.users, href: '/admin/users' },
   ];
 

@@ -83,15 +83,21 @@
                   >
                 </div>
                 <div class="flex sm:flex-col gap-2 items-center">
-                  <p class="text-xl">{amount * price.regular}$</p>
-                  <p class="text-base text-[var(--color-gray100)] line-through">
-                    {price.discount.regular
-                      ? amount *
-                          price.regular *
-                          (1 - price.discount.regular / 100) +
-                        '$'
-                      : null}
-                  </p>
+                  {#if price.discount.regular !== 0}
+                    <p class="text-xl">
+                      {amount *
+                        price.regular *
+                        (1 - price.discount.regular / 100) +
+                        '$'}
+                    </p>
+                    <p
+                      class="text-base text-[var(--color-gray100)] line-through"
+                    >
+                      {amount * price.regular}$
+                    </p>
+                  {:else}
+                    <p class="text-xl">{amount * price.regular}$</p>
+                  {/if}
                 </div>
                 <button
                   class="max-sm:hidden"
