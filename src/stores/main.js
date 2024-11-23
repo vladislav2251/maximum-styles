@@ -93,25 +93,13 @@ export const getCart = async (account_id) => {
 export const removeProductFromCart = async (account_id, product_id) => {
   try {
     const response = await axiosInstance.delete('/carts/product/delete/', {
-      account_id,
-      product_id,
+      data: {
+        account_id,
+        product_id,
+      },
     });
 
-    return response.data.carts || [];
-  } catch (error) {
-    console.error('Error adding product:', error);
-    throw error;
-  }
-};
-
-export const substructProductFromCart = async () => {
-  try {
-    const response = await axiosInstance.post('/carts/product/subtract/', {
-      account_id,
-      product_id,
-    });
-
-    return response.data.carts || [];
+    return response.data;
   } catch (error) {
     console.error('Error adding product:', error);
     throw error;
@@ -216,6 +204,19 @@ export const createAccount = async (newAccount) => {
     return response.data;
   } catch (error) {
     console.error('Error creating account:', error);
+    throw error;
+  }
+};
+
+export const updateAmountInCart = async (account_id, product_id, amount) => {
+  try {
+    const response = await axiosInstance.patch(
+      `/carts/product/update/${product_id}/`,
+      { account_id, amount }
+    );
+    return response.data;
+  } catch (error) {
+    console.error('Error adding product:', error);
     throw error;
   }
 };

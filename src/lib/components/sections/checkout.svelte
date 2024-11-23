@@ -2,7 +2,7 @@
   export let products;
   export let account;
   export let translation;
-  import { addProduct, removeProductFromCart } from '@stores/main.js';
+  import { updateAmountInCart, removeProductFromCart } from '@stores/main.js';
   let allProducts = products ?? [];
   $: total = allProducts.reduce(
     (acc, item) => acc + item.price.regular * item.amount,
@@ -13,6 +13,7 @@
     0
   );
   $: vat = (total * 0.2).toFixed(2);
+
   const account_id = account._id;
 
   function debounce(func, timeout = 300) {
@@ -25,8 +26,7 @@
     };
   }
   const saveInDb = debounce(async (product_id, amount) => {
-    //Change this to whatever new endpoint you have for updating the amount in cart
-    await addProduct({ account_id, product_id, amount });
+    await updateAmountInCart(account_id, product_id, amount);
   }, 500);
 
   const removeProduct = async (product_id) => {
@@ -66,7 +66,7 @@
                   <button
                     class="text-2xl font-semibold"
                     on:click={() => {
-                      if (amount === 1) {
+                      if (amount === -1) {
                         return;
                       }
                       amount--;

@@ -11,14 +11,12 @@
     }
   }
   const addToCart = async (product_id) => {
-    if (account?._id) {
-      await addProduct({
-        account_id: account._id,
-        product_id,
-        amount: 1,
-      });
-    }
-    goto('/sign-in');
+    if (!account?._id) goto('/sign-in');
+    await addProduct({
+      account_id: account._id,
+      product_id,
+      amount: 1,
+    });
   };
 </script>
 
