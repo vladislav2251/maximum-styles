@@ -26,11 +26,17 @@
     };
   }
   const saveInDb = debounce(async (product_id, amount) => {
-    await updateAmountInCart(account_id, product_id, amount);
+    const response = await updateAmountInCart(account_id, product_id, amount);
+    if (response.ok) {
+      allProducts = response.cart.products;
+    }
   }, 500);
 
   const removeProduct = async (product_id) => {
-    await removeProductFromCart(account_id, product_id);
+    const response = await removeProductFromCart(account_id, product_id);
+    if (response.ok) {
+      allProducts = response.cart.products;
+    }
   };
 </script>
 
