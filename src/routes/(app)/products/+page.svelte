@@ -3,14 +3,17 @@
   import Categories from '$lib/components/sections/categories.svelte';
   import Search from '$lib/components/sections/search.svelte';
   import Products from '$lib/components/sections/shop/products/products.svelte';
+  import Pagination from '$lib/components/pagination/pagination.svelte';
   import { onMount } from 'svelte';
   import { writable } from 'svelte/store';
   import { getProducts } from '@stores/main.js';
 
   let translation;
   let searchQuery = '';
-  let page = 1;
+  let currentPage = 1;
+  let totalPages = 1;
   let isLoading = false;
+  let totalProducts = 0;
 
   $: {
     if ($language) {
@@ -25,13 +28,17 @@
 
   const fetchProducts = async () => {
     isLoading = true;
-    const queryObject = {};
-    if (page) queryObject.page = page;
-    if (searchQuery) queryObject.search = searchQuery;
+    const queryObject = {
+      page: currentPage,
+      search: searchQuery,
+    };
 
     try {
       const response = await getProducts(queryObject);
-      products.set(response || []);
+      products.set(response.products || []);
+      currentPage = response.pages?.current || 1;
+      totalPages = response.pages?.total || 1;
+      totalProducts = response.products_count || 0;
     } catch (error) {
       console.error('Failed to fetch products:', error);
     } finally {
@@ -41,6 +48,12 @@
 
   const handleSearch = (event) => {
     searchQuery = event.detail.searchQuery;
+    currentPage = 1;
+    fetchProducts();
+  };
+
+  const handlePageChange = (event) => {
+    currentPage = event.detail.page;
     fetchProducts();
   };
 
@@ -54,5 +67,13 @@
   <div class="flex-1">
     <Search {translation} {searchQuery} {isLoading} on:search={handleSearch} />
     <Products {translation} products={$products} {account} {isLoading} />
+    {#if totalProducts > 0}
+      <Pagination
+        {currentPage}
+        {totalPages}
+        {isLoading}
+        on:pageChange={handlePageChange}
+      />
+    {/if}
   </div>
 </div>

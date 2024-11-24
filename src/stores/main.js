@@ -60,7 +60,7 @@ export const getProducts = async (queryParams) => {
     const response = await axiosInstance.get('/products/get/', {
       params: queryParams,
     });
-    return response.data.products || [];
+    return response.data;
   } catch (error) {
     console.error(error);
     return [];
