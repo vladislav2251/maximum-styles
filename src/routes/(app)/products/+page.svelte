@@ -1,9 +1,10 @@
 <script>
   import { language } from '$lib/context/store.js';
-  import Categories from '$lib/components/sections/categories.svelte';
   import Search from '$lib/components/sections/search.svelte';
   import Products from '$lib/components/sections/shop/products/products.svelte';
   import Pagination from '$lib/components/pagination/pagination.svelte';
+  import CategoryFilter from '../../../lib/components/categories/category-filter.svelte';
+  import PriceRange from '../../../lib/components/categories/price-range.svelte';
   import { onMount } from 'svelte';
   import { writable } from 'svelte/store';
   import { getProducts } from '@stores/main.js';
@@ -14,6 +15,9 @@
   let totalPages = 1;
   let isLoading = false;
   let totalProducts = 0;
+  let selectedCategories = [];
+  let minPrice = 0;
+  let maxPrice = undefined; // Remove initial maxPrice
 
   $: {
     if ($language) {
@@ -24,13 +28,20 @@
   export let data;
   const products = writable([]);
   let account = data.account;
-  const categories = data.categories;
+  const categories = data.categories.categories;
 
   const fetchProducts = async () => {
     isLoading = true;
     const queryObject = {
       page: currentPage,
       search: searchQuery,
+      // Change categories format
+      categories:
+        selectedCategories.length > 0
+          ? `[${selectedCategories.join(',')}]`
+          : undefined,
+      'min-price': minPrice || undefined,
+      'max-price': maxPrice || undefined, // Only include when set
     };
 
     try {
@@ -57,13 +68,43 @@
     fetchProducts();
   };
 
+  const handleCategoriesChange = (event) => {
+    selectedCategories = event.detail.categories;
+    currentPage = 1;
+    // Don't fetch immediately
+  };
+
+  const handlePriceChange = (event) => {
+    minPrice = event.detail.minPrice;
+    maxPrice = event.detail.maxPrice;
+    currentPage = 1;
+    // Don't fetch immediately
+  };
+
+  const handleApplyFilters = () => {
+    fetchProducts();
+  };
+
   onMount(() => {
     fetchProducts();
   });
 </script>
 
-<div class="flex gap-2 max-md:flex-col container py-12">
-  <Categories {translation} {categories} />
+<div class="flex gap-6 max-md:flex-col container py-12">
+  <div class="w-64 space-y-6 flex-shrink-0">
+    <CategoryFilter
+      {categories}
+      {selectedCategories}
+      on:categoriesChange={handleCategoriesChange}
+    />
+    <PriceRange {minPrice} on:priceChange={handlePriceChange} />
+    <button
+      class="w-full px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+      on:click={handleApplyFilters}
+    >
+      Apply Filters
+    </button>
+  </div>
   <div class="flex-1">
     <Search {translation} {searchQuery} {isLoading} on:search={handleSearch} />
     <Products {translation} products={$products} {account} {isLoading} />
