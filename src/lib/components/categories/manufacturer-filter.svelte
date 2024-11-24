@@ -35,7 +35,7 @@
   <h3 class="font-semibold text-lg">Manufacturers</h3>
   <div class="space-y-2">
     {#each manufacturers as manufacturer}
-      <label class="flex items-center gap-2">
+      <label class="flex items-center gap-2 cursor-pointer">
         <input
           type="checkbox"
           checked={selectedManufacturers.includes(manufacturer._id)}

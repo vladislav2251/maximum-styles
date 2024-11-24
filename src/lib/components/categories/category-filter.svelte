@@ -33,7 +33,7 @@
   <h3 class="font-semibold text-lg">Categories</h3>
   <div class="space-y-2">
     {#each categories as category}
-      <label class="flex items-center gap-2">
+      <label class="flex items-center gap-2 cursor-pointer">
         <input
           type="checkbox"
           checked={selectedCategories.includes(category._id)}
