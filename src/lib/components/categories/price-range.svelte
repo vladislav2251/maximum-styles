@@ -29,6 +29,7 @@
       <input
         type="number"
         bind:value={currentMin}
+        placeholder="0"
         min={0}
         class="w-full px-2 py-1 border rounded"
       />
@@ -38,6 +39,7 @@
       <input
         type="number"
         bind:value={currentMax}
+        placeholder="0"
         min={0}
         class="w-full px-2 py-1 border rounded"
       />

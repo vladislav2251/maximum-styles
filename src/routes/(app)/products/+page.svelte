@@ -97,7 +97,9 @@
 </script>
 
 <div class="flex gap-6 max-md:flex-col container py-12">
-  <div class="w-64 space-y-6 flex-shrink-0">
+  <div
+    class="w-64 space-y-6 flex-shrink-0 border-zinc-50 border rounded-xl shadow-lg p-[14px_16px] bg-[#FAFAFA]"
+  >
     <CategoryFilter
       {selectedCategories}
       on:categoriesChange={handleCategoriesChange}
@@ -108,7 +110,7 @@
     />
     <PriceRange {minPrice} on:priceChange={handlePriceChange} />
     <button
-      class="w-full px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+      class="px-8 py-4 w-full hover:bg-[var(--color-gray800)] transition-all duration-300 hover:scale-x-105 bg-[var(--color-black)] text-[var(--color-white)]"
       on:click={handleApplyFilters}
     >
       Apply Filters
