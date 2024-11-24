@@ -1,4 +1,3 @@
-import { redirect } from '@sveltejs/kit';
 import { getAccount } from '@stores/main.js';
 
 export async function load({ cookies }) {

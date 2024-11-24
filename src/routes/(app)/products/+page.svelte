@@ -5,10 +5,10 @@
   import Pagination from '$lib/components/pagination/pagination.svelte';
   import CategoryFilter from '$lib/components/categories/category-filter.svelte';
   import PriceRange from '$lib/components/categories/price-range.svelte';
-  import { onMount } from 'svelte';
-  import { writable } from 'svelte/store';
+  import ManufacturerFilter from '$lib/components/categories/manufacturer-filter.svelte';
   import { getProducts } from '@stores/main.js';
-  import ManufacturerFilter from '../../../lib/components/categories/manufacturer-filter.svelte';
+  import { writable } from 'svelte/store';
+  import { onMount } from 'svelte';
 
   let translation;
   let searchQuery = null;
