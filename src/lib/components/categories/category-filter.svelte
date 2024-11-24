@@ -1,7 +1,15 @@
 <script>
   import { getCategories } from '@/stores/main.js';
   import { createEventDispatcher, onMount } from 'svelte';
+  import { language } from '$lib/context/store.js';
   let categories = [];
+  export let selectedCategories = [];
+  const dispatch = createEventDispatcher();
+
+  let currentLang;
+  language.subscribe((lang) => {
+    currentLang = lang.code;
+  });
 
   onMount(async () => {
     const data = await getCategories();
@@ -9,9 +17,6 @@
       categories = data;
     }
   });
-  export let selectedCategories = [];
-
-  const dispatch = createEventDispatcher();
 
   function handleCategoryChange(categoryId) {
     if (selectedCategories.includes(categoryId)) {
@@ -21,6 +26,7 @@
     }
     dispatch('categoriesChange', { categories: selectedCategories });
   }
+  console.log(currentLang);
 </script>
 
 <div class="space-y-4">
@@ -34,7 +40,7 @@
           on:change={() => handleCategoryChange(category._id)}
           class="rounded border-gray-300"
         />
-        <span>{category.name.de}</span>
+        <span>{category.name[currentLang]}</span>
       </label>
     {/each}
   </div>

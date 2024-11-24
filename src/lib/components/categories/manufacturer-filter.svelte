@@ -1,9 +1,14 @@
 <script>
   import { getManufacturers } from '@/stores/main.js';
   import { createEventDispatcher, onMount } from 'svelte';
+  import { language } from '$lib/context/store.js';
 
   let manufacturers = [];
   export let selectedManufacturers = [];
+  let currentLang;
+  language.subscribe((lang) => {
+    currentLang = lang.code;
+  });
 
   onMount(async () => {
     const data = await getManufacturers();
@@ -37,7 +42,7 @@
           on:change={() => handleManufacturerChange(manufacturer._id)}
           class="rounded border-gray-300"
         />
-        <span>{manufacturer.name.de}</span>
+        <span>{manufacturer.name[currentLang]}</span>
       </label>
     {/each}
   </div>
