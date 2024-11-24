@@ -3,7 +3,14 @@
   import Categories from '$lib/components/sections/categories.svelte';
   import Search from '$lib/components/sections/search.svelte';
   import Products from '$lib/components/sections/shop/products/products.svelte';
+  import { onMount } from 'svelte';
+  import { writable } from 'svelte/store';
+  import { getProducts } from '@stores/main.js';
+
   let translation;
+  let searchQuery = '';
+  let page = 1;
+  let isLoading = false;
 
   $: {
     if ($language) {
@@ -12,22 +19,40 @@
   }
 
   export let data;
+  const products = writable([]);
+  let account = data.account;
   const categories = data.categories;
 
-  let products = data.products;
-  let filteredProducts = products;
-  let account = data.account;
+  const fetchProducts = async () => {
+    isLoading = true;
+    const queryObject = {};
+    if (page) queryObject.page = page;
+    if (searchQuery) queryObject.search = searchQuery;
 
-  function setFilteredProducts(newProducts) {
-    filteredProducts = newProducts;
-  }
+    try {
+      const response = await getProducts(queryObject);
+      products.set(response || []);
+    } catch (error) {
+      console.error('Failed to fetch products:', error);
+    } finally {
+      isLoading = false;
+    }
+  };
+
+  const handleSearch = (event) => {
+    searchQuery = event.detail.searchQuery;
+    fetchProducts();
+  };
+
+  onMount(() => {
+    fetchProducts();
+  });
 </script>
 
 <div class="flex gap-2 max-md:flex-col container py-12">
   <Categories {translation} {categories} />
-
   <div class="flex-1">
-    <Search {translation} {products} filterProducts={setFilteredProducts} />
-    <Products {translation} {products} {filteredProducts} {account} />
+    <Search {translation} {searchQuery} {isLoading} on:search={handleSearch} />
+    <Products {translation} products={$products} {account} {isLoading} />
   </div>
 </div>

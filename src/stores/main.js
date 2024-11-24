@@ -55,9 +55,11 @@ export const getProduct = async (product_id) => {
   }
 };
 
-export const getProducts = async () => {
+export const getProducts = async (queryParams) => {
   try {
-    const response = await axiosInstance.get('/products/get/');
+    const response = await axiosInstance.get('/products/get/', {
+      params: queryParams,
+    });
     return response.data.products || [];
   } catch (error) {
     console.error(error);
