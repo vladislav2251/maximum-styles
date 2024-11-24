@@ -3,21 +3,21 @@
   import Search from '$lib/components/sections/search.svelte';
   import Products from '$lib/components/sections/shop/products/products.svelte';
   import Pagination from '$lib/components/pagination/pagination.svelte';
-  import CategoryFilter from '../../../lib/components/categories/category-filter.svelte';
-  import PriceRange from '../../../lib/components/categories/price-range.svelte';
+  import CategoryFilter from '$lib/components/categories/category-filter.svelte';
+  import PriceRange from '$lib/components/categories/price-range.svelte';
   import { onMount } from 'svelte';
   import { writable } from 'svelte/store';
   import { getProducts } from '@stores/main.js';
 
   let translation;
-  let searchQuery = '';
+  let searchQuery = null;
   let currentPage = 1;
   let totalPages = 1;
   let isLoading = false;
   let totalProducts = 0;
   let selectedCategories = [];
-  let minPrice = 0;
-  let maxPrice = undefined; // Remove initial maxPrice
+  let minPrice = null;
+  let maxPrice = null;
 
   $: {
     if ($language) {
@@ -35,13 +35,12 @@
     const queryObject = {
       page: currentPage,
       search: searchQuery,
-      // Change categories format
       categories:
         selectedCategories.length > 0
           ? `[${selectedCategories.join(',')}]`
-          : undefined,
-      'min-price': minPrice || undefined,
-      'max-price': maxPrice || undefined, // Only include when set
+          : null,
+      'min-price': minPrice,
+      'max-price': maxPrice,
     };
 
     try {
@@ -71,14 +70,12 @@
   const handleCategoriesChange = (event) => {
     selectedCategories = event.detail.categories;
     currentPage = 1;
-    // Don't fetch immediately
   };
 
   const handlePriceChange = (event) => {
     minPrice = event.detail.minPrice;
     maxPrice = event.detail.maxPrice;
     currentPage = 1;
-    // Don't fetch immediately
   };
 
   const handleApplyFilters = () => {
