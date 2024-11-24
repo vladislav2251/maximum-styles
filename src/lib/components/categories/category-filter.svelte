@@ -1,7 +1,14 @@
 <script>
-  import { createEventDispatcher } from 'svelte';
+  import { getCategories } from '@/stores/main.js';
+  import { createEventDispatcher, onMount } from 'svelte';
+  let categories = [];
 
-  export let categories = [];
+  onMount(async () => {
+    const data = await getCategories();
+    if (data) {
+      categories = data;
+    }
+  });
   export let selectedCategories = [];
 
   const dispatch = createEventDispatcher();

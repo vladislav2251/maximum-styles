@@ -13,7 +13,7 @@ export const checkToken = async (token) => {
 export const getCategories = async () => {
   try {
     const response = await axiosInstance.get('/categories/get/');
-    return response.data;
+    return response.data.categories;
   } catch (error) {
     console.error('Error fetching categories:', error);
     return [];

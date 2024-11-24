@@ -8,6 +8,7 @@
   import { onMount } from 'svelte';
   import { writable } from 'svelte/store';
   import { getProducts } from '@stores/main.js';
+  import ManufacturerFilter from '../../../lib/components/categories/manufacturer-filter.svelte';
 
   let translation;
   let searchQuery = null;
@@ -16,6 +17,7 @@
   let isLoading = false;
   let totalProducts = 0;
   let selectedCategories = [];
+  let selectedManufacturers = [];
   let minPrice = null;
   let maxPrice = null;
 
@@ -28,7 +30,6 @@
   export let data;
   const products = writable([]);
   let account = data.account;
-  const categories = data.categories.categories;
 
   const fetchProducts = async () => {
     isLoading = true;
@@ -38,6 +39,10 @@
       categories:
         selectedCategories.length > 0
           ? `[${selectedCategories.join(',')}]`
+          : null,
+      manufacturers:
+        selectedManufacturers.length > 0
+          ? `[${selectedManufacturers.join(',')}]`
           : null,
       'min-price': minPrice,
       'max-price': maxPrice,
@@ -71,6 +76,10 @@
     selectedCategories = event.detail.categories;
     currentPage = 1;
   };
+  const handleManufacturersChange = (event) => {
+    selectedManufacturers = event.detail.manufacturers;
+    currentPage = 1;
+  };
 
   const handlePriceChange = (event) => {
     minPrice = event.detail.minPrice;
@@ -90,9 +99,12 @@
 <div class="flex gap-6 max-md:flex-col container py-12">
   <div class="w-64 space-y-6 flex-shrink-0">
     <CategoryFilter
-      {categories}
       {selectedCategories}
       on:categoriesChange={handleCategoriesChange}
+    />
+    <ManufacturerFilter
+      {selectedManufacturers}
+      on:manufacturersChange={handleManufacturersChange}
     />
     <PriceRange {minPrice} on:priceChange={handlePriceChange} />
     <button
