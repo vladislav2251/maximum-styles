@@ -37,7 +37,7 @@
       delivery_data: {
         country,
         city,
-        postcode: Number(postcode),
+        postcode,
         address,
       },
     };
