@@ -1,17 +1,24 @@
-import { getAccount, getCategories, getManufacturers } from '@stores/main.js';
+import {
+  getAccount,
+  getCategories,
+  getManufacturers,
+  getProducts,
+} from '@stores/main.js';
 
 export async function load({ cookies }) {
-    const token = cookies.get('auth_token');
+  const token = cookies.get('auth_token');
 
-    const [account, categories, manufacturers] = await Promise.all([
-        getAccount(token),
-        getCategories(),
-        getManufacturers()
-    ]);
+  const [account, categories, manufacturers, products] = await Promise.all([
+    getAccount(token),
+    getCategories(),
+    getManufacturers(),
+    getProducts(),
+  ]);
 
-    return {
-        account,
-        categories,
-        manufacturers
-    };
+  return {
+    account,
+    categories,
+    manufacturers,
+    products,
+  };
 }
