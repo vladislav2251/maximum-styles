@@ -20,8 +20,6 @@
     }
     dispatch('categoriesChange', { categories: selectedCategories });
   }
-
-  console.log(currentLang);
 </script>
 
 <div class="space-y-4">

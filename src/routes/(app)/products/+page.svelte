@@ -16,6 +16,7 @@
   let selectedManufacturers = [];
   let minPrice = null;
   let maxPrice = null;
+  let isActive = false;
 
   $: {
     if ($language) {
@@ -91,12 +92,27 @@
   const handleApplyFilters = () => {
     fetchProducts();
   };
+
+  const toggleFilters = () => {
+    isActive = !isActive;
+  };
 </script>
 
 <div class="flex gap-6 max-md:flex-col container py-12">
   <div
-    class="w-64 space-y-6 flex-shrink-0 border-zinc-50 border rounded-xl shadow-lg p-[14px_16px] bg-[#FAFAFA]"
+    class="md:w-64 transition w-full space-y-6 flex-shrink-0 overflow-hidden border-zinc-50 border rounded-xl shadow-lg p-[14px_16px] bg-[#FAFAFA]"
+    style="height: {isActive ? '700px' : '3.5rem'};"
   >
+    <div class="flex justify-between items-center">
+      <h2 class="text-xl font-semibold">Filters</h2>
+      <button
+        class="text-xl font-bold transition"
+        on:click={toggleFilters}
+        class:rotate-180={isActive}
+      >
+        ᐯ
+      </button>
+    </div>
     <CategoryFilter
       categories={data.categories}
       {selectedCategories}
@@ -128,3 +144,14 @@
     {/if}
   </div>
 </div>
+
+<style>
+  .rotate-180 {
+    transform: rotate(180deg);
+  }
+  .transition {
+    transition:
+      transform 0.3s ease,
+      height 0.3s ease;
+  }
+</style>
