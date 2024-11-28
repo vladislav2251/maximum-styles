@@ -131,6 +131,18 @@ export const createProduct = async (newProduct) => {
   }
 };
 
+export const deleteProduct = async (product_id) => {
+  try {
+    const response = await axiosInstance.delete(
+      `/products/delete/${product_id}/`
+    );
+    return response.data;
+  } catch (error) {
+    console.error('Error deleting product:', error);
+    throw error;
+  }
+};
+
 export const getAccount = async (token) => {
   try {
     const response = await axiosInstance.get(`/accounts/token-check/${token}/`);
@@ -189,7 +201,7 @@ export const updateOrderStatus = async (order_id, status) => {
 
 export const logIn = async (email, password) => {
   try {
-    const response = await axiosInstance.post('/accounts/login', {
+    const response = await axiosInstance.post('/accounts/login/', {
       username_or_email: email,
       password,
     });

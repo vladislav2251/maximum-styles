@@ -10,7 +10,7 @@
   $: menuItems = [
     {
       label: translation?.dashboard?.menu?.products,
-      href: '/admin/product/create',
+      href: '/admin/products',
     },
     {
       label: translation?.dashboard?.menu?.categories,

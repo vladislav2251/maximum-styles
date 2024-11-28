@@ -18,13 +18,13 @@
   };
 </script>
 
-<div class="flex mb-4">
+<div class="flex mb-4 shadow-lg">
   <input
     type="search"
     name="input"
     id="search"
     placeholder={translation?.main?.search?.placeholder}
-    class="px-8 py-4 cursor-pointer outline-none w-full bg-[var(--color-white100)]"
+    class="px-8 py-4 cursor-text outline-none w-full bg-[var(--color-white100)]"
     bind:value={searchQuery}
     on:keypress={handleKeyPress}
     disabled={isLoading}
