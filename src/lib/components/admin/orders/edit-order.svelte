@@ -39,7 +39,8 @@
   <button
     on:click={onBackButtonClick}
     type="button"
-    class="rounded-xl w-32 h-8 font-bold bg-stone-400">Go Back</button
+    class="px-6 py-2 w-32 bg-[var(--color-primary-300)] text-white rounded hover:bg-opacity-90 transition-colors"
+    >Go Back</button
   >
   <form on:submit={onButtonClick} class="w-full flex gap-4 justify-end">
     <select
@@ -52,7 +53,10 @@
         <option value={status.value}>{status.label}</option>
       {/each}
     </select>
-    <button type="submit" class="rounded-xl w-32 h-8 font-bold bg-stone-400">
+    <button
+      type="submit"
+      class="px-6 py-1 bg-[var(--color-primary-300)] text-white rounded hover:bg-opacity-90 transition-colors"
+    >
       Update
     </button>
   </form>

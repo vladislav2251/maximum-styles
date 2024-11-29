@@ -58,7 +58,8 @@
             <button
               type="button"
               on:click={() => onButtonClick(order._id)}
-              class="w-full rounded-xl font-bold bg-stone-400">Edit</button
+              class="px-6 py-1 bg-[var(--color-primary-300)] text-white rounded hover:bg-opacity-90 transition-colors"
+              >Edit</button
             >
           </td>
         </tr>
