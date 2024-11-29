@@ -22,10 +22,11 @@
   <div
     class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
   >
-    <div class="bg-white p-6 rounded-lg shadow-xl w-full max-w-3xl">
+    <div
+      class="bg-white p-6 rounded-lg shadow-xl w-full max-w-3xl max-h-[540px] overflow-y-auto"
+    >
       <h2 class="text-xl font-bold mb-4">Is this your product?</h2>
       <div class="flex">
-        <!-- Product Image -->
         <div class="w-1/3">
           <img
             src={productInfo.image ||
@@ -35,7 +36,6 @@
           />
         </div>
 
-        <!-- Product Details -->
         <div class="w-2/3 pl-6">
           <h2 class="text-2xl font-bold mb-2">{productInfo.name}</h2>
           <p><strong>Category:</strong> {productInfo.category_id}</p>
@@ -57,7 +57,6 @@
         </div>
       </div>
 
-      <!-- Description Toggle -->
       <div class="mt-6">
         <div class="flex gap-2 flex-wrap max-w-md">
           {#each ['short', 'detail', 'usage', 'ingredients'] as key}
@@ -82,7 +81,6 @@
         </div>
       </div>
 
-      <!-- Modal Actions -->
       <div class="flex justify-end space-x-2 mt-6">
         <button
           class="px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300"

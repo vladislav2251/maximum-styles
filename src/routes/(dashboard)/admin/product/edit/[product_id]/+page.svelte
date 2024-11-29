@@ -12,4 +12,9 @@
   export let data;
 </script>
 
-<EditProduct {translation} {data} />
+<EditProduct
+  {translation}
+  product={data.product}
+  categories={data.categories}
+  manufacturers={data.manufacturers}
+/>
