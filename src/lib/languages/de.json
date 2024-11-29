@@ -53,7 +53,7 @@
       "description_content": "Beschreibung Inhalt",
       "how_to_use": "Anwendung",
       "usage": "Anwendungsanleitung",
-      "Ingredients": "Zutaten",
+      "ingredients": "Zutaten",
       "delivery_content": "Lieferinformationen"
     },
     "product_detail": {

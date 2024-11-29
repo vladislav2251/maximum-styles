@@ -37,7 +37,7 @@
           <a data-fancybox="gallery" data-caption="Caption #1" href={photo}>
             <img
               src={photo}
-              alt="jopa"
+              alt="Product"
               class="hover:scale-105 transition-all duration-500"
             />
           </a>
