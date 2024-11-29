@@ -45,12 +45,13 @@
 
   {#if products.length > 0}
     <div class="flex flex-col gap-8">
-      <div class="flex justify-between mb-5">
-        <button on:click={() => window.history.back()} type="button">
-          {translation?.cart?.back}
-        </button>
-        <button type="button">{translation?.cart?.restore}</button>
-      </div>
+      <button
+        class="px-6 py-2 w-32 bg-[var(--color-primary-300)] text-white rounded hover:bg-gray-700 hover:scale-x-105 transition-all"
+        on:click={() => window.history.back()}
+        type="button"
+      >
+        {'←'}
+      </button>
 
       <div class="flex gap-8">
         <div class="flex-1">
@@ -145,52 +146,6 @@
           </button>
         </div>
       </div>
-
-      <!-- <form class="mt-8 grid gap-5 md:w-3/4"> -->
-      <!--   <div class="flex flex-col gap-3"> -->
-      <!--     <label for="displayName">{translation?.cart?.inputs[0]?.label}</label> -->
-      <!--     <input -->
-      <!--       class="px-8 py-4 border border-gray-300 rounded-md" -->
-      <!--       type="text" -->
-      <!--       id="displayName" -->
-      <!--       name="displayName" -->
-      <!--       required -->
-      <!--       minlength="2" -->
-      <!--       maxlength="30" -->
-      <!--       placeholder={translation?.cart?.inputs[0]?.placeholder} -->
-      <!--     /> -->
-      <!--   </div> -->
-      <!--   <div class="flex flex-col gap-3"> -->
-      <!--     <label for="email">{translation?.cart?.inputs[1]?.label}</label> -->
-      <!--     <input -->
-      <!--       class="px-8 py-4 border border-gray-300 rounded-md" -->
-      <!--       type="email" -->
-      <!--       id="email" -->
-      <!--       name="email" -->
-      <!--       required -->
-      <!--       placeholder={translation?.cart?.inputs[1]?.placeholder} -->
-      <!--     /> -->
-      <!--   </div> -->
-      <!--   <div class="flex flex-col gap-3"> -->
-      <!--     <label for="phone">{translation?.cart?.inputs[2]?.label}</label> -->
-      <!--     <input -->
-      <!--       class="px-8 py-4 border border-gray-300 rounded-md" -->
-      <!--       type="tel" -->
-      <!--       id="phone" -->
-      <!--       name="phone" -->
-      <!--       pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" -->
-      <!--       required -->
-      <!--       placeholder={translation?.cart?.inputs[2]?.placeholder} -->
-      <!--     /> -->
-      <!--   </div> -->
-      <!---->
-      <!--   <button -->
-      <!--     class="px-8 py-4 bg-violet-600 text-white rounded-sm hover:bg-violet-700" -->
-      <!--     type="submit" -->
-      <!--   > -->
-      <!--     {translation?.main?.profile?.change} -->
-      <!--   </button> -->
-      <!-- </form> -->
     </div>
   {:else}
     <div class="text-center">
