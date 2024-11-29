@@ -64,6 +64,7 @@
     "profile": {
       "my_account": "Mein Konto",
       "personal_information": "Persönliche Informationen",
+      "delivery_info": "Liefer Informationen",
       "link": "Meine Informationen",
       "inputs": [
         {

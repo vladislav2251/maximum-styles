@@ -8,7 +8,7 @@
     {translation?.main?.profile?.delivery_info}
   </h2>
 
-  <div class="grid grid-cols-3 w-full gap-3">
+  <div class="flex flex-col md:flex-row w-full gap-3">
     <div class="flex flex-col gap-2">
       <label for="country">{translation?.main?.profile?.country}</label>
       <input
@@ -51,7 +51,7 @@
       name="address"
       id="address"
       bind:value={deliveryData.address}
-      placeholder={translation?.main?.profile?.adress}
+      placeholder={translation?.main?.profile?.address}
       class="px-8 py-4 border-solid text-base w-full border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)] outline-none"
     />
   </div>
