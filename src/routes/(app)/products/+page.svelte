@@ -101,7 +101,7 @@
 <div class="flex gap-6 max-md:flex-col container py-12">
   <div
     class="md:w-64 transition w-full space-y-6 flex-shrink-0 overflow-hidden border-zinc-50 border rounded-xl shadow-lg p-[14px_16px] bg-[#FAFAFA]"
-    style="height: {isActive ? '700px' : '3.5rem'};"
+    style="height: {isActive ? '750px' : '3.5rem'};"
   >
     <div class="flex justify-between items-center">
       <h2 class="text-xl font-semibold">Filters</h2>
