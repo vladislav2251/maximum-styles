@@ -20,7 +20,6 @@
     dragOver = false;
     const files = Array.from(event.dataTransfer.files);
 
-    // Filter to only image files and limit to 10 images
     const imageFiles = files
       .filter((file) => file.type.startsWith('image/'))
       .slice(0, 10);
@@ -33,7 +32,6 @@
   function handleFileSelect(event) {
     const files = Array.from(event.target.files);
 
-    // Filter to only image files and limit to 10 images
     const imageFiles = files
       .filter((file) => file.type.startsWith('image/'))
       .slice(0, 10);
@@ -44,7 +42,6 @@
   }
 
   function updateImageFiles(files) {
-    // Limit total images to 10
     imageFiles = files.slice(0, 10);
     onImagesUpload(imageFiles);
   }
