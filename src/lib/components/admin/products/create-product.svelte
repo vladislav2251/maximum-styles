@@ -1,11 +1,13 @@
 <script>
-  import { createProduct } from '@/stores/main.js';
+  import { createProduct, uploadImage } from '@/stores/main.js';
   import ProductModal from './modal.svelte';
+  import ImageUpload from './drag-image.svelte';
 
   export let translation;
   export let manufacturers;
   export let categories;
   let productInfo;
+  let imageFiles = [];
 
   const descriptionFields = [
     { key: 'detail', label: 'placeholder1' },
@@ -20,6 +22,8 @@
 
     productInfo = {
       name: values.name,
+      photo: imageFiles[0],
+      photos: imageFiles,
       category_id: Number(values.category),
       manufacturer_id: Number(values.manufacturer),
       description: {
@@ -41,7 +45,16 @@
     };
   }
   async function handleConfirm(product) {
+    if (product.photo) {
+      const imageUrl = await uploadImage(product.photo);
+      product.photo = imageUrl;
+      product.photos = [imageUrl];
+    }
     await createProduct(product);
+  }
+
+  function handleImageUpload(files) {
+    imageFiles = files;
   }
 </script>
 
@@ -60,6 +73,8 @@
       <legend class="text-lg font-semibold">
         {translation?.createProduct?.title}
       </legend>
+      <ImageUpload {translation} onImagesUpload={handleImageUpload} />
+
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
           <label for="name">{translation?.createProduct?.inputs[0].label}</label
