@@ -234,22 +234,3 @@ export const updateAmountInCart = async (account_id, product_id, amount) => {
     throw error;
   }
 };
-
-export async function uploadImage(file, publicId) {
-  const formData = new FormData();
-  formData.append('file', file);
-  formData.append('upload_preset', 'max-styles');
-  formData.append('public_id', publicId);
-
-  const response = await axiosInstance.post(
-    `https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUDINARY_API_NAME}/image/upload`,
-    formData,
-    {
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-    }
-  );
-
-  return response.data.secure_url;
-}

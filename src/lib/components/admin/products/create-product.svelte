@@ -1,5 +1,5 @@
 <script>
-  import { createProduct, uploadImage } from '@/stores/main.js';
+  import { createProduct } from '@/stores/main.js';
   import ProductModal from './modal.svelte';
   import ImageUpload from './drag-image.svelte';
 
@@ -45,18 +45,6 @@
     };
   }
   async function handleConfirm(product) {
-    if (product.photos && product.photos.length > 0) {
-      const uploadedUrls = await Promise.all(
-        product.photos.map(async (photo) => {
-          if (typeof photo === 'string') return photo;
-          return await uploadImage(photo, `${photo.name}-${product.name}`);
-        })
-      );
-
-      product.photo = uploadedUrls[0];
-      product.photos = uploadedUrls;
-    }
-
     await createProduct(product);
   }
 
