@@ -45,11 +45,18 @@
     };
   }
   async function handleConfirm(product) {
-    if (product.photo) {
-      const imageUrl = await uploadImage(product.photo);
-      product.photo = imageUrl;
-      product.photos = [imageUrl];
+    if (product.photos && product.photos.length > 0) {
+      const uploadedUrls = await Promise.all(
+        product.photos.map(async (photo) => {
+          if (typeof photo === 'string') return photo;
+          return await uploadImage(photo, `${photo.name}-${product.name}`);
+        })
+      );
+
+      product.photo = uploadedUrls[0];
+      product.photos = uploadedUrls;
     }
+
     await createProduct(product);
   }
 
