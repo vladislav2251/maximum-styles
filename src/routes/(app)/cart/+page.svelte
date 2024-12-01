@@ -1,6 +1,6 @@
 <script>
-  import Checkout from '../../../lib/components/sections/checkout.svelte';
   import { language } from '$lib/context/store.js';
+  import Cart from '$lib/components/sections/cart.svelte';
 
   $: {
     if ($language) {
@@ -13,4 +13,4 @@
   export let data;
 </script>
 
-<Checkout {translation} products={data.products} account={data.account} />
+<Cart {translation} products={data.products} account={data.account} />

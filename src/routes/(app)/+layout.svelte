@@ -21,7 +21,7 @@
 
     <button
       on:click={() => {
-        goto('/checkout');
+        goto('/cart');
       }}
       class="fixed bottom-10 right-5 md:bottom-20 md:right-10 p-4 bg-[var(--color-black)] text-white rounded-full"
       aria-label="cart"
