@@ -85,7 +85,7 @@ export const addProduct = async ({ account_id, product_id, amount }) => {
 export const getCart = async (account_id) => {
   try {
     const response = await axiosInstance.get(`/carts/get/${account_id}/`);
-    return response.data.cart.products || [];
+    return response.data.cart || [];
   } catch (error) {
     console.error('Error fetching cart:', error);
     throw error;

@@ -1,4 +1,5 @@
 <script>
+  import { goto } from '$app/navigation';
   export let products;
   export let account;
   export let translation;
@@ -53,7 +54,7 @@
         {'←'}
       </button>
 
-      <div class="flex gap-8">
+      <div class="flex gap-8 flex-col lg:flex-row">
         <div class="flex-1">
           <div class="max-h-[300px] overflow-scroll">
             {#each allProducts as { _id, photo, name, price, sale, amount }, index}
@@ -65,7 +66,11 @@
                   type="button"
                   on:click={() => removeProduct(_id)}>✕</button
                 >
-                <img src={photo} alt={name} />
+                <img
+                  src={photo}
+                  alt={name}
+                  class="w-48 h-auto object-contain"
+                />
                 <h2 class="text-base">{name}</h2>
                 <div
                   class="flex max-w-40 gap-3 px-3 py-1 border border-solid border-[var(--color-gray)] items-center justify-between rounded-lg"
@@ -116,11 +121,7 @@
           </div>
         </div>
 
-        <div class="w-[30%] p-4 border border-gray-300 rounded-md">
-          <div class="flex justify-between items-center">
-            <p>{translation?.cart?.order_number}</p>
-            <p>{Math.random().toString(36).substr(2, 9)}</p>
-          </div>
+        <div class="lg:w-[30%] w-full p-4 border border-gray-300 rounded-md">
           <div class="flex justify-between items-center">
             <p>{translation?.cart?.sum}</p>
             <p>${total}</p>
@@ -142,6 +143,9 @@
           <button
             type="button"
             class="px-8 py-4 bg-[var(--color-violet)] w-full rounded-sm text-md font-base hover:bg-[var(--color-purple)] transition-all duration-300 active:scale-x-105 hover:scale-x-105"
+            on:click={() => {
+              goto('/checkout');
+            }}
             >{translation?.main?.cart?.btn}
           </button>
         </div>

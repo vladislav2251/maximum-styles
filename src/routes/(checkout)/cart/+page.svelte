@@ -13,4 +13,4 @@
   export let data;
 </script>
 
-<Cart {translation} products={data.products} account={data.account} />
+<Cart {translation} products={data.products.products} account={data.account} />
