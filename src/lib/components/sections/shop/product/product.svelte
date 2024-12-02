@@ -29,7 +29,7 @@
   aria-label={`View product ${product.name || 'Без имени'}`}
 >
   <img
-    class="h-[184px] w-[140px] m-auto object-contain"
+    class="max-h-[184px] w-full m-auto object-contain"
     src={product?.photo || '/default-image.jpg'}
     alt={product?.label || 'Без описания'}
   />
