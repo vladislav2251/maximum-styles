@@ -263,6 +263,16 @@
       "german": "Deutsch",
       "bulgarian": "Bulgarisch"
     },
+    "feedbackModal": {
+      "success": "Erfolg",
+      "error": "Fehler",
+      "ok": "OK",
+      "createdSuccessfully": "Produkt erfolgreich erstellt!",
+      "errorCreating": "Fehler beim Erstellen des Produkts!",
+      "updatedSuccessfully": "Produkt erfolgreich aktualisiert!",
+      "errorUpdating": "Fehler beim Aktualisieren des Produkts!",
+      "errorDescription": " Das bedeutet, dass Sie einige erforderliche Felder nicht ausgefüllt haben. "
+    },
     "inputs": [
       {
         "label": "Name",

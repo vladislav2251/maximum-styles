@@ -138,7 +138,7 @@
           class="px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300"
           on:click={toggleModal}
         >
-          Cancel
+          {translation?.createProduct?.productModal?.cancel}
         </button>
         <button
           class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
@@ -147,7 +147,7 @@
             showModal = false;
           }}
         >
-          Save
+          {translation?.createProduct?.productModal?.save}
         </button>
       </div>
     </div>

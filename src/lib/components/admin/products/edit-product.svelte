@@ -53,7 +53,7 @@
   async function handleConfirm(updatedProduct) {
     try {
       await updateProduct(product._id, updatedProduct);
-      feedbackMessage = 'Product created successfully!';
+      feedbackMessage = `${translation?.createProduct?.feedbackModal?.updatedSuccessfully}`;
       feedbackType = 'success';
     } catch (error) {
       if (error.status === 422) {
@@ -63,7 +63,7 @@
           .join('');
         feedbackMessage =
           error.message +
-          ' Which means that you are missing some required fields. ' +
+          `${translation?.createProduct?.feedbackModal?.errorDescription}` +
           errorMessages;
         feedbackType = 'error';
       } else {
@@ -83,6 +83,7 @@
     bind:isOpen={feedbackModalOpen}
     message={feedbackMessage}
     type={feedbackType}
+    bind:translation
   />
 
   <h2 class="text-2xl font-bold text-center">

@@ -2,6 +2,7 @@
   export let isOpen = false;
   export let message = '';
   export let type = 'success';
+  export let translation;
 
   function closeModal() {
     isOpen = false;
@@ -25,7 +26,9 @@
             ? 'text-green-600'
             : 'text-red-600'}"
         >
-          {type === 'success' ? 'Success' : 'Error'}
+          {type === 'success'
+            ? `${translation?.createProduct?.feedbackModal?.success}`
+            : `${translation?.createProduct?.feedbackModal?.error}`}
         </h2>
         <button on:click={closeModal} class="text-gray-500 hover:text-gray-700">
           ✕
@@ -39,7 +42,7 @@
             ? 'bg-green-500 text-white hover:bg-green-600'
             : 'bg-red-500 text-white hover:bg-red-600'}"
         >
-          Close
+          {translation?.createProduct?.feedbackModal?.ok}
         </button>
       </div>
     </div>
