@@ -3,6 +3,7 @@
   export let currentPage = 1;
   export let totalPages = 1;
   export let isLoading = false;
+  export let translation;
 
   const dispatch = createEventDispatcher();
   let inputPage = currentPage;
@@ -34,7 +35,7 @@
     on:click={() => handlePageChange(currentPage - 1)}
     disabled={currentPage <= 1 || isLoading}
   >
-    Previous
+    {translation?.createProduct?.btn?.prev}
   </button>
 
   <div class="flex items-center gap-2">
@@ -56,6 +57,6 @@
     on:click={() => handlePageChange(currentPage + 1)}
     disabled={currentPage >= totalPages || isLoading}
   >
-    Next
+    {translation?.createProduct?.btn?.next}
   </button>
 </div>

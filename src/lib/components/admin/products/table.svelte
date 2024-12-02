@@ -1,11 +1,18 @@
 <script>
   import { deleteProduct } from '@/stores/main.js';
   import { goto } from '$app/navigation';
+  import { language } from '$lib/context/store.js';
 
   export let products;
   export let fetchProducts;
+  export let translation;
   let showModal = false;
   let productToDelete = null;
+
+  let currentLang;
+  language.subscribe((lang) => {
+    currentLang = lang.code;
+  });
 
   function handleEdit(productId) {
     goto(`product/edit/${productId}`);
@@ -36,20 +43,24 @@
     class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
   >
     <div class="bg-white p-6 rounded-lg shadow-xl">
-      <h2 class="text-xl font-bold mb-4">Confirm Deletion</h2>
-      <p class="mb-6">Are you sure you want to delete this product?</p>
+      <h2 class="text-xl font-bold mb-4">
+        {translation?.dashboard?.productsTable?.deleteModal?.title}
+      </h2>
+      <p class="mb-6">
+        {translation?.dashboard?.productsTable?.deleteModal?.description}
+      </p>
       <div class="flex justify-end space-x-2">
         <button
           class="px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300"
           on:click={closeModal}
         >
-          Cancel
+          {translation?.dashboard?.productsTable?.deleteModal?.cancel}
         </button>
         <button
           class="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
           on:click={confirmDelete}
         >
-          Delete
+          {translation?.dashboard?.productsTable?.deleteModal?.delete}
         </button>
       </div>
     </div>
@@ -61,14 +72,31 @@
     <thead class="bg-gray-100">
       <tr>
         <th class="p-2 text-left">ID</th>
-        <th class="p-2 text-left">Name</th>
-        <th class="p-2 text-left">Manufacturer ID</th>
-        <th class="p-2 text-left">Category ID</th>
-        <th class="p-2 text-left">Short Description (DE)</th>
-        <th class="p-2 text-left">Regular Price</th>
-        <th class="p-2 text-left">Specialist Price</th>
-        <th class="p-2 text-left">Photo</th>
-        <th class="p-2 text-left">Actions</th>
+        <th class="p-2 text-left"
+          >{translation?.dashboard?.productsTable?.name}</th
+        >
+        <th class="p-2 text-left"
+          >{translation?.dashboard?.productsTable?.manufacturerId} ID</th
+        >
+        <th class="p-2 text-left"
+          >{translation?.dashboard?.productsTable?.categoryId} ID</th
+        >
+        <th class="p-2 text-left"
+          >{translation?.dashboard?.productsTable?.short +
+            ` (${currentLang})`}</th
+        >
+        <th class="p-2 text-left"
+          >{translation?.dashboard?.productsTable?.regularPrice}</th
+        >
+        <th class="p-2 text-left"
+          >{translation?.dashboard?.productsTable?.specialistPrice}</th
+        >
+        <th class="p-2 text-left"
+          >{translation?.dashboard?.productsTable?.photo}</th
+        >
+        <th class="p-2 text-left"
+          >{translation?.dashboard?.productsTable?.actions}</th
+        >
       </tr>
     </thead>
     <tbody>
@@ -78,12 +106,12 @@
           <td class="p-2">{product.name}</td>
           <td class="p-2">{product.manufacturer_id}</td>
           <td class="p-2">{product.category_id}</td>
-          <td class="p-2">{product.description.short?.de || 'N/A'}</td>
+          <td class="p-2">{product.description.short[currentLang] || 'N/A'}</td>
           <td class="p-2">{product.price.regular}</td>
           <td class="p-2">{product.price.specialist}</td>
-          <td class="p-2">
+          <td class="p-2 w-36">
             <img
-              class="object-contain h-12"
+              class="object-contain w-full h-16"
               src={product.photo}
               alt={product.name}
               width="50"
@@ -94,13 +122,13 @@
               class="mr-2 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
               on:click={() => handleEdit(product._id)}
             >
-              Edit
+              {translation?.dashboard?.productsTable?.edit}
             </button>
             <button
               class="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600 transition-colors"
               on:click={() => openDeleteModal(product._id)}
             >
-              Delete
+              {translation?.dashboard?.productsTable?.delete}
             </button>
           </td>
         </tr>

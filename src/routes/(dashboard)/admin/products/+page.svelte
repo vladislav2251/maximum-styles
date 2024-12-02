@@ -63,15 +63,16 @@
         goto('product/create');
       }}
     >
-      Create new product
+      {translation?.dashboard?.productsTable?.btn}
     </button>
   </div>
-  <Table products={$products} {fetchProducts} />
+  <Table products={$products} {fetchProducts} {translation} />
   {#if totalProducts > 0}
     <Pagination
       {currentPage}
       {totalPages}
       {isLoading}
+      {translation}
       on:pageChange={handlePageChange}
     />
   {/if}

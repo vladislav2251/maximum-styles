@@ -206,6 +206,32 @@
       "categories": "Kategorien",
       "orders": "Bestellungen",
       "users": "Benutzer"
+    },
+    "productsTable": {
+      "btn": "Neues Produkt erstellen",
+      "name": "Name",
+      "categoryId": "Kategorie",
+      "manufacturerId": "Hersteller",
+      "regularPrice": "Normalpreis",
+      "discountPrice": "Rabattpreis",
+      "specialistPrice": "Spezialpreis",
+      "specialistDiscount": "Spezialrabatt",
+      "deliveryContent": "Lieferinformationen",
+      "short": "Kurzbeschreibung",
+      "detail": "Beschreibung",
+      "usage": "Verwendungszweck",
+      "ingredients": "Zutaten",
+      "photo": "Foto",
+      "price": "Preis",
+      "edit": "Bearbeiten",
+      "delete": "Löschen",
+      "actions": "Aktionen",
+      "deleteModal": {
+        "title": "Löschbestätigung",
+        "description": "Sind Sie sicher, dass Sie dieses Produkt löschen möchten?",
+        "delete": "Löschen",
+        "cancel": "Abbrechen"
+      }
     }
   },
   "createCategory": {

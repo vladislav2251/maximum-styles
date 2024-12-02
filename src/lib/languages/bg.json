@@ -193,6 +193,32 @@
       "categories": "Категории",
       "orders": "Поръчки",
       "users": "Потребители"
+    },
+    "productsTable": {
+      "btn": "Създаване на нов продукт",
+      "name": "Име",
+      "categoryId": "Категория",
+      "manufacturerId": "Производител",
+      "regularPrice": "Клиенти цена",
+      "discountPrice": "Ценообразуване за специалисти",
+      "specialistPrice": "Специалист цена",
+      "specialistDiscount": "Специалист отстъпка",
+      "deliveryContent": "Информация за доставка",
+      "short": "Кратко описание",
+      "detail": "Описание",
+      "usage": "Начин на употреба",
+      "ingredients": "Съставки",
+      "photo": "Изображение",
+      "price": "Цена",
+      "edit": "Редактиране",
+      "delete": "Изтриване",
+      "actions": "Действия",
+      "deleteModal": {
+        "title": "Потвърждение за изтриване",
+        "description": "Сигурни ли сте, че искате да изтриете този продукт?",
+        "delete": "Изтриване",
+        "cancel": "Отказ"
+      }
     }
   },
   "createProduct": {
