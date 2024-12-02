@@ -82,7 +82,7 @@
 </script>
 
 <div class="py-12">
-  <ProductModal bind:productInfo onConfirm={handleConfirm} />
+  <ProductModal bind:productInfo onConfirm={handleConfirm} bind:translation />
   <FeedbackModal
     bind:isOpen={feedbackModalOpen}
     message={feedbackMessage}

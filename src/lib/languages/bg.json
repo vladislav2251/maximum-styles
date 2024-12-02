@@ -222,6 +222,20 @@
     }
   },
   "createProduct": {
+    "productModal": {
+      "title": "Това ли е вашият продукт?",
+      "category": "Категория",
+      "manufacturer": "Производител",
+      "regularPrice": "Регуларен цена",
+      "specialistPrice": "Специалистен цена",
+      "discounts": "Пропуски",
+      "regular": "Регуларен",
+      "specialist": "Специалистен",
+      "save": "Запази",
+      "cancel": "Отказ",
+      "german": "Немски",
+      "bulgarian": "Български"
+    },
     "title": "Информация за продукта",
     "title2": "Ценообразование",
     "inputs": [

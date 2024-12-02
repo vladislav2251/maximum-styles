@@ -249,6 +249,20 @@
   "createProduct": {
     "title": "Produktinformationen",
     "title2": "Preismodell",
+    "productModal": {
+      "title": "Ist dies Ihr Produkt?",
+      "category": "Kategorie",
+      "manufacturer": "Hersteller",
+      "regularPrice": "Regulatorischer Preis",
+      "specialistPrice": "Fachpreis",
+      "discounts": "Ermäßigungen",
+      "regular": "Gesetzliche Bestimmungen",
+      "specialist": "Spezialist",
+      "save": "Speichern Sie",
+      "cancel": "Abbrechen",
+      "german": "Deutsch",
+      "bulgarian": "Bulgarisch"
+    },
     "inputs": [
       {
         "label": "Name",

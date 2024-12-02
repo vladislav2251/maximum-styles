@@ -1,6 +1,7 @@
 <script>
   export let productInfo = null;
   export let onConfirm = () => {};
+  export let translation;
   let showModal = false;
   let activeDescription = 'short';
 
@@ -34,7 +35,9 @@
     <div
       class="bg-white p-6 rounded-lg shadow-xl w-full max-w-3xl max-h-[540px] overflow-y-auto"
     >
-      <h2 class="text-xl font-bold mb-4">Is this your product?</h2>
+      <h2 class="text-xl font-bold mb-4">
+        {translation?.createProduct?.productModal?.title}
+      </h2>
       <div class="flex gap-2 flex-col md:flex-row">
         {#if showModal && productInfo.photos.length !== 0}
           <div
@@ -61,20 +64,43 @@
           />
           <div class="w-2/3">
             <h2 class="text-2xl font-bold mb-2">{productInfo.name}</h2>
-            <p><strong>Category:</strong> {productInfo.category_id}</p>
-            <p><strong>Manufacturer:</strong> {productInfo.manufacturer_id}</p>
             <p>
-              <strong>Regular Price:</strong> ${productInfo.price.regular}
+              <strong
+                >{translation?.createProduct?.productModal?.category}:</strong
+              >
+              {productInfo.category_id}
             </p>
             <p>
-              <strong>Specialist Price:</strong>
+              <strong
+                >{translation?.createProduct?.productModal
+                  ?.manufacturer}:</strong
+              >
+              {productInfo.manufacturer_id}
+            </p>
+            <p>
+              <strong
+                >{translation?.createProduct?.productModal
+                  ?.regularPrice}:</strong
+              >
+              ${productInfo.price.regular}
+            </p>
+            <p>
+              <strong
+                >{translation?.createProduct?.productModal
+                  ?.specialistPrice}:</strong
+              >
               ${productInfo.price.specialist}
             </p>
             {#if productInfo.price.discount.regular > 0 || productInfo.price.discount.specialist > 0}
               <p>
-                <strong>Discounts:</strong>
-                Regular: {productInfo.price.discount.regular}%,<br />
-                Specialist: {productInfo.price.discount.specialist}%
+                <strong
+                  >{translation?.createProduct?.productModal
+                    ?.discounts}:</strong
+                >
+                {translation?.createProduct?.productModal?.regular}: {productInfo
+                  .price.discount.regular}%,<br />
+                {translation?.createProduct?.productModal?.specialist}: {productInfo
+                  .price.discount.specialist}%
               </p>
             {/if}
           </div>
@@ -92,12 +118,16 @@
             </button>
           {/each}
         </div>
-        <span class="font-semibold">Bulgarian</span>
+        <span class="font-semibold"
+          >{translation?.createProduct?.productModal?.bulgarian}</span
+        >
         <div class="mt-4 p-4 border rounded bg-gray-100">
           {@html productInfo.description[activeDescription]?.de ||
             'No description available'}
         </div>
-        <span class="font-semibold">Germany</span>
+        <span class="font-semibold"
+          >{translation?.createProduct?.productModal?.german}</span
+        >
         <div class="mt-4 p-4 border rounded bg-gray-100">
           {@html productInfo.description[activeDescription]?.bg ||
             'No description available'}
