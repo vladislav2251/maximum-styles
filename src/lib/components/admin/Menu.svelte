@@ -1,7 +1,6 @@
 <script>
   export let translation;
   import Lang from '$lib/components/sections/lang.svelte';
-  import AuthModal from '$lib/components/auth.svelte';
   import { onMount } from 'svelte';
 
   let isMenuOpen = false;
@@ -134,15 +133,6 @@
     {/each}
   </div>
 </div>
-
-<AuthModal
-  {translation}
-  {isModalOpen}
-  closeModal={() => {
-    isModalOpen = false;
-    toggleOverflow(false);
-  }}
-/>
 
 <button
   class="fixed lg:hidden inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-300 z-20 cursor-default"

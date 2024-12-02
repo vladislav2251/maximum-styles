@@ -19,6 +19,7 @@
   function generateImagePreview(file) {
     return file ? URL.createObjectURL(file) : null;
   }
+
   function generateImagePreviews(files) {
     return files.map((file) =>
       typeof file === 'string' ? file : URL.createObjectURL(file)
@@ -35,7 +36,7 @@
     >
       <h2 class="text-xl font-bold mb-4">Is this your product?</h2>
       <div class="flex gap-2 flex-col md:flex-row">
-        {#if showModal && productInfo}
+        {#if showModal && productInfo.photos.length !== 0}
           <div
             class="flex rounded-lg gap-1 w-full overflow-hidden overflow-x-auto md:w-24 md:flex-col md:max-h-[130px] md:overflow-y-auto"
           >
@@ -56,7 +57,7 @@
               : generateImagePreview(productInfo.photo) ||
                 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.Z_PIeIRDajXPmZHROt-T_QHaEK%26pid%3DApi&f=1&ipt=0beb80e57b255a0459ebeee9c25b323f3803107df58e3d4d971f65106a8efedf&ipo=images'}
             alt="Product"
-            class="w-full h-auto object-contain rounded-lg md:w-1/3"
+            class="w-full h-auto object-contain rounded-lg md:w-48"
           />
           <div class="w-2/3">
             <h2 class="text-2xl font-bold mb-2">{productInfo.name}</h2>

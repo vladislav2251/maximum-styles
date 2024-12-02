@@ -1,13 +1,19 @@
 <script>
   import { createProduct } from '@/stores/main.js';
   import ProductModal from './modal.svelte';
-  import ImageUpload from './drag-image.svelte';
+  import FeedbackModal from './feedback-modal.svelte';
+  import { goto } from '$app/navigation';
+  // import ImageUpload from './drag-image.svelte';
 
   export let translation;
   export let manufacturers;
   export let categories;
   let productInfo;
   let imageFiles = [];
+
+  let feedbackModalOpen = false;
+  let feedbackMessage = '';
+  let feedbackType = 'success';
 
   const descriptionFields = [
     { key: 'detail', label: 'placeholder1' },
@@ -45,16 +51,43 @@
     };
   }
   async function handleConfirm(product) {
-    await createProduct(product);
+    try {
+      await createProduct(product);
+      feedbackMessage = 'Product created successfully!';
+      feedbackType = 'success';
+    } catch (error) {
+      if (error.status === 422) {
+        const fieldErrors = error.response?.data?.detail || [];
+        const errorMessages = fieldErrors
+          .map((field) => `${field.loc[1]}: ${field.msg}`)
+          .join('');
+        feedbackMessage =
+          error.message +
+          ' Which means that you are missing some required fields. ' +
+          errorMessages;
+        feedbackType = 'error';
+      } else {
+        feedbackMessage =
+          error.message || 'Something went wrong. Please try again later.';
+        feedbackType = 'error';
+      }
+    } finally {
+      feedbackModalOpen = true;
+    }
   }
 
-  function handleImageUpload(files) {
-    imageFiles = files;
-  }
+  // function handleImageUpload(files) {
+  //   imageFiles = files;
+  // }
 </script>
 
 <div class="py-12">
   <ProductModal bind:productInfo onConfirm={handleConfirm} />
+  <FeedbackModal
+    bind:isOpen={feedbackModalOpen}
+    message={feedbackMessage}
+    type={feedbackType}
+  />
 
   <h2 class="text-2xl font-bold text-center">
     {translation?.editProduct?.title}
@@ -64,11 +97,21 @@
     class="max-w-4xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-4"
     on:submit|preventDefault={handleSubmit}
   >
+    <button
+      class="px-6 py-2 w-24 bg-[var(--color-primary-300)] text-white rounded hover:bg-opacity-90 transition-colors"
+      on:click={() => {
+        goto('/admin/products/');
+      }}
+      type="button"
+    >
+      {'←'}
+    </button>
+
     <fieldset class="md:col-span-2 flex flex-col gap-2">
       <legend class="text-lg font-semibold">
         {translation?.createProduct?.title}
       </legend>
-      <ImageUpload {translation} onImagesUpload={handleImageUpload} />
+      <!-- <ImageUpload {translation} onImagesUpload={handleImageUpload} /> -->
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>

@@ -54,17 +54,17 @@
 </script>
 
 <div>
-  <div class="flex flex-col md:flex-row-reverse md:justify-between">
+  <div class="flex flex-col md:flex-row md:justify-between">
+    <Search {translation} {searchQuery} {isLoading} on:search={handleSearch} />
     <button
       type="button"
-      class="px-8 hover:bg-[var(--color-gray800)] transition-all duration-300 hover:scale-x-105 bg-[var(--color-black)] text-[var(--color-white)]"
+      class="px-8 hover:bg-[var(--color-gray800)] self-end mb-4 w-48 h-12 rounded transition-all duration-300 hover:scale-x-105 bg-[var(--color-black)] text-[var(--color-white)]"
       on:click={() => {
         goto('product/create');
       }}
     >
       Create new product
     </button>
-    <Search {translation} {searchQuery} {isLoading} on:search={handleSearch} />
   </div>
   <Table products={$products} {fetchProducts} />
   {#if totalProducts > 0}
