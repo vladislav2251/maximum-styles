@@ -139,6 +139,7 @@
         {currentPage}
         {totalPages}
         {isLoading}
+        {translation}
         on:pageChange={handlePageChange}
       />
     {/if}
