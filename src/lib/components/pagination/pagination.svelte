@@ -31,7 +31,7 @@
 
 <div class="flex items-center justify-center gap-4 my-8">
   <button
-    class="px-4 py-2 bg-[var(--color-black)] text-[var(--color-white)] disabled:opacity-50 disabled:cursor-not-allowed"
+    class="px-4 py-2 bg-[var(--color-black)] rounded text-[var(--color-white)] disabled:opacity-50 disabled:cursor-not-allowed"
     on:click={() => handlePageChange(currentPage - 1)}
     disabled={currentPage <= 1 || isLoading}
   >
@@ -53,7 +53,7 @@
   </div>
 
   <button
-    class="px-4 py-2 bg-[var(--color-black)] text-[var(--color-white)] disabled:opacity-50 disabled:cursor-not-allowed"
+    class="px-4 py-2 bg-[var(--color-black)] rounded text-[var(--color-white)] disabled:opacity-50 disabled:cursor-not-allowed"
     on:click={() => handlePageChange(currentPage + 1)}
     disabled={currentPage >= totalPages || isLoading}
   >
