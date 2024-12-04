@@ -145,30 +145,30 @@
           />
         </div>
 
-        <label for="status"
-          >{translation?.main?.profile?.inputs[5]?.label}</label
-        >
+        <span>{translation?.main?.profile?.inputs[5]?.label}</span>
 
-        <div class="flex gap-2">
+        <label class="flex gap-2 cursor-pointer md:w-1/3">
           <input
             type="radio"
             name="status"
             id="status"
+            class="cursor-pointer"
             bind:group={status}
             value="1"
           />
-          <span>{translation?.main?.profile?.inputs[5]?.options[0]}</span>
-        </div>
-        <div class="flex gap-2">
+          {translation?.main?.profile?.inputs[5]?.options[0]}
+        </label>
+        <label class="flex gap-2 cursor-pointer md:w-1/3">
           <input
             type="radio"
             name="status"
             id="status"
+            class="cursor-pointer"
             bind:group={status}
             value="2"
           />
-          <span>{translation?.main?.profile?.inputs[5]?.options[1]}</span>
-        </div>
+          {translation?.main?.profile?.inputs[5]?.options[1]}
+        </label>
 
         {#if status === '1'}
           <Person {translation} deliveryData={accountData.delivery_data} />

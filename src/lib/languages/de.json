@@ -64,6 +64,7 @@
     "profile": {
       "my_account": "Mein Konto",
       "personal_information": "Persönliche Informationen",
+      "company_information": "Informationen zum Unternehmen",
       "delivery_info": "Liefer Informationen",
       "link": "Meine Informationen",
       "inputs": [
@@ -89,7 +90,7 @@
         },
         {
           "label": "Status",
-          "options": ["Natururliche Person", "Firma"]
+          "options": ["Privat Einkauf", "Firma"]
         },
         {
           "label": "Geschlecht",

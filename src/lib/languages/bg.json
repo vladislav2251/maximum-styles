@@ -64,6 +64,7 @@
     "profile": {
       "my_account": "Моят профил",
       "personal_information": "Лична информация",
+      "company_information": "Информация за компанията",
       "delivery_info": "Иформация за лична доставка",
       "link": "Моята информация",
       "inputs": [

@@ -15,14 +15,12 @@
 </script>
 
 <div class="grid gap-2">
-  <h2 class="text-3xl lg:text-4xl font-bold">
-    {translation?.main?.profile?.personal_information}
+  <h2 class="text-2xl font-bold">
+    {translation?.main?.profile?.company_information}
   </h2>
 
   <div class="flex flex-col gap-2">
-    <label for="first_name"
-      >{translation?.main?.profile?.country}</label
-    >
+    <label for="first_name">{translation?.main?.profile?.country}</label>
     <input
       type="text"
       name="first_name"
@@ -33,8 +31,7 @@
     />
   </div>
   <div class="flex flex-col gap-2">
-    <label for="last_name">{translation?.main?.profile?.city}</label
-    >
+    <label for="last_name">{translation?.main?.profile?.city}</label>
     <input
       type="text"
       name="last_name"
@@ -45,8 +42,7 @@
     />
   </div>
   <div class="flex flex-col gap-2">
-    <label for="last_name">{translation?.main?.profile?.post}</label
-    >
+    <label for="last_name">{translation?.main?.profile?.post}</label>
     <input
       type="text"
       name="last_name"
