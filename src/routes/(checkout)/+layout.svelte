@@ -15,7 +15,7 @@
 
 <div class="flex flex-col min-h-screen">
   <Header {translation} />
-  <main class="flex-grow">
+  <main class="flex flex-grow justify-center items-center size-full">
     <slot />
   </main>
   <Footer {translation} />

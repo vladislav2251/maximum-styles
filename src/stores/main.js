@@ -199,6 +199,16 @@ export const updateOrderStatus = async (order_id, status) => {
   }
 };
 
+export const createOrder = async (order) => {
+  try {
+    const response = await axiosInstance.post('/orders/create/', order);
+    return response.data;
+  } catch (error) {
+    console.error('Error creating order:', error);
+    throw error;
+  }
+};
+
 export const logIn = async (email, password) => {
   try {
     const response = await axiosInstance.post('/accounts/login/', {
