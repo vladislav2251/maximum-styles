@@ -69,7 +69,7 @@
                 <img
                   src={photo}
                   alt={name}
-                  class="w-48 h-auto object-contain"
+                  class="w-48 h-auto object-contain max-h-28"
                 />
                 <h2 class="text-base">{name}</h2>
                 <div
