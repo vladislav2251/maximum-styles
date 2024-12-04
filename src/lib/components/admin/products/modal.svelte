@@ -60,7 +60,7 @@
               : generateImagePreview(productInfo.photo) ||
                 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.Z_PIeIRDajXPmZHROt-T_QHaEK%26pid%3DApi&f=1&ipt=0beb80e57b255a0459ebeee9c25b323f3803107df58e3d4d971f65106a8efedf&ipo=images'}
             alt="Product"
-            class="w-full h-auto object-contain rounded-lg md:w-48"
+            class="w-full h-auto object-contain rounded-lg md:w-48 max-h-48 md:max-h-52"
           />
           <div class="w-2/3">
             <h2 class="text-2xl font-bold mb-2">{productInfo.name}</h2>
