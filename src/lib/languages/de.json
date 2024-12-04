@@ -330,22 +330,37 @@
   "checkout": {
     "title": "Kasse",
     "user_info": "Benutzerinformationen",
-    "inputs": [
-      { "label": "Vorname", "placeholder": "Geben Sie Ihren Vornamen ein" },
-      { "label": "Nachname", "placeholder": "Geben Sie Ihren Nachnamen ein" },
-      { "label": "E-Mail", "placeholder": "Geben Sie Ihre E-Mail-Adresse ein" },
-      { "label": "Telefon", "placeholder": "Geben Sie Ihre Telefonnummer ein" }
-    ],
+    "inputs": {
+      "first_name": {
+        "label": "Vorname",
+        "placeholder": "Geben Sie Ihren Vornamen ein"
+      },
+      "last_name": {
+        "label": "Nachname",
+        "placeholder": "Geben Sie Ihren Nachnamen ein"
+      },
+      "email": {
+        "label": "E-Mail",
+        "placeholder": "Geben Sie Ihre E-Mail-Adresse ein"
+      },
+      "phone": {
+        "label": "Telefon",
+        "placeholder": "Geben Sie Ihre Telefonnummer ein"
+      }
+    },
     "delivery_info": "Lieferinformationen",
-    "delivery_inputs": [
-      { "label": "Stadt", "placeholder": "Geben Sie die Stadt ein" },
-      { "label": "Land", "placeholder": "Geben Sie das Land ein" },
-      {
+    "delivery_inputs": {
+      "city": { "label": "Stadt", "placeholder": "Geben Sie die Stadt ein" },
+      "country": { "label": "Land", "placeholder": "Geben Sie das Land ein" },
+      "postcode": {
         "label": "Postleitzahl",
         "placeholder": "Geben Sie die Postleitzahl ein"
       },
-      { "label": "Adresse", "placeholder": "Geben Sie die Adresse ein" }
-    ],
+      "address": {
+        "label": "Adresse",
+        "placeholder": "Geben Sie die Adresse ein"
+      }
+    },
     "cart": "Warenkorb",
     "pricing": "Preisgestaltung",
     "total_price": "Gesamtpreis",

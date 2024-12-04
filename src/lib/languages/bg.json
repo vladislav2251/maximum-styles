@@ -317,19 +317,28 @@
   "checkout": {
     "title": "Плащане",
     "user_info": "Информация за потребителя",
-    "inputs": [
-      { "label": "Име", "placeholder": "Въведете вашето име" },
-      { "label": "Фамилия", "placeholder": "Въведете вашата фамилия" },
-      { "label": "Имейл", "placeholder": "Въведете вашия имейл" },
-      { "label": "Телефон", "placeholder": "Въведете вашия телефонен номер" }
-    ],
+    "inputs": {
+      "email": { "label": "Имейл", "placeholder": "Въведете вашия имейл" },
+      "first_name": { "label": "Име", "placeholder": "Въведете вашето име" },
+      "last_name": {
+        "label": "Фамилия",
+        "placeholder": "Въведете вашата фамилия"
+      },
+      "phone": {
+        "label": "Телефон",
+        "placeholder": "Въведете вашия телефонен номер"
+      }
+    },
     "delivery_info": "Информация за доставка",
-    "delivery_inputs": [
-      { "label": "Град", "placeholder": "Въведете града" },
-      { "label": "Страна", "placeholder": "Въведете страна" },
-      { "label": "Пощенски код", "placeholder": "Въведете пощенски код" },
-      { "label": "Адрес", "placeholder": "Въведете адрес" }
-    ],
+    "delivery_inputs": {
+      "city": { "label": "Град", "placeholder": "Въведете града" },
+      "country": { "label": "Страна", "placeholder": "Въведете страна" },
+      "postcode": {
+        "label": "Пощенски код",
+        "placeholder": "Въведете пощенски код"
+      },
+      "address": { "label": "Адрес", "placeholder": "Въведете адрес" }
+    },
     "cart": "Количка",
     "pricing": "Ценообразуване",
     "total_price": "Обща цена",

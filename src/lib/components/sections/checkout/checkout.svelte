@@ -60,51 +60,51 @@
         >{translation?.checkout?.user_info}</legend
       >
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <label for="email" class="block text-gray-700">
-          {translation?.checkout?.inputs[0]?.label}:
-          <input
-            required
-            type="email"
-            id="email"
-            name="email"
-            bind:value={email}
-            placeholder={translation?.checkout?.inputs[0]?.placeholder}
-            class="px-8 py-4 border-solid outline-none text-base w-full border font-normal border-[var(--color-gray)] rounded-md transition-all duration-300 focus:border-[var(--color-primary-300)];"
-          />
-        </label>
         <label for="first_name" class="block text-gray-700">
-          {translation?.checkout?.inputs[1]?.label}:
+          {translation?.checkout?.inputs?.first_name?.label}:
           <input
             required
             type="text"
             id="first_name"
             name="first_name"
             bind:value={personal_data.first_name}
-            placeholder={translation?.checkout?.inputs[1]?.placeholder}
+            placeholder={translation?.checkout?.inputs?.first_name?.placeholder}
             class="px-8 py-4 border-solid outline-none text-base w-full border font-normal border-[var(--color-gray)] rounded-md transition-all duration-300 focus:border-[var(--color-primary-300)];"
           />
         </label>
         <label for="last_name" class="block text-gray-700">
-          {translation?.checkout?.inputs[2]?.label}:
+          {translation?.checkout?.inputs?.last_name?.label}:
           <input
             required
             type="text"
             id="last_name"
             name="last_name"
             bind:value={personal_data.last_name}
-            placeholder={translation?.checkout?.inputs[2]?.placeholder}
+            placeholder={translation?.checkout?.inputs?.last_name?.placeholder}
+            class="px-8 py-4 border-solid outline-none text-base w-full border font-normal border-[var(--color-gray)] rounded-md transition-all duration-300 focus:border-[var(--color-primary-300)];"
+          />
+        </label>
+        <label for="email" class="block text-gray-700">
+          {translation?.checkout?.inputs?.email?.label}:
+          <input
+            required
+            type="email"
+            id="email"
+            name="email"
+            bind:value={email}
+            placeholder={translation?.checkout?.inputs?.email?.placeholder}
             class="px-8 py-4 border-solid outline-none text-base w-full border font-normal border-[var(--color-gray)] rounded-md transition-all duration-300 focus:border-[var(--color-primary-300)];"
           />
         </label>
         <label for="phone" class="block text-gray-700">
-          {translation?.checkout?.inputs[3]?.label}:
+          {translation?.checkout?.inputs?.phone?.label}:
           <input
             required
             type="text"
             id="phone"
             name="phone"
             bind:value={personal_data.phone}
-            placeholder={translation?.checkout?.inputs[3]?.placeholder}
+            placeholder={translation?.checkout?.inputs?.phone?.placeholder}
             class="px-8 py-4 border-solid outline-none text-base w-full border font-normal border-[var(--color-gray)] rounded-md transition-all duration-300 focus:border-[var(--color-primary-300)];"
           />
         </label>
@@ -119,50 +119,54 @@
       >
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <label for="country" class="block text-gray-700">
-          {translation?.checkout?.delivery_inputs[0]?.label}:
+          {translation?.checkout?.delivery_inputs?.country?.label}:
           <input
             required
             type="text"
             id="country"
             name="country"
             bind:value={delivery_data.country}
-            placeholder={translation?.checkout?.delivery_inputs[0]?.placeholder}
+            placeholder={translation?.checkout?.delivery_inputs?.country
+              ?.placeholder}
             class="px-8 py-4 border-solid outline-none text-base w-full border font-normal border-[var(--color-gray)] rounded-md transition-all duration-300 focus:border-[var(--color-primary-300)];"
           />
         </label>
         <label for="city" class="block text-gray-700">
-          {translation?.checkout?.delivery_inputs[1]?.label}:
+          {translation?.checkout?.delivery_inputs?.city?.label}:
           <input
             required
             type="text"
             id="city"
             name="city"
             bind:value={delivery_data.city}
-            placeholder={translation?.checkout?.delivery_inputs[1]?.placeholder}
+            placeholder={translation?.checkout?.delivery_inputs?.city
+              ?.placeholder}
             class="px-8 py-4 border-solid outline-none text-base w-full border font-normal border-[var(--color-gray)] rounded-md transition-all duration-300 focus:border-[var(--color-primary-300)];"
           />
         </label>
         <label for="postcode" class="block text-gray-700">
-          {translation?.checkout?.delivery_inputs[2]?.label}:
+          {translation?.checkout?.delivery_inputs?.postcode?.label}:
           <input
             required
             type="text"
             id="postcode"
             name="postcode"
             bind:value={delivery_data.postcode}
-            placeholder={translation?.checkout?.delivery_inputs[2]?.placeholder}
+            placeholder={translation?.checkout?.delivery_inputs?.postcode
+              ?.placeholder}
             class="px-8 py-4 border-solid outline-none text-base w-full border font-normal border-[var(--color-gray)] rounded-md transition-all duration-300 focus:border-[var(--color-primary-300)];"
           />
         </label>
         <label for="address" class="block text-gray-700">
-          {translation?.checkout?.delivery_inputs[3]?.label}:
+          {translation?.checkout?.delivery_inputs?.address?.label}:
           <input
             required
             type="text"
             id="address"
             name="address"
             bind:value={delivery_data.address}
-            placeholder={translation?.checkout?.delivery_inputs[3]?.placeholder}
+            placeholder={translation?.checkout?.delivery_inputs?.address
+              ?.placeholder}
             class="px-8 py-4 border-solid outline-none text-base w-full border font-normal border-[var(--color-gray)] rounded-md transition-all duration-300 focus:border-[var(--color-primary-300)];"
           />
         </label>
