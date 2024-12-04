@@ -326,5 +326,31 @@
       "link_title": "Schneller Link",
       "second_link_title": "Kontaktieren Sie uns"
     }
+  },
+  "checkout": {
+    "title": "Kasse",
+    "user_info": "Benutzerinformationen",
+    "inputs": [
+      { "label": "Vorname", "placeholder": "Geben Sie Ihren Vornamen ein" },
+      { "label": "Nachname", "placeholder": "Geben Sie Ihren Nachnamen ein" },
+      { "label": "E-Mail", "placeholder": "Geben Sie Ihre E-Mail-Adresse ein" },
+      { "label": "Telefon", "placeholder": "Geben Sie Ihre Telefonnummer ein" }
+    ],
+    "delivery_info": "Lieferinformationen",
+    "delivery_inputs": [
+      { "label": "Stadt", "placeholder": "Geben Sie die Stadt ein" },
+      { "label": "Land", "placeholder": "Geben Sie das Land ein" },
+      {
+        "label": "Postleitzahl",
+        "placeholder": "Geben Sie die Postleitzahl ein"
+      },
+      { "label": "Adresse", "placeholder": "Geben Sie die Adresse ein" }
+    ],
+    "cart": "Warenkorb",
+    "pricing": "Preisgestaltung",
+    "total_price": "Gesamtpreis",
+    "btn": "Bestellung aufgeben",
+    "price": "Preis",
+    "quantity": "Menge"
   }
 }
