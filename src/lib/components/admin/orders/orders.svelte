@@ -31,7 +31,7 @@
         <th class="px-4 py-3 text-left">Actions</th>
       </tr>
     </thead>
-    <tbody class="text-sm font-normal text-gray-600">
+    <tbody class="text-sm font-normal">
       {#each parsedData as order, index}
         <tr class={index % 2 === 0 ? 'bg-white' : 'bg-gray-100'}>
           <td class="px-4 py-3">
