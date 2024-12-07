@@ -31,7 +31,7 @@
           type="checkbox"
           checked={selectedCategories.includes(category._id)}
           on:change={() => handleCategoryChange(category._id)}
-          class="rounded border-gray-300"
+          class="rounded border-gray-300 cursor-pointer"
         />
         <span>{category.name[currentLang]}</span>
       </label>

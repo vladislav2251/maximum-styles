@@ -18,9 +18,9 @@
     goto('/profile');
   };
 
-  const switchToForgotPassword = () => {
-    goto('/forgot-password');
-  };
+  // const switchToForgotPassword = () => {
+  //   goto('/forgot-password');
+  // };
   const switchToSignUp = () => {
     goto('/sign-up');
   };
@@ -68,12 +68,12 @@
         class="outline-none underline"
         on:click={switchToSignUp()}>{translation?.sign_in?.next[0]}</button
       >
-      <button
-        type="button"
-        class="outline-none underline"
-        on:click={switchToForgotPassword()}
-        >{translation?.sign_in?.next[1]}</button
-      >
+      <!-- <button -->
+      <!--   type="button" -->
+      <!--   class="outline-none underline" -->
+      <!--   on:click={switchToForgotPassword()} -->
+      <!--   >{translation?.sign_in?.next[1]}</button -->
+      <!-- > -->
     </div>
   </form>
 </section>

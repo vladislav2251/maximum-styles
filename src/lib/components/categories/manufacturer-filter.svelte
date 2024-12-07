@@ -33,7 +33,7 @@
           type="checkbox"
           checked={selectedManufacturers.includes(manufacturer._id)}
           on:change={() => handleManufacturerChange(manufacturer._id)}
-          class="rounded border-gray-300"
+          class="rounded border-gray-300 cursor-pointer"
         />
         <span>{manufacturer.name[currentLang]}</span>
       </label>
