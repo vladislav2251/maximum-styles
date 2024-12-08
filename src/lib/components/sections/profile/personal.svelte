@@ -24,7 +24,7 @@
 
 <form class="flex flex-col gap-5" on:submit|preventDefault={onFormSubmit}>
   <h2 class="text-3xl font-bold">
-    {translation?.main?.profile?.personal_information}
+    {translation?.main?.profile?.link}
   </h2>
 
   <fieldset class="flex flex-col lg:flex-row gap-3 w-full">

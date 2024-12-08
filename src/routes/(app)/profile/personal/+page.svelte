@@ -1,6 +1,6 @@
 <script>
   import { language } from '$lib/context/store.js';
-  import Personal from '../../../../lib/components/sections/profile/personal.svelte';
+  import Personal from '$lib/components/sections/profile/personal.svelte';
 
   let translation;
 
