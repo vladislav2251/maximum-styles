@@ -1,6 +1,6 @@
 <script>
+  import Company from '../../../../lib/components/sections/profile/company.svelte';
   import { language } from '$lib/context/store.js';
-  import Profile from '$lib/components/sections/profile.svelte';
 
   let translation;
 
@@ -9,10 +9,6 @@
       translation = $language.langFile;
     }
   }
-
-  export let data;
-
-  const accountData = data.account;
 </script>
 
-<Profile {translation} {accountData} />
+<Company {translation} />

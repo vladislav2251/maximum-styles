@@ -66,6 +66,7 @@
       "personal_information": "Лична информация",
       "company_information": "Информация за компанията",
       "delivery_info": "Иформация за лична доставка",
+      "specialist_information": "Информация за специалист",
       "link": "Моята информация",
       "inputs": [
         {
@@ -93,10 +94,10 @@
           "options": ["Физическо лице", "Компания"]
         }
       ],
-      "city": "град",
-      "country": "държава",
+      "city": "Град",
+      "country": "Държава",
       "post": "Пощенски код",
-      "address": "адрес",
+      "address": "Адрес",
       "change": "Промени"
     },
     "search": {
