@@ -21,16 +21,22 @@
 
 <section class="py-12">
   <div class="container">
-    <div class="grid md:grid-cols-2 gap-10 max-md:place-items-start">
-      <h2 class="text-[var(--color-black)] font-medium text-4xl md:text-6xl">
+    <div
+      class="grid md:grid-cols-2 md:grid-rows-2 gap-10 max-md:place-items-start"
+    >
+      <h2
+        class="text-[var(--color-black)] order-1 font-medium text-4xl md:text-6xl"
+      >
         {translation?.main?.popular?.title}
       </h2>
-      <p class="text-[var(color-gray200)] font-normal text-xl">
+      <p
+        class="text-[var(color-gray200)] font-normal order-2 md:order-3 text-xl"
+      >
         {translation?.main?.popular?.description}
       </p>
       <a
         href="/products"
-        class="flex underline text-2xl row-span-2 text-[var(--color-gray800)] gap-2 md:gap-4 items-center md:justify-end font-medium"
+        class="order-3 md:order-2 flex underline text-2xl row-span-2 text-[var(--color-gray800)] gap-2 md:gap-4 items-center md:justify-end font-medium"
       >
         {translation?.main?.popular?.link}
         {'→'}
