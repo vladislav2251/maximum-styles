@@ -8,8 +8,8 @@
 </script>
 
 <footer class="bg-[var(--color-white100)] p-8 sm:p-12">
-  <div class="container grid grid-cols-1 sm:grid-cols-3 items-center gap-8">
-    <div class="flex flex-col items-start">
+  <div class="container grid grid-cols-1 lg:grid-cols-4 items-center gap-8">
+    <div class="flex flex-col items-start lg:col-span-2">
       <a href="/" aria-label="Home">
         <img
           src="/svg/logo.svg"

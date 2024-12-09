@@ -22,7 +22,7 @@
 <section class="py-12">
   <div class="container">
     <div
-      class="grid md:grid-cols-2 md:grid-rows-2 gap-10 max-md:place-items-start"
+      class="grid md:grid-cols-2 md:grid-rows-2 gap-4 max-md:place-items-start"
     >
       <h2
         class="text-[var(--color-black)] order-1 font-medium text-4xl md:text-6xl"
@@ -42,7 +42,7 @@
         {'→'}
       </a>
     </div>
-    <div class="mt-12 gap-5 grid md:grid-cols-2 place-items-center">
+    <ul class="flex justify-center gap-5">
       {#each cardsinfo as card}
         <PopularProduct
           {translation}
@@ -52,6 +52,6 @@
           price={card.price}
         />
       {/each}
-    </div>
+    </ul>
   </div>
 </section>
