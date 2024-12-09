@@ -2,10 +2,7 @@
   export let translation;
 </script>
 
-<section
-  style="background: linear-gradient(180deg, #c7c9de 33.52%, #d6dee9 79.87%);"
-  class="py-12"
->
+<section class="py-12 bg-gradient-to-b from-[#C8CBDF] to-[#D7DFEB]">
   <div class="container grid grid-cols-1 md:grid-cols-2">
     <div class="flex flex-col items-start justify-center gap-4">
       <h2 class="text-[var(--color-black)] font-medium text-4xl">
