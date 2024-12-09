@@ -33,7 +33,7 @@
       goto('/sign-in');
       return;
     }
-    goto('/profile');
+    goto('/profile/personal');
   };
 
   const toggleMenu = () => {

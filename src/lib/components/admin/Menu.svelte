@@ -35,7 +35,7 @@
     const user = JSON.parse(localStorage.getItem('user'));
 
     if (user && user.logged !== null) {
-      window.location.href = 'profile';
+      window.location.href = 'profile/presonal';
     } else {
       isModalOpen = !isModalOpen;
       toggleOverflow(isModalOpen);

@@ -31,7 +31,7 @@
       return;
     }
     Cookies.set('auth_token', response.token);
-    goto('/profile');
+    goto('/profile/personal');
   };
 
   const switchToSignIn = () => {
