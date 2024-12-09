@@ -11,7 +11,12 @@
   <div class="container grid grid-cols-1 sm:grid-cols-3 items-center gap-8">
     <div class="flex flex-col items-start">
       <a href="/" aria-label="Home">
-        <img src="/svg/logo.svg" alt="Website Logo" class="w-48 h-24" />
+        <img
+          src="/svg/logo.svg"
+          alt="Website Logo"
+          class="w-48 h-24"
+          loading="lazy"
+        />
       </a>
       <p class="text-[var(--color-gray200)] font-normal text-lg">
         {translation?.footer?.info?.sub_title}
@@ -58,17 +63,32 @@
       <ul class="flex space-x-4 mt-4">
         <li>
           <a href="/" aria-label="Facebook">
-            <img src="/svg/facebook.svg" alt="Facebook" class="w-6 h-6" />
+            <img
+              src="/svg/facebook.svg"
+              alt="Facebook"
+              class="w-6 h-6"
+              loading="lazy"
+            />
           </a>
         </li>
         <li>
           <a href="/" aria-label="Twitter">
-            <img src="/svg/twitter.svg" alt="Twitter" class="w-6 h-6" />
+            <img
+              src="/svg/twitter.svg"
+              alt="Twitter"
+              class="w-6 h-6"
+              loading="lazy"
+            />
           </a>
         </li>
         <li>
           <a href="/" aria-label="Instagram">
-            <img src="/svg/insta.svg" alt="Instagram" class="w-6 h-6" />
+            <img
+              src="/svg/insta.svg"
+              alt="Instagram"
+              class="w-6 h-6"
+              loading="lazy"
+            />
           </a>
         </li>
       </ul>

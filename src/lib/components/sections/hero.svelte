@@ -19,6 +19,6 @@
       </p>
     </div>
 
-    <img src="/img/bg.webp" alt="hero img" />
+    <img src="/img/bg.webp" alt="hero img" loading="eager" />
   </div>
 </section>

@@ -58,7 +58,13 @@
   <div class="container pt-4">
     <div class="flex items-center justify-between gap-4 md:gap-6">
       <a class="w-48 h-auto" href="/">
-        <img src="/svg/logo.svg" alt="logo" loading="lazy" />
+        <img
+          src="/svg/logo.svg"
+          alt="logo"
+          width="192"
+          height="48"
+          loading="lazy"
+        />
       </a>
       <nav class="hidden md:flex justify-center items-center flex-grow">
         {#each menuItems as element}
@@ -143,7 +149,13 @@
         <Lang {translation} />
 
         <button type="button" on:click={onProfileClick} aria-label="Profile">
-          <img src="/svg/profile.svg" alt="profile icon" loading="lazy" />
+          <img
+            width="18"
+            height="18"
+            src="/svg/profile.svg"
+            alt="profile icon"
+            loading="lazy"
+          />
         </button>
         <button
           type="button"
@@ -152,7 +164,8 @@
           aria-label="Menu"
         >
           <img
-            class="w-[24px]"
+            width="24"
+            height="24"
             src="/svg/burger.svg"
             alt="burger"
             loading="lazy"

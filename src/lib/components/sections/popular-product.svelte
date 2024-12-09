@@ -14,6 +14,7 @@
       class="transirion-all duration-500 hover:scale-105"
       src={img}
       alt={label}
+      loading="lazy"
     />
   </div>
   <div class="container py-4 md:p-5">

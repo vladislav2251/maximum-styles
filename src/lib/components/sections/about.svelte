@@ -26,6 +26,7 @@
         class="max-md:mx-auto transition-all duration-500 hover:scale-105"
         src="/img/anastasia.webp"
         alt="anastasia img"
+        loading="lazy"
       />
     </div>
   </div>

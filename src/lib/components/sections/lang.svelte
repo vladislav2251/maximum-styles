@@ -39,7 +39,7 @@
   });
 </script>
 
-<div class="relative">
+<div class="relative w-8">
   <button
     id="toggleButton"
     aria-haspopup="listbox"
