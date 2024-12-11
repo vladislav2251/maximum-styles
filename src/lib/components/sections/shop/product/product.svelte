@@ -30,6 +30,8 @@
 >
   <img
     class="max-h-[184px] w-full m-auto object-contain"
+    height="184"
+    width="208"
     src={product?.photo || '/default-image.jpg'}
     alt={product?.label || 'Без описания'}
   />
