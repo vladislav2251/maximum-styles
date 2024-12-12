@@ -14,6 +14,8 @@
         <img
           src="/svg/logo.svg"
           alt="Website Logo"
+          width="192"
+          height="96"
           class="w-48 h-24"
           loading="lazy"
         />
