@@ -1,30 +1,27 @@
 <script>
-  import { language } from '$lib/context/store.js';
-  import { languagesList } from '$lib/context/language.js';
-  import { changeLang } from '$lib/context/language.js';
+  import { languageStore } from '$lib/context/languageStore.js';
+  import { languagesList } from '$lib/js/languages.js';
   import { onMount } from 'svelte';
-  import { derived } from 'svelte/store';
 
-  let selectedOption = derived(language, ($language) => $language.name);
+  $: selectedOption = $languageStore.currentLang;
   let isOpenLanguage = false;
 
   function toggleDropdown() {
     isOpenLanguage = !isOpenLanguage;
   }
 
-  function selectOption(option) {
-    changeLang(option);
+  function selectOption(code) {
+    languageStore.changeLanguage(code);
     isOpenLanguage = false;
   }
 
   function handleClickOutside(event) {
     const dropdown = document.getElementById('dropdownMenu');
     const toggleButton = document.getElementById('toggleButton');
-
     if (
       isOpenLanguage &&
-      !dropdown.contains(event.target) &&
-      !toggleButton.contains(event.target)
+      !dropdown?.contains(event.target) &&
+      !toggleButton?.contains(event.target)
     ) {
       isOpenLanguage = false;
     }
@@ -32,7 +29,6 @@
 
   onMount(() => {
     document.addEventListener('click', handleClickOutside);
-
     return () => {
       document.removeEventListener('click', handleClickOutside);
     };
@@ -47,9 +43,8 @@
     on:click={toggleDropdown}
     class="relative mt-0.5 flex font-semibold cursor-pointer items-center"
   >
-    {$selectedOption}
+    {selectedOption.toUpperCase()}
   </button>
-
   <ul
     id="dropdownMenu"
     class="absolute z-50 left-0 top-full mt-1 max-h-56 overflow-auto rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none text-sm transition-opacity duration-200 ease-in-out"
@@ -64,11 +59,13 @@
         type="button"
         class="text-gray-900 cursor-pointer select-none relative mx-1 rounded-lg py-2 flex items-center justify-center px-3 hover:bg-gray-100"
         role="option"
-        aria-selected={selectedOption === lang.name}
+        aria-selected={selectedOption === lang.code}
         tabindex="0"
-        on:click={() => selectOption(lang.id)}
+        on:click={() => selectOption(lang.code)}
       >
-        <span class="block truncate">{lang.name}</span>
+        <span class="block truncate">
+          {lang.code.toUpperCase()}
+        </span>
       </button>
     {/each}
   </ul>

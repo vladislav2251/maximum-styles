@@ -1,5 +1,5 @@
 import { writable } from 'svelte/store';
-import { languagesList } from '$lib/context/language.js';
+import { languagesList } from '$lib/js/languages.js';
 
 export const isLogged = writable(false);
 

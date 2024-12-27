@@ -3,6 +3,7 @@
   export let products;
   export let account;
   export let translation;
+  export let currentLang;
   import { updateAmountInCart, removeProductFromCart } from '@stores/main.js';
   let allProducts = products ?? [];
   $: total = allProducts.reduce(
@@ -144,7 +145,7 @@
             type="button"
             class="px-8 py-4 bg-[var(--color-violet)] w-full rounded-sm text-md font-base hover:bg-[var(--color-purple)] transition-all duration-300 active:scale-x-105 hover:scale-x-105"
             on:click={() => {
-              goto('/checkout');
+              goto(`/${currentLang}/checkout`);
             }}
             >{translation?.main?.cart?.btn}
           </button>

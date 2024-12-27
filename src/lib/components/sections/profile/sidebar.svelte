@@ -1,18 +1,22 @@
 <script>
   export let translation;
+  export let currentLang;
 
   $: links = [
-    { href: '/profile/personal', label: translation?.main?.profile?.link },
     {
-      href: '/profile/delivery',
+      href: `/${currentLang}/profile/personal`,
+      label: translation?.main?.profile?.link,
+    },
+    {
+      href: `/${currentLang}/profile/delivery`,
       label: translation?.main?.profile?.delivery_info,
     },
     {
-      href: '/profile/company',
+      href: `/${currentLang}/profile/company`,
       label: translation?.main?.profile?.company_information,
     },
     {
-      href: '/profile/specialist',
+      href: `/${currentLang}/profile/specialist`,
       label: translation?.main?.profile?.specialist_information,
     },
   ];

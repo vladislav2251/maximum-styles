@@ -1,18 +1,12 @@
 <script>
   import { deleteProduct } from '@/stores/main.js';
   import { goto } from '$app/navigation';
-  import { language } from '$lib/context/store.js';
-
   export let products;
   export let fetchProducts;
   export let translation;
+  export let currentLang;
   let showModal = false;
   let productToDelete = null;
-
-  let currentLang;
-  language.subscribe((lang) => {
-    currentLang = lang.code;
-  });
 
   function handleEdit(productId) {
     goto(`product/edit/${productId}`);
