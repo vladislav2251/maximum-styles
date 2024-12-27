@@ -1,4 +1,4 @@
-import { getAcceptedLang, languagesList } from './lib/js/languages.js';
+import { getAcceptedLang, languagesList, getLang } from './lib/js/languages.js';
 
 export const handle = async ({ event, resolve }) => {
   const userLanguage = await getAcceptedLang(event.request.headers);
@@ -6,10 +6,6 @@ export const handle = async ({ event, resolve }) => {
   const languageCodes = languagesList.map((lang) => lang.code);
 
   if (!langFromUrl || !languageCodes.includes(langFromUrl)) {
-    if (event.url.pathname === '/favicon.ico') {
-      return resolve(event);
-    }
-
     const redirectLang = languageCodes.includes(userLanguage)
       ? userLanguage
       : languageCodes[0];
@@ -18,6 +14,11 @@ export const handle = async ({ event, resolve }) => {
       302
     );
   }
+
+  event.locals.lang = {
+    code: langFromUrl,
+    langFile: getLang(langFromUrl).langFile,
+  };
   return resolve(event, {
     transformPageChunk: ({ html }) => html.replace('%lang%', langFromUrl),
   });
