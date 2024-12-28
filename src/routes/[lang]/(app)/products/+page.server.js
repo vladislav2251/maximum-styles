@@ -5,7 +5,7 @@ import {
   getProducts,
 } from '@stores/main.js';
 
-export async function load({ cookies }) {
+export async function load({ cookies, locals }) {
   const token = cookies.get('auth_token');
 
   const [account, categories, manufacturers, products] = await Promise.all([
@@ -20,5 +20,6 @@ export async function load({ cookies }) {
     categories,
     manufacturers,
     products,
+    lang: locals.lang,
   };
 }

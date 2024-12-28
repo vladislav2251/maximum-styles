@@ -1,8 +1,8 @@
 <script>
-  import { languageStore } from '$lib/context/languageStore';
   import '$lib/styles/styles.css';
   import Menu from '$lib/components/admin/Menu.svelte';
-  $: translation = $languageStore.langFile;
+  export let data;
+  let translation = data.lang.file;
 </script>
 
 <svelte:head>
@@ -10,7 +10,7 @@
 </svelte:head>
 
 <div class="container">
-  <Menu {translation} currentLang={$languageStore.currentLang} />
+  <Menu {translation} currentLang={data.lang.code} />
 
   <slot />
 </div>

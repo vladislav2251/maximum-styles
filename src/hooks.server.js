@@ -17,7 +17,7 @@ export const handle = async ({ event, resolve }) => {
 
   event.locals.lang = {
     code: langFromUrl,
-    langFile: getLang(langFromUrl).langFile,
+    file: getLang(langFromUrl).langFile,
   };
   return resolve(event, {
     transformPageChunk: ({ html }) => html.replace('%lang%', langFromUrl),

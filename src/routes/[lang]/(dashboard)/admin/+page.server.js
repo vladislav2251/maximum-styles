@@ -1,5 +1,5 @@
 import { redirect } from '@sveltejs/kit';
 
-export function load() {
-  throw redirect(302, 'admin/products');
+export function load({ locals }) {
+  throw redirect(302, `/${locals.lang.code}/admin/products`);
 }

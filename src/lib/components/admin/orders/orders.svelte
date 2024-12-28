@@ -1,7 +1,7 @@
 <script>
   import { goto } from '$app/navigation';
-  let translation;
   export let data;
+  let translation = data.lang.file;
   let orderStatuses = [
     { value: 0, label: 'Pending', color: 'bg-yellow-500' },
     { value: 1, label: 'Seen', color: 'bg-blue-500' },
@@ -9,7 +9,7 @@
     { value: 3, label: 'Delivered', color: 'bg-purple-500' },
     { value: 5, label: 'Cancelled', color: 'bg-red-500' },
   ];
-  let parsedData = data.data;
+  let parsedData = data.orders;
   const onButtonClick = (id) => {
     goto(`/admin/orders/edit/${id}`);
   };

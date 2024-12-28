@@ -1,13 +1,10 @@
 <script>
   import SignIn from '$lib/components/auth/sign-in.svelte';
-  import { languageStore } from '$lib/context/languageStore';
+  export let data;
 </script>
 
 <svelte:head>
   <title>Maximum Style - Sign In</title>
 </svelte:head>
 
-<SignIn
-  translation={$languageStore.langFile}
-  currentLang={$languageStore.currentLang}
-/>
+<SignIn translation={data.lang.file} currentLang={data.lang.code} />

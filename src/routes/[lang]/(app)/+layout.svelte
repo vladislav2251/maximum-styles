@@ -3,20 +3,17 @@
   import Header from '$lib/components/layouts/header.svelte';
   import Footer from '$lib/components/layouts/footer.svelte';
   import { goto } from '$app/navigation';
-  import { languageStore } from '$lib/context/languageStore';
+  export let data;
 </script>
 
 <div class="flex flex-col min-h-screen">
-  <Header
-    translation={$languageStore.langFile}
-    currentLang={$languageStore.currentLang}
-  />
+  <Header translation={data.lang.file} currentLang={data.lang.code} />
   <main class="flex-grow">
     <slot />
 
     <button
       on:click={() => {
-        goto(`/${$languageStore.currentLang}/cart`);
+        goto(`/${data.lang.code}/cart`);
       }}
       class="fixed bottom-10 right-5 md:bottom-20 md:right-10 p-4 bg-[var(--color-black)] text-white rounded-full"
       aria-label="cart"
@@ -37,8 +34,5 @@
       </svg>
     </button>
   </main>
-  <Footer
-    translation={$languageStore.langFile}
-    currentLang={$languageStore.currentLang}
-  />
+  <Footer translation={data.lang.file} currentLang={data.lang.code} />
 </div>

@@ -7,9 +7,6 @@
   import ManufacturerFilter from '$lib/components/categories/manufacturer-filter.svelte';
   import { getProducts } from '@stores/main.js';
   import { writable } from 'svelte/store';
-  import { languageStore } from '$lib/context/languageStore';
-
-  $: translation = $languageStore.langFile;
 
   let searchQuery = null;
   let isLoading = false;
@@ -20,6 +17,7 @@
   let isActive = false;
 
   export let data;
+  let translation = data.lang.file;
 
   let currentPage = data.products.pages?.current || 1;
   let totalPages = data.products.pages?.total || 1;

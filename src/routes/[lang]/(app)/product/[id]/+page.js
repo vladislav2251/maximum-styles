@@ -9,6 +9,7 @@ export const load = async ({ params, data }) => {
     return {
       product,
       account: data.account,
+      lang: data.lang,
     };
   } catch (e) {
     error(500, e.message);

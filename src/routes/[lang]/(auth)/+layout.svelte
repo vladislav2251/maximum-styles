@@ -1,20 +1,14 @@
 <script>
-  import { languageStore } from '$lib/context/languageStore';
   import '$lib/styles/styles.css';
   import Header from '$lib/components/layouts/header.svelte';
   import Footer from '$lib/components/layouts/footer.svelte';
+  export let data;
 </script>
 
 <div class="flex flex-col min-h-screen">
-  <Header
-    translation={$languageStore.langFile}
-    currentLang={$languageStore.currentLang}
-  />
+  <Header translation={data.lang.file} currentLang={data.lang.code} />
   <main class="flex-grow">
     <slot />
   </main>
-  <Footer
-    translation={$languageStore.langFile}
-    currentLang={$languageStore.currentLang}
-  />
+  <Footer translation={data.lang.file} currentLang={data.lang.code} />
 </div>

@@ -1,17 +1,30 @@
 <script>
-  import { languageStore } from '$lib/context/languageStore.js';
   import { languagesList } from '$lib/js/languages.js';
   import { onMount } from 'svelte';
+  import { page } from '$app/stores';
 
-  $: selectedOption = $languageStore.currentLang;
+  export let currentLang;
+
   let isOpenLanguage = false;
+
+  $: selectedOption = currentLang;
 
   function toggleDropdown() {
     isOpenLanguage = !isOpenLanguage;
   }
 
+  function changeLang(langCode) {
+    window.location.href = $page.url.pathname.replace(
+      $page.url.pathname.split('/')[1],
+      langCode
+    );
+  }
+
   function selectOption(code) {
-    languageStore.changeLanguage(code);
+    if (code !== selectedOption) {
+      selectedOption = code;
+      changeLang(code);
+    }
     isOpenLanguage = false;
   }
 

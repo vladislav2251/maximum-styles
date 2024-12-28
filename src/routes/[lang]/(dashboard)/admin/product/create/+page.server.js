@@ -1,7 +1,7 @@
 import { getManufacturers, getCategories } from '@/stores/main.js';
 import { error } from '@sveltejs/kit';
 
-export async function load({ params }) {
+export async function load({ locals }) {
   try {
     const [manufacturer, category] = await Promise.all([
       getManufacturers(),
@@ -14,6 +14,7 @@ export async function load({ params }) {
     return {
       manufacturer,
       category,
+      lang: locals.lang,
     };
   } catch (error) {
     error(500, 'Server error');

@@ -64,7 +64,7 @@
   onMount(() => () => window.removeEventListener('resize', handleResize));
 </script>
 
-<header class="grid items-center md:items-start w-full" id="header">
+<header class="grid items-center md:items-start w-full min-h-24" id="header">
   <div class="container">
     <div class="grid grid-cols-2 md:grid-cols-3">
       <a class="max-w-fit" href={`/${currentLang}/admin`}>
@@ -85,7 +85,7 @@
         {/each}
       </div>
       <div class="flex items-center justify-end gap-4 md:gap-6">
-        <Lang {translation} />
+        <Lang {translation} {currentLang} />
 
         <button type="button" on:click={toggleModal} aria-label="Profile">
           <img src="/svg/profile.svg" alt="profile icon" loading="lazy" />

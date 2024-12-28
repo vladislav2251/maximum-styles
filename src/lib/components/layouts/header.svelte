@@ -153,7 +153,7 @@
         </a>
       </address>
       <div class="flex gap-3 items-center sm:gap-6">
-        <Lang {translation} />
+        <Lang {translation} {currentLang} />
 
         <button type="button" on:click={onProfileClick} aria-label="Profile">
           <img

@@ -1,12 +1,11 @@
 <script>
   import Cart from '$lib/components/sections/cart.svelte';
-  import { languageStore } from '$lib/context/languageStore';
   export let data;
 </script>
 
 <Cart
-  translation={$languageStore.langFile}
-  currentLang={$languageStore.currentLang}
+  translation={data.lang.file}
+  currentLang={data.lang.code}
   products={data.products.products}
   account={data.account}
 />

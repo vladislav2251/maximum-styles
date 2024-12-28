@@ -8,8 +8,8 @@
   import Label from '$lib/components/sections/label.svelte';
   import Products from '$lib/components/sections/shop/products/products.svelte';
   import SecondLabel from '$lib/components/sections/second-label.svelte';
-  import { languageStore } from '$lib/context/languageStore';
-  $: translation = $languageStore.langFile;
+  export let data;
+  let translation = data.lang.file;
 </script>
 
 <svelte:head><title>Maximum Style</title></svelte:head>

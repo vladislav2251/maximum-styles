@@ -5,13 +5,12 @@
   import Pagination from '$lib/components/pagination/pagination.svelte';
   import Search from '$lib/components/sections/search.svelte';
   import { goto } from '$app/navigation';
-  import { languageStore } from '$lib/context/languageStore';
 
-  $: translation = $languageStore.langFile;
   let isLoading = false;
   let searchQuery = null;
 
   export let data;
+  let translation = data.lang.file;
   let currentPage = data.products.pages?.current || 1;
   let totalPages = data.products.pages?.total || 1;
   let totalProducts = data.products.products_count || 0;
@@ -65,7 +64,7 @@
     products={$products}
     {fetchProducts}
     {translation}
-    currentLang={$languageStore.currentLang}
+    currentLang={data.lang.code}
   />
   {#if totalProducts > 0}
     <Pagination

@@ -1,14 +1,14 @@
 import { redirect } from '@sveltejs/kit';
 import { checkToken } from '@stores/main.js';
 
-export async function load({ cookies }) {
+export async function load({ cookies, locals }) {
   const token = cookies.get('auth_token');
-
-  if (token) {
-    const isValid = await checkToken(token);
-    if (!isValid) {
-      return redirect(302, '/sign-in');
-    }
-    return redirect(302, '/');
+  if (!token) {
+    return { lang: locals.lang };
   }
+  const isValid = await checkToken(token);
+  if (!isValid) {
+    throw redirect(302, `/${locals.lang.code}/sign-in`);
+  }
+  throw redirect(302, `/${locals.lang.code}`);
 }

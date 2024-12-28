@@ -1,6 +1,6 @@
 <script>
-  import { languageStore } from '$lib/context/languageStore';
   import CreateCategory from '$lib/components/admin/categories/create-category.svelte';
+  export let data;
 </script>
 
-<CreateCategory translation={$languageStore.langFile} />
+<CreateCategory translation={data.lang.file} />
