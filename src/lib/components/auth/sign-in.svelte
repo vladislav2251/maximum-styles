@@ -3,6 +3,7 @@
   import { logIn } from '@stores/main.js';
   import Cookies from 'js-cookie';
   export let translation;
+  export let currentLang;
   let message = '';
 
   const onFormSubmit = async (e) => {
@@ -15,14 +16,14 @@
       return;
     }
     Cookies.set('auth_token', response.token);
-    goto('/profile/personal');
+    goto(`/${currentLang}/profile/personal`);
   };
 
   // const switchToForgotPassword = () => {
   //   goto('/forgot-password');
   // };
   const switchToSignUp = () => {
-    goto('/sign-up');
+    goto(`/${currentLang}/sign-up`);
   };
 </script>
 

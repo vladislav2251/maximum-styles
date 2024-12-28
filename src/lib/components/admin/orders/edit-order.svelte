@@ -2,10 +2,10 @@
   import { goto } from '$app/navigation';
   import { updateOrderStatus } from '@/stores/main.js';
 
-  export let translation;
   export let data;
+  let translation = data.lang.file;
 
-  let parsedData = data.data;
+  let parsedData = data.order;
   let selectedStatus = parsedData.status;
 
   let orderStatuses = [

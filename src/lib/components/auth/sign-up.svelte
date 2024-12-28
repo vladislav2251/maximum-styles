@@ -4,6 +4,7 @@
   import Cookies from 'js-cookie';
 
   export let translation;
+  export let currentLang;
   let message = '';
   let showPasswordHint = false;
 
@@ -31,11 +32,11 @@
       return;
     }
     Cookies.set('auth_token', response.token);
-    goto('/profile/personal');
+    goto(`${currentLang}/profile/personal`);
   };
 
   const switchToSignIn = () => {
-    goto('/sign-in');
+    goto(`/${currentLang}/sign-in`);
   };
 
   const showHint = () => {

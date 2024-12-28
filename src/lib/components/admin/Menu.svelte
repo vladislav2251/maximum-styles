@@ -1,5 +1,6 @@
 <script>
   export let translation;
+  export let currentLang;
   import Lang from '$lib/components/sections/lang.svelte';
   import { onMount } from 'svelte';
 
@@ -9,14 +10,20 @@
   $: menuItems = [
     {
       label: translation?.dashboard?.menu?.products,
-      href: '/admin/products',
+      href: `/${currentLang}/admin/products`,
     },
     {
       label: translation?.dashboard?.menu?.categories,
-      href: '/admin/create-category',
+      href: `/${currentLang}/admin/create-category`,
     },
-    { label: translation?.dashboard?.menu?.orders, href: '/admin/orders/all' },
-    { label: translation?.dashboard?.menu?.users, href: '/admin/users' },
+    {
+      label: translation?.dashboard?.menu?.orders,
+      href: `/${currentLang}/admin/orders/all`,
+    },
+    {
+      label: translation?.dashboard?.menu?.users,
+      href: `/${currentLang}/admin/users`,
+    },
   ];
 
   let resizeTimeout;
@@ -35,7 +42,7 @@
     const user = JSON.parse(localStorage.getItem('user'));
 
     if (user && user.logged !== null) {
-      window.location.href = 'profile/presonal';
+      window.location.href = `/${currentLang}/profile/presonal`;
     } else {
       isModalOpen = !isModalOpen;
       toggleOverflow(isModalOpen);
@@ -57,10 +64,10 @@
   onMount(() => () => window.removeEventListener('resize', handleResize));
 </script>
 
-<header class="grid items-center md:items-start w-full" id="header">
+<header class="grid items-center md:items-start w-full min-h-24" id="header">
   <div class="container">
     <div class="grid grid-cols-2 md:grid-cols-3">
-      <a class="max-w-fit" href="/admin">
+      <a class="max-w-fit" href={`/${currentLang}/admin`}>
         <img src="/svg/logo.svg" alt="logo" loading="lazy" />
       </a>
       <div class="hidden md:flex justify-center items-center">
@@ -78,7 +85,7 @@
         {/each}
       </div>
       <div class="flex items-center justify-end gap-4 md:gap-6">
-        <Lang {translation} />
+        <Lang {translation} {currentLang} />
 
         <button type="button" on:click={toggleModal} aria-label="Profile">
           <img src="/svg/profile.svg" alt="profile icon" loading="lazy" />

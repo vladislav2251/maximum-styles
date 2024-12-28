@@ -1,17 +1,24 @@
 <script>
   import Lang from '$lib/components/sections/lang.svelte';
-  import { onMount } from 'svelte';
   import Cookies from 'js-cookie';
+  import { onMount } from 'svelte';
   import { goto } from '$app/navigation';
 
   export let translation;
+  export let currentLang;
 
   let isMenuOpen = false;
 
   $: menuItems = [
-    { label: translation?.header?.menuItems?.home, href: '/' },
-    { label: translation?.header?.menuItems?.store, href: '/products' },
-    { label: translation?.header?.menuItems?.about, href: '/about' },
+    { label: translation?.header?.menuItems?.home, href: `/${currentLang}` },
+    {
+      label: translation?.header?.menuItems?.store,
+      href: `/${currentLang}/products`,
+    },
+    {
+      label: translation?.header?.menuItems?.about,
+      href: `/${currentLang}/about`,
+    },
   ];
 
   let resizeTimeout;
@@ -30,10 +37,10 @@
   const onProfileClick = () => {
     const token = Cookies.get('auth_token');
     if (!token || token === 'undefined' || token === null) {
-      goto('/sign-in');
+      goto(`/${currentLang}/sign-in`);
       return;
     }
-    goto('/profile/personal');
+    goto(`/${currentLang}/profile/personal`);
   };
 
   const toggleMenu = () => {
@@ -57,7 +64,7 @@
 >
   <div class="container pt-4">
     <div class="flex items-center justify-between gap-4 md:gap-6">
-      <a class="w-48 h-auto" href="/">
+      <a class="w-48 h-auto" href={`/${currentLang}`}>
         <img
           src="/svg/logo.svg"
           alt="logo"
@@ -146,7 +153,7 @@
         </a>
       </address>
       <div class="flex gap-3 items-center sm:gap-6">
-        <Lang {translation} />
+        <Lang {translation} {currentLang} />
 
         <button type="button" on:click={onProfileClick} aria-label="Profile">
           <img

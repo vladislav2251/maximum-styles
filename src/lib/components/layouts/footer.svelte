@@ -1,16 +1,23 @@
 <script>
-  $: menuItems = [
-    { label: translation?.header?.menuItems?.home, href: '/' },
-    { label: translation?.header?.menuItems?.store, href: '/products' },
-    { label: translation?.header?.menuItems?.about, href: '/about' },
-  ];
   export let translation;
+  export let currentLang;
+  $: menuItems = [
+    { label: translation?.header?.menuItems?.home, href: `/${currentLang}` },
+    {
+      label: translation?.header?.menuItems?.store,
+      href: `/${currentLang}/products`,
+    },
+    {
+      label: translation?.header?.menuItems?.about,
+      href: `/${currentLang}/about`,
+    },
+  ];
 </script>
 
 <footer class="bg-[var(--color-white100)] p-8 sm:p-12">
   <div class="container grid grid-cols-1 lg:grid-cols-4 items-center gap-8">
     <div class="flex flex-col items-start lg:col-span-2">
-      <a href="/" aria-label="Home">
+      <a href={`/${currentLang}`} class="flex items-center gap-4">
         <img
           src="/svg/logo.svg"
           alt="Website Logo"
