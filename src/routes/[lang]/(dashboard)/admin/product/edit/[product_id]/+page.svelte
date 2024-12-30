@@ -5,6 +5,7 @@
 
 <EditProduct
   translation={data.lang.file}
+  currentLang={data.lang.code}
   product={data.product}
   categories={data.categories}
   manufacturers={data.manufacturers}

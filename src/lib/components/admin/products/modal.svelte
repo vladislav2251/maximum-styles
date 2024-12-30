@@ -22,6 +22,7 @@
   }
 
   function generateImagePreviews(files) {
+    if (!files) return [];
     return files.map((file) =>
       typeof file === 'string' ? file : URL.createObjectURL(file)
     );
@@ -39,7 +40,7 @@
         {translation?.createProduct?.productModal?.title}
       </h2>
       <div class="flex gap-2 flex-col md:flex-row">
-        {#if showModal && productInfo.photos.length !== 0}
+        {#if productInfo.photos && productInfo.photos.length > 0}
           <div
             class="flex rounded-lg gap-1 w-full overflow-hidden overflow-x-auto md:w-24 md:flex-col md:max-h-[130px] md:overflow-y-auto"
           >
@@ -55,10 +56,11 @@
 
         <div class="flex gap-2 flex-col md:flex-row">
           <img
-            src={typeof productInfo.photo === 'string'
-              ? productInfo.photo
-              : generateImagePreview(productInfo.photo) ||
-                'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.Z_PIeIRDajXPmZHROt-T_QHaEK%26pid%3DApi&f=1&ipt=0beb80e57b255a0459ebeee9c25b323f3803107df58e3d4d971f65106a8efedf&ipo=images'}
+            src={productInfo.photo
+              ? typeof productInfo.photo === 'string'
+                ? productInfo.photo
+                : generateImagePreview(productInfo.photo)
+              : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.Z_PIeIRDajXPmZHROt-T_QHaEK%26pid%3DApi&f=1&ipt=0beb80e57b255a0459ebeee9c25b323f3803107df58e3d4d971f65106a8efedf&ipo=images'}
             alt="Product"
             class="w-full h-auto object-contain rounded-lg md:w-48 max-h-48 md:max-h-52"
           />

@@ -5,6 +5,7 @@
 
 <CreateProduct
   translation={data.lang.file}
+  currentLang={data.lang.code}
   categories={data.category}
   manufacturers={data.manufacturer}
 />

@@ -242,7 +242,7 @@
       "success": "Успех",
       "error": "Грешка",
       "ok": "ОК",
-      "createSuccessfully": "Продуктът е създаден успешно!",
+      "createdSuccessfully": "Продуктът е създаден успешно!",
       "errorCreating": "Грешка при създаването на продукта!",
       "updatedSuccessfully": "Продуктът е обновен успешно!",
       "errorUpdating": "Грешка при обновяването на продукта!",

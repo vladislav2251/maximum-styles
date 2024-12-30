@@ -1,15 +1,17 @@
 <script>
   import { createProduct } from '@/stores/main.js';
-  import ProductModal from './modal.svelte';
   import FeedbackModal from './feedback-modal.svelte';
   import { goto } from '$app/navigation';
-  // import ImageUpload from './drag-image.svelte';
+  import DragImage from './drag-image.svelte';
+  import Modal from './modal.svelte';
+  import { toBase64 } from '../../../../utils/toBase64.js';
 
   export let translation;
+  export let currentLang;
   export let manufacturers;
   export let categories;
   let productInfo;
-  let imageFiles = [];
+  let uploadedFiles = [];
 
   let feedbackModalOpen = false;
   let feedbackMessage = '';
@@ -22,14 +24,21 @@
     { key: 'ingredients', label: 'placeholder4' },
   ];
 
+  async function handleImagesUpload(files) {
+    uploadedFiles = files;
+  }
+
   async function handleSubmit(event) {
     const formData = new FormData(event.currentTarget);
     const values = Object.fromEntries(formData.entries());
+    let base64Photos = [];
+
+    if (uploadedFiles.length > 0) {
+      base64Photos = await Promise.all(uploadedFiles.map(toBase64));
+    }
 
     productInfo = {
       name: values.name,
-      photo: imageFiles[0],
-      photos: imageFiles,
       category_id: Number(values.category),
       manufacturer_id: Number(values.manufacturer),
       description: {
@@ -48,8 +57,11 @@
             : 0,
         },
       },
+      photo: base64Photos[0] || null,
+      photos: base64Photos,
     };
   }
+
   async function handleConfirm(product) {
     try {
       await createProduct(product);
@@ -75,21 +87,17 @@
       feedbackModalOpen = true;
     }
   }
-
-  // function handleImageUpload(files) {
-  //   imageFiles = files;
-  // }
 </script>
 
-<div class="py-12">
-  <ProductModal bind:productInfo onConfirm={handleConfirm} bind:translation />
-  <FeedbackModal
-    bind:isOpen={feedbackModalOpen}
-    message={feedbackMessage}
-    type={feedbackType}
-    bind:translation
-  />
+<Modal bind:productInfo onConfirm={handleConfirm} {translation} />
+<FeedbackModal
+  bind:isOpen={feedbackModalOpen}
+  message={feedbackMessage}
+  type={feedbackType}
+  bind:translation
+/>
 
+<section class="py-12">
   <h2 class="text-2xl font-bold text-center">
     {translation?.editProduct?.title}
   </h2>
@@ -101,7 +109,7 @@
     <button
       class="px-6 py-2 w-24 bg-[var(--color-primary-300)] text-white rounded hover:bg-opacity-90 transition-colors"
       on:click={() => {
-        goto('/admin/products/');
+        goto(`/${currentLang}/admin/products/`);
       }}
       type="button"
     >
@@ -112,10 +120,10 @@
       <legend class="text-lg font-semibold">
         {translation?.createProduct?.title}
       </legend>
-      <!-- <ImageUpload {translation} onImagesUpload={handleImageUpload} /> -->
+      <DragImage bind:translation onImagesUpload={handleImagesUpload} />
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div>
+      <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <li>
           <label for="name">{translation?.createProduct?.inputs[0].label}</label
           >
           <input
@@ -126,8 +134,8 @@
             type="text"
             placeholder={translation?.createProduct?.inputs[0].placeholder}
           />
-        </div>
-        <div>
+        </li>
+        <li>
           <label for="category"
             >{translation?.createProduct?.inputs[1].label}</label
           >
@@ -143,8 +151,8 @@
               </option>
             {/each}
           </select>
-        </div>
-        <div>
+        </li>
+        <li>
           <label for="manufacturer">
             {translation?.createProduct?.inputs[2].label}
           </label>
@@ -160,8 +168,8 @@
               </option>
             {/each}
           </select>
-        </div>
-      </div>
+        </li>
+      </ul>
     </fieldset>
 
     <fieldset class="flex flex-col gap-2">
@@ -238,4 +246,4 @@
       </button>
     </div>
   </form>
-</div>
+</section>

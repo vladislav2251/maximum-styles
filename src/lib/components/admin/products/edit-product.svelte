@@ -3,6 +3,8 @@
   import ProductModal from './modal.svelte';
   import FeedbackModal from './feedback-modal.svelte';
   import { goto } from '$app/navigation';
+  import DragImage from './drag-image.svelte';
+  import { toBase64 } from '../../../../utils/toBase64.js';
 
   export let translation;
   export let product;
@@ -13,6 +15,7 @@
   let feedbackModalOpen = false;
   let feedbackMessage = '';
   let feedbackType = 'success';
+  let uploadedFiles = [];
 
   const descriptionFields = [
     { key: 'detail', label: 'placeholder1' },
@@ -21,14 +24,21 @@
     { key: 'ingredients', label: 'placeholder4' },
   ];
 
+  async function handleImagesUpload(files) {
+    uploadedFiles = files;
+  }
+
   async function handleSubmit(event) {
     const formData = new FormData(event.currentTarget);
     const values = Object.fromEntries(formData.entries());
+    let base64Photos = [];
+
+    if (uploadedFiles.length > 0) {
+      base64Photos = await Promise.all(uploadedFiles.map(toBase64));
+    }
 
     productInfo = {
       name: values.name,
-      photo: product.photo,
-      photos: product.photos,
       category_id: Number(values.category),
       manufacturer_id: Number(values.manufacturer),
       description: {
@@ -47,6 +57,8 @@
             : 0,
         },
       },
+      photo: base64Photos[0] || null,
+      photos: base64Photos,
     };
   }
 
@@ -108,6 +120,7 @@
       <legend class="text-lg font-semibold">
         {translation?.createProduct?.title}
       </legend>
+      <DragImage bind:translation onImagesUpload={handleImagesUpload} />
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
           <label for="name">{translation?.createProduct?.inputs[0].label}</label
