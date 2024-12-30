@@ -98,7 +98,7 @@
                 <strong
                   >{translation?.createProduct?.productModal
                     ?.discounts}:</strong
-                >
+                ><br />
                 {translation?.createProduct?.productModal?.regular}: {productInfo
                   .price.discount.regular}%,<br />
                 {translation?.createProduct?.productModal?.specialist}: {productInfo
