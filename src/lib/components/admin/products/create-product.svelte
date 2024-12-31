@@ -5,6 +5,8 @@
   import DragImage from './drag-image.svelte';
   import Modal from './modal.svelte';
   import { toBase64 } from '../../../../utils/toBase64.js';
+  import Cardion from './cardion.svelte';
+  import { languagesList } from '../../../js/languages.js';
 
   export let translation;
   export let currentLang;
@@ -16,13 +18,6 @@
   let feedbackModalOpen = false;
   let feedbackMessage = '';
   let feedbackType = 'success';
-
-  const descriptionFields = [
-    { key: 'detail', label: 'placeholder1' },
-    { key: 'short', label: 'placeholder2' },
-    { key: 'usage', label: 'placeholder3' },
-    { key: 'ingredients', label: 'placeholder4' },
-  ];
 
   async function handleImagesUpload(files) {
     uploadedFiles = files;
@@ -216,27 +211,9 @@
       />
     </fieldset>
 
-    {#each ['de', 'bg'] as lang}
-      <fieldset class="md:col-span-2 flex flex-col gap-2">
-        <legend class="text-lg font-semibold">
-          {translation?.createProduct?.inputs[6]?.[
-            lang === 'de' ? 'label' : 'label1'
-          ]}
-        </legend>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {#each descriptionFields as field}
-            <textarea
-              id="{field.key}_{lang}"
-              required
-              name="{field.key}_{lang}"
-              class="px-8 py-4 border-solid outline-none text-base w-full border font-normal border-[var(--color-gray)] rounded-md text-[var(--color-gray)] transition-all duration-300 focus:text-[var(--color-primary-300)] focus:border-[var(--color-primary-300)];"
-              placeholder={translation?.createProduct?.inputs[6]?.[field.label]}
-            ></textarea>
-          {/each}
-        </div>
-      </fieldset>
+    {#each languagesList as lang}
+      <Cardion bind:translation lang={lang.code} />
     {/each}
-
     <div class="md:col-span-2 flex justify-center">
       <button
         type="submit"
